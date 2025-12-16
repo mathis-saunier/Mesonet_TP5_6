@@ -125,6 +125,86 @@ class Transformer(nn.Module):
         
         return mask
 
+###########################################################
+class CNN_Transformer(nn.Module):
+    def __init__(self, config,device):
+        super(CNN_Transformer, self).__init__()
+        self.input_features = config['input_features']
+        self.batch_size = config['batch_size']
+        self.num_epochs =config['num_epochs']
+        self.learning_rate =config['learning_rate']
+        self.num_classes =config['num_classes']
+        self.hidden_size =config['hidden_size']
+        self.num_heads =config['num_heads']
+        self.num_layers =config['num_layers']
+        self.dropout =config['dropout']
+        self.pad_idx =config['x_pad_idx']
+        self.max_length =config['max_length']
+        self.START_TOKEN =config['START_TOKEN']
+        self.END_TOKEN =config['END_TOKEN']
+        self.DEVICE = device
+
+        self.positional_encoding_layer = PositionalEncoding(dim_model = self.hidden_size, 
+                                                            dropout_p = self.dropout, 
+                                                            max_len = self.max_length)
+        
+        self.cnn = nn.Sequential(
+            nn.Conv1d(self.input_features, 64, kernel_size=3, padding=1),
+            nn.BatchNorm1d(64),
+            nn.ReLU(),
+            nn.Dropout(0.3),
+            nn.Conv1d(64, self.hidden_size, kernel_size=3, padding=1),
+            nn.BatchNorm1d(self.hidden_size), 
+            nn.ReLU(),
+            nn.Dropout(0.3)
+        )
+        
+        self.y_embedding = nn.Embedding(config['num_classes'],config['hidden_size'])         
+        
+        self.transformer = nn.Transformer(d_model=config['hidden_size'], 
+                                                      nhead=config['num_heads'], 
+                                                      num_encoder_layers =config['num_layers'],
+                                                      num_decoder_layers =config['num_layers'],
+                                                      dim_feedforward = config['hidden_size'],
+                                                      dropout=config['dropout'],
+                                                      batch_first=True)
+        # Output layer for text prediction
+        self.output_layer = nn.Linear(config['hidden_size'], config['num_classes'])
+
+    def forward(self, x,y,y_output_mask,src_key_padding_mask,tgt_key_padding_mask):
+
+        # Embedding + positional encoding - Out size = (batch_size, sequence length, dim_model)
+
+        # x shape: (batch_size, seq_len, input_features)
+        # Conv1d needs (batch_size, input_features, seq_len)
+        x = x.permute(0, 2, 1)
+        x = self.cnn(x)
+        # x shape: (batch_size, hidden_size, seq_len)
+        # Permute back to (batch_size, seq_len, hidden_size)
+        x = x.permute(0, 2, 1)
+
+        x = self.positional_encoding_layer(x)
+        
+        y = self.y_embedding(y) * math.sqrt(self.hidden_size)
+        y = self.positional_encoding_layer(y)
+
+        # Transformer blocks - Out size = (sequence length, batch_size, num_tokens)
+        transformer_out = self.transformer(x, y,
+                                           tgt_mask = y_output_mask,
+                                           src_key_padding_mask=src_key_padding_mask,
+                                           tgt_key_padding_mask=tgt_key_padding_mask)
+        output = self.output_layer(transformer_out)
+        return output
+    
+    def get_tgt_mask(self, size):
+        # Generates a squeare matrix where the each row allows one word more to be seen
+        mask = torch.tril(torch.ones(size, size) == 1) # Lower triangular matrix
+        mask = mask.float()
+        mask = mask.masked_fill(mask == 0, float('-inf')) # Convert zeros to -inf
+        mask = mask.masked_fill(mask == 1, float(0.0)) # Convert ones to 0
+        
+        return mask
+
 #########################################################
 def train_loop(dataloader, model, loss_fn, optimizer):
     #print("Training loop...")
