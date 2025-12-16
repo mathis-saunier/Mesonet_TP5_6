@@ -16,6 +16,7 @@ import pickle
 from tqdm import tqdm
 import os
 import editdistance
+import time
 
 import torch
 from torch import nn
@@ -123,19 +124,46 @@ def Apply_SlidingWindow2D(x,config):
     for n in range(len(x)):
         xx = xx + [SlidingWindow2D(x[n],config['w_width'])]
 
-    for i in range(5):
-        plt.imshow(x[i].numpy(), cmap='gray')
-        plt.show()
-        plt.imshow(xx[i].numpy(), cmap='gray')
-        plt.show()
+    # for i in range(5):
+    #     plt.imshow(x[i].numpy(), cmap='gray')
+    #     plt.show()
+    #     plt.imshow(xx[i].numpy(), cmap='gray')
+    #     plt.show()
 
     return xx
+
+class Logger(object):
+    def __init__(self, filename):
+        self.terminal = sys.stdout
+        self.log = open(filename, "a")
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+
+    def flush(self):
+        self.terminal.flush()
+        self.log.flush()
 
 if __name__ == '__main__':
 
     TRAINING = True  # Training if True Testing otherwise
-    REPRISE = True
+    REPRISE = False # Set to False to train from scratch
     SHOW = False
+    
+    USE_VIT = True # Set to True to use ViT, False for CNNTransformer
+    DATASET_TYPE = 'COMPLEX' # 'EASY' or 'COMPLEX'
+
+    # Setup run directory and logging
+    timestamp = time.strftime("%Y%m%d_%H%M%S")
+    if TRAINING:
+        run_dir = f"train_{timestamp}"
+    else:
+        run_dir = f"test_{timestamp}"
+    os.makedirs(run_dir, exist_ok=True)
+    
+    sys.stdout = Logger(os.path.join(run_dir, "log.txt"))
+    print(f"Run directory: {run_dir}")
 
     device="cpu"
     if torch.backends.mps.is_available():
@@ -164,10 +192,15 @@ if __name__ == '__main__':
         'START_TOKEN':12, # 10 = Horizontal 11 = Vertical
         'END_TOKEN':13,
     }
-    #data_file = 'MNIST_5digits2D.pkl' 
-    #data_file = 'MNIST_5digits2DHorizontal.pkl'
-    #data_file =  MNIST_5digits2DVertical.pkl' 
-    data_file = 'MNIST_5digits2DHorizontalFacile.pkl'
+    
+    if DATASET_TYPE == 'EASY':
+        data_file = 'MNIST_5digits2DHorizontalFacile.pkl'
+    elif DATASET_TYPE == 'COMPLEX':
+        data_file = 'MNIST_5digits2D.pkl'
+    else:
+        data_file = 'MNIST_5digits2DHorizontalFacile.pkl'
+        
+    print(f"Using dataset: {data_file}")
     x_train,x_test,y_train,y_test = Load_MNISTSequences(data_file,config)
     N_train = len(y_train)
 
@@ -189,15 +222,24 @@ if __name__ == '__main__':
     #dir_name = "/content/sample_data/"
     dir_name = ""
     
-    model_name = dir_name+"CNNTransformer_"+str(config['num_layers'])+"_"+str(config['hidden_size'])+"_"+str(config['num_heads'])+"_"+str(N_train)
+    if USE_VIT:
+        model_prefix = "ViT_"
+    else:
+        model_prefix = "CNNTransformer_"
+        
+    model_name = os.path.join(run_dir, dir_name+model_prefix+str(config['num_layers'])+"_"+str(config['hidden_size'])+"_"+str(config['num_heads'])+"_"+str(N_train)+"_"+DATASET_TYPE)
 
-    model_name = "Modele_4" 
+    #model_name = "Modele_4" 
+    print(f"Model name: {model_name}")
+    
     if TRAINING:
         # On crée les dataloarder de pytorch pour géréer les lots de séquences
         # car on ne peut plus mettre les séquences bout à bout puisqu'on entaine
         # des réseaux récurrentsou des CNN qui exploitent le contexte
         # pour le TRAIN
-        #x_train = Apply_SlidingWindow2D(x_train,config)
+        if USE_VIT:
+            print("Applying Sliding Window for ViT...")
+            x_train = Apply_SlidingWindow2D(x_train,config)
         
         train = x_train[:N_train_seq]
         gt_train = y_train[:N_train_seq]
@@ -219,20 +261,33 @@ if __name__ == '__main__':
         if SHOW:
             for batch in (train_dataloader):
                 for i in range(5):
-                    
-                    plt.imshow(batch[0][i,0,:,:].numpy(), cmap='gray')
-                    plt.title(batch[1][i,:])
-                    plt.show()
+                    if USE_VIT:
+                         pass
+                    else:
+                        plt.figure()
+                        plt.imshow(batch[0][i,0,:,:].numpy(), cmap='gray')
+                        plt.title(batch[1][i,:])
+                        plt.savefig(os.path.join(run_dir, f"batch_sample_{i}.png"))
+                        plt.close()
 
                 break
         ############################################################
         # apprentissage from scratch
+        if USE_VIT:
+            ModelClass = TRANSFORMER.ViT
+        else:
+            ModelClass = TRANSFORMER.CNNTransformer
+            
         if not REPRISE:
-            my_transformer = TRANSFORMER.CNNTransformer(config,device).to(device)
+            my_transformer = ModelClass(config,device).to(device)
         else:
             # reprise de l'apprentissage 
-            my_transformer = TRANSFORMER.CNNTransformer(config,device)
-            my_transformer.load_state_dict(torch.load(model_name))
+            my_transformer = ModelClass(config,device)
+            try:
+                my_transformer.load_state_dict(torch.load(model_name))
+                print(f"Loaded model from {model_name}")
+            except:
+                print(f"Could not load model from {model_name}, starting from scratch")
             my_transformer.to(device)
         
         loss_fn = torch.nn.CrossEntropyLoss(ignore_index=config['y_pad_idx'],reduction='mean')
@@ -240,6 +295,8 @@ if __name__ == '__main__':
 
         train_loss = []
         valid_loss = []
+        best_valid_loss = float('inf')
+        
         for e in tqdm(range(config['num_epochs'])):
             train_loss.append(TRANSFORMER.train_loop(train_dataloader,
                                                      my_transformer,
@@ -252,11 +309,13 @@ if __name__ == '__main__':
             if e == 0:
                 valid_loss.append(valid_loss[0])
             ###################################################################
+            plt.figure()
             plt.plot(valid_loss,color = 'red', label = "valid")
             plt.plot(train_loss, color = 'blue', label = " train")
             plt.title("Transformer: Cross Ent. loss over epochs")
             plt.legend()
-            plt.show()
+            plt.savefig(os.path.join(run_dir, "loss_curve.png"))
+            plt.close()
             ###################################################################
             if e == 0:
                 best_valid_loss = valid_loss[0]
@@ -272,14 +331,22 @@ if __name__ == '__main__':
         print("Nombre de paramètres libres:",nb_train_param)
     else:
         ###########################################################################
-        #x_test = Apply_SlidingWindow2D(x_test,config)
+        if USE_VIT:
+            print("Applying Sliding Window for ViT (Test)...")
+            x_test = Apply_SlidingWindow2D(x_test,config)
+            
         N_test_seq = len(x_test)
         Test_seq_dataset = DigitSequenceDataset(x_test,y_test)
         test_dataloader = torch.utils.data.DataLoader(Test_seq_dataset,
                                                       batch_size = 1,
                                                       collate_fn = pad_collate)
 
-        my_transformer = TRANSFORMER.CNNTransformer(config,device)
+        if USE_VIT:
+            ModelClass = TRANSFORMER.ViT
+        else:
+            ModelClass = TRANSFORMER.CNNTransformer
+
+        my_transformer = ModelClass(config,device)
         my_transformer.load_state_dict(torch.load(model_name))
         my_transformer.to(device)
         
