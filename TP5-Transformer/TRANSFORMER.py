@@ -60,7 +60,7 @@ class Transformer(nn.Module):
         self.num_heads =config['num_heads']
         self.num_layers =config['num_layers']
         self.dropout =config['dropout']
-        self.pad_idx =config['pad_idx']
+        self.pad_idx =config['x_pad_idx']
         self.max_length =config['max_length']
         self.START_TOKEN =config['START_TOKEN']
         self.END_TOKEN =config['END_TOKEN']
@@ -182,7 +182,6 @@ def valid_loop(dataloader, model, loss_fn):
     
     with torch.no_grad():
         for batch, (X, y,X_l,y_l) in enumerate(dataloader):
-            dir_name
             X = X.to(model.DEVICE)
             y = y.to(model.DEVICE)
             
