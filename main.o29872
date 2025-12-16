@@ -1,0 +1,156 @@
+[INFO] Loaded cuda@12.6.2 via spack.
+[INFO] Loaded python@3.11.9 via spack.
+[INFO] Loaded py-pip@23.0 via spack.
+sending incremental file list
+drwxr-xr-x          4,096 2025/12/16 22:49:42 .
+-rw-r--r--             10 2025/12/16 22:28:38 .gitignore
+-rw-r--r--         31,768 2025/12/16 22:42:23 main.e29869
+-rw-r--r--         14,518 2025/12/16 22:46:39 main.e29871
+-rw-r--r--              0 2025/12/16 22:49:42 main.e29872
+-rw-r--r--         12,044 2025/12/16 22:42:23 main.o29869
+-rw-r--r--         52,131 2025/12/16 22:46:39 main.o29871
+-rw-r--r--            143 2025/12/16 22:49:43 main.o29872
+-rw-r--r--          2,561 2025/12/16 22:24:16 slurm_TP5.sl
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git
+-rw-r--r--             99 2025/12/16 22:28:38 .git/FETCH_HEAD
+-rw-r--r--             21 2025/12/16 22:06:20 .git/HEAD
+-rw-r--r--             41 2025/12/16 22:28:38 .git/ORIG_HEAD
+-rw-r--r--            268 2025/12/16 22:06:20 .git/config
+-rw-r--r--             73 2025/12/16 22:06:18 .git/description
+-rw-r--r--          1,042 2025/12/16 22:28:38 .git/index
+-rw-r--r--            112 2025/12/16 22:06:20 .git/packed-refs
+drwxr-xr-x          4,096 2025/12/16 22:06:18 .git/branches
+drwxr-xr-x          4,096 2025/12/16 22:06:18 .git/hooks
+-rwxr-xr-x            482 2025/12/16 22:06:18 .git/hooks/applypatch-msg.sample
+-rwxr-xr-x            900 2025/12/16 22:06:18 .git/hooks/commit-msg.sample
+-rwxr-xr-x          4,655 2025/12/16 22:06:18 .git/hooks/fsmonitor-watchman.sample
+-rwxr-xr-x            193 2025/12/16 22:06:18 .git/hooks/post-update.sample
+-rwxr-xr-x            428 2025/12/16 22:06:18 .git/hooks/pre-applypatch.sample
+-rwxr-xr-x          1,647 2025/12/16 22:06:18 .git/hooks/pre-commit.sample
+-rwxr-xr-x            420 2025/12/16 22:06:18 .git/hooks/pre-merge-commit.sample
+-rwxr-xr-x          1,378 2025/12/16 22:06:18 .git/hooks/pre-push.sample
+-rwxr-xr-x          4,902 2025/12/16 22:06:18 .git/hooks/pre-rebase.sample
+-rwxr-xr-x            548 2025/12/16 22:06:18 .git/hooks/pre-receive.sample
+-rwxr-xr-x          1,496 2025/12/16 22:06:18 .git/hooks/prepare-commit-msg.sample
+-rwxr-xr-x          2,787 2025/12/16 22:06:18 .git/hooks/push-to-checkout.sample
+-rwxr-xr-x          3,654 2025/12/16 22:06:18 .git/hooks/update.sample
+drwxr-xr-x          4,096 2025/12/16 22:06:18 .git/info
+-rw-r--r--            240 2025/12/16 22:06:18 .git/info/exclude
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/logs
+-rw-r--r--            347 2025/12/16 22:21:38 .git/logs/HEAD
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/logs/refs
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/logs/refs/heads
+-rw-r--r--            347 2025/12/16 22:21:38 .git/logs/refs/heads/main
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/logs/refs/remotes
+drwxr-xr-x          4,096 2025/12/16 22:21:38 .git/logs/refs/remotes/origin
+-rw-r--r--            192 2025/12/16 22:06:20 .git/logs/refs/remotes/origin/HEAD
+-rw-r--r--            155 2025/12/16 22:21:38 .git/logs/refs/remotes/origin/main
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/objects
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/objects/02
+-r--r--r--            166 2025/12/16 22:28:38 .git/objects/02/db674ac1fc3e03120509a336c07eb7eeca6eff
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/objects/0a
+-r--r--r--             26 2025/12/16 22:28:38 .git/objects/0a/020f0b70cdf8656fb1b46b5dbf022797697080
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/objects/39
+-r--r--r--          2,616 2025/12/16 22:28:38 .git/objects/39/7b99838b6fe144f72f34bb9c0af57d8926ef37
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/objects/3f
+-r--r--r--            161 2025/12/16 22:28:38 .git/objects/3f/78cdf9ea38feb919146ec4b0f3aa25a8079dd6
+drwxr-xr-x          4,096 2025/12/16 22:24:16 .git/objects/45
+-r--r--r--            162 2025/12/16 22:24:16 .git/objects/45/3bdc1659626530909325f29104c7ec2625671f
+drwxr-xr-x          4,096 2025/12/16 22:24:16 .git/objects/65
+-r--r--r--            161 2025/12/16 22:24:16 .git/objects/65/25c708a2fdc7446b788a20fc2fdcafc10175ff
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/objects/6d
+-r--r--r--            171 2025/12/16 22:28:38 .git/objects/6d/cd53169e1e9c35084ee0a675d2ef49d78c1df1
+drwxr-xr-x          4,096 2025/12/16 22:24:16 .git/objects/73
+-r--r--r--          1,158 2025/12/16 22:24:16 .git/objects/73/fb805a410409b9395c14e958e1389bd4560184
+drwxr-xr-x          4,096 2025/12/16 22:21:38 .git/objects/7d
+-r--r--r--            162 2025/12/16 22:21:38 .git/objects/7d/d21e29953e92c618da5732d6f69b9df8ba8bbc
+drwxr-xr-x          4,096 2025/12/16 22:21:38 .git/objects/a4
+-r--r--r--          1,144 2025/12/16 22:21:38 .git/objects/a4/44178db34cc63a98fe8ce884f67f5467ae0831
+drwxr-xr-x          4,096 2025/12/16 22:21:38 .git/objects/ef
+-r--r--r--            169 2025/12/16 22:21:38 .git/objects/ef/e731a6ccc3151315b3af10c4d50833f77922a5
+drwxr-xr-x          4,096 2025/12/16 22:06:18 .git/objects/info
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/objects/pack
+-r--r--r--          1,436 2025/12/16 22:06:20 .git/objects/pack/pack-da7e62f7798bba3e80a79ba2206e3c94cf450b5b.idx
+-r--r--r--        997,622 2025/12/16 22:06:20 .git/objects/pack/pack-da7e62f7798bba3e80a79ba2206e3c94cf450b5b.pack
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/refs
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/refs/heads
+-rw-r--r--             41 2025/12/16 22:28:38 .git/refs/heads/main
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/refs/remotes
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/refs/remotes/origin
+-rw-r--r--             30 2025/12/16 22:06:20 .git/refs/remotes/origin/HEAD
+-rw-r--r--             41 2025/12/16 22:28:38 .git/refs/remotes/origin/main
+drwxr-xr-x          4,096 2025/12/16 22:06:18 .git/refs/tags
+drwxr-xr-x          4,096 2025/12/16 22:45:31 TP5-Transformer
+-rw-r--r--          6,148 2025/12/16 22:06:20 TP5-Transformer/.DS_Store
+-rw-r--r--    315,392,189 2025/12/16 22:12:32 TP5-Transformer/MNIST_5digitsDifficile.pkl
+-rw-r--r--        585,982 2025/12/16 22:06:20 TP5-Transformer/Seance Transformer.pdf
+-rw-r--r--          9,219 2025/12/16 22:28:38 TP5-Transformer/TRANSFORMER.py
+-rw-r--r--     25,719,635 2025/12/16 22:44:49 TP5-Transformer/Transformer_140_256_2_54000
+-rw-r--r--         14,101 2025/12/16 22:49:35 TP5-Transformer/main_transformer.py
+drwxr-xr-x          4,096 2025/12/16 22:29:06 TP5-Transformer/__pycache__
+-rw-r--r--          4,673 2025/12/16 22:29:06 TP5-Transformer/__pycache__/TRANSFORMER.cpython-39.pyc
+drwxr-xr-x          4,096 2025/12/16 22:43:43 TP5-Transformer/test_20251216_224343
+-rw-r--r--             34 2025/12/16 22:43:44 TP5-Transformer/test_20251216_224343/output.log
+drwxr-xr-x          4,096 2025/12/16 22:45:31 TP5-Transformer/test_20251216_224531
+-rw-r--r--         39,603 2025/12/16 22:46:38 TP5-Transformer/test_20251216_224531/output.log
+drwxr-xr-x          4,096 2025/12/16 22:29:16 TP5-Transformer/train_20251216_222907
+-rw-r--r--     25,719,635 2025/12/16 22:42:18 TP5-Transformer/train_20251216_222907/Transformer_140_256_2_54000
+-rw-r--r--         13,247 2025/12/16 22:29:10 TP5-Transformer/train_20251216_222907/batch_sample_0.png
+-rw-r--r--         12,713 2025/12/16 22:29:10 TP5-Transformer/train_20251216_222907/batch_sample_1.png
+-rw-r--r--         13,829 2025/12/16 22:29:10 TP5-Transformer/train_20251216_222907/batch_sample_2.png
+-rw-r--r--         14,497 2025/12/16 22:29:10 TP5-Transformer/train_20251216_222907/batch_sample_3.png
+-rw-r--r--         13,378 2025/12/16 22:29:10 TP5-Transformer/train_20251216_222907/batch_sample_4.png
+-rw-r--r--         25,677 2025/12/16 22:42:22 TP5-Transformer/train_20251216_222907/loss_plot.png
+-rw-r--r--            109 2025/12/16 22:42:23 TP5-Transformer/train_20251216_222907/output.log
+drwxr-xr-x          4,096 2025/12/16 22:06:20 TP6-ViT
+-rw-r--r--          6,148 2025/12/16 22:06:20 TP6-ViT/.DS_Store
+-rw-r--r--        456,743 2025/12/16 22:06:20 TP6-ViT/Seance ViT.pdf
+-rw-r--r--         12,830 2025/12/16 22:06:20 TP6-ViT/TRANSFORMER.py
+-rw-r--r--         14,531 2025/12/16 22:06:20 TP6-ViT/main_transformer.py
+
+sent 3,374 bytes  received 8,379 bytes  23,506.00 bytes/sec
+total size is 369,219,789  speedup is 31,414.94
+Working directory : /home/masaunier/Mesonet_TP5_6
+[INFO] Using python at 
+Requirement already satisfied: torch in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (2.8.0)
+Requirement already satisfied: typing-extensions>=4.10.0 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (4.15.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.8.93 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.93)
+Requirement already satisfied: nvidia-nvtx-cu12==12.8.90 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.90)
+Requirement already satisfied: nvidia-curand-cu12==10.3.9.90 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (10.3.9.90)
+Requirement already satisfied: networkx in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (3.2.1)
+Requirement already satisfied: nvidia-cublas-cu12==12.8.4.1 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.4.1)
+Requirement already satisfied: sympy>=1.13.3 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (1.14.0)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.8.93 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.5.8.93)
+Requirement already satisfied: nvidia-cudnn-cu12==9.10.2.21 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (9.10.2.21)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.7.1 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (0.7.1)
+Requirement already satisfied: nvidia-cufile-cu12==1.13.1.3 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (1.13.1.3)
+Requirement already satisfied: nvidia-nccl-cu12==2.27.3 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (2.27.3)
+Requirement already satisfied: jinja2 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (3.1.6)
+Requirement already satisfied: filelock in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (3.19.1)
+Requirement already satisfied: triton==3.4.0 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (3.4.0)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.8.93 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.93)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.3.90 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (11.7.3.90)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.8.90 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.90)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.8.90 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.90)
+Requirement already satisfied: fsspec in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (2025.10.0)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.3.83 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (11.3.3.83)
+Requirement already satisfied: importlib-metadata in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from triton==3.4.0->torch) (8.7.0)
+Requirement already satisfied: setuptools>=40.8.0 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from triton==3.4.0->torch) (80.9.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from sympy>=1.13.3->torch) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from jinja2->torch) (3.0.3)
+Requirement already satisfied: zipp>=3.20 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from importlib-metadata->triton==3.4.0->torch) (3.23.0)
+torch installed.
+pickle installed.
+Requirement already satisfied: tqdm in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (4.67.1)
+Requirement already satisfied: numpy in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (2.0.2)
+tqdm and numpy installed.
+matplotlib installed.
+Requirement already satisfied: editdistance in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (0.8.1)
+editdistance installed.
+Job started at Tue Dec 16 10:49:54 PM CET 2025
+Using python:  /home/masaunier/.cache/bcresnet_venv/bin/python
+Device : cuda
+Loading training and test data...
+Embedded Training Ended successfully
+Nombre de paramètres libres: 6374668
+Job finished at Tue Dec 16 10:53:12 PM CET 2025
