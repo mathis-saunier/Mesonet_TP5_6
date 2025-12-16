@@ -1,0 +1,2275 @@
+[INFO] Loaded cuda@12.6.2 via spack.
+[INFO] Loaded python@3.11.9 via spack.
+[INFO] Loaded py-pip@23.0 via spack.
+sending incremental file list
+drwxr-xr-x          4,096 2025/12/16 23:19:56 .
+-rw-r--r--             10 2025/12/16 22:28:38 .gitignore
+-rw-r--r--         31,768 2025/12/16 22:42:23 main.e29869
+-rw-r--r--         14,518 2025/12/16 22:46:39 main.e29871
+-rw-r--r--         31,768 2025/12/16 22:53:12 main.e29872
+-rw-r--r--         13,724 2025/12/16 22:55:49 main.e29873
+-rw-r--r--         31,768 2025/12/16 23:18:32 main.e29874
+-rw-r--r--              0 2025/12/16 23:19:56 main.e29875
+-rw-r--r--         12,044 2025/12/16 22:42:23 main.o29869
+-rw-r--r--         52,131 2025/12/16 22:46:39 main.o29871
+-rw-r--r--         12,930 2025/12/16 22:53:12 main.o29872
+-rw-r--r--         52,258 2025/12/16 22:55:49 main.o29873
+-rw-r--r--         21,184 2025/12/16 23:18:32 main.o29874
+-rw-r--r--            143 2025/12/16 23:19:58 main.o29875
+-rw-r--r--          2,561 2025/12/16 22:24:16 slurm_TP5.sl
+drwxr-xr-x          4,096 2025/12/16 23:03:57 .git
+-rw-r--r--             26 2025/12/16 22:56:27 .git/COMMIT_EDITMSG
+-rw-r--r--             99 2025/12/16 23:03:57 .git/FETCH_HEAD
+-rw-r--r--             21 2025/12/16 22:06:20 .git/HEAD
+-rw-r--r--             41 2025/12/16 23:03:57 .git/ORIG_HEAD
+-rw-r--r--            268 2025/12/16 22:06:20 .git/config
+-rw-r--r--             73 2025/12/16 22:06:18 .git/description
+-rw-r--r--          4,546 2025/12/16 23:03:57 .git/index
+-rw-r--r--            112 2025/12/16 22:06:20 .git/packed-refs
+drwxr-xr-x          4,096 2025/12/16 22:06:18 .git/branches
+drwxr-xr-x          4,096 2025/12/16 22:06:18 .git/hooks
+-rwxr-xr-x            482 2025/12/16 22:06:18 .git/hooks/applypatch-msg.sample
+-rwxr-xr-x            900 2025/12/16 22:06:18 .git/hooks/commit-msg.sample
+-rwxr-xr-x          4,655 2025/12/16 22:06:18 .git/hooks/fsmonitor-watchman.sample
+-rwxr-xr-x            193 2025/12/16 22:06:18 .git/hooks/post-update.sample
+-rwxr-xr-x            428 2025/12/16 22:06:18 .git/hooks/pre-applypatch.sample
+-rwxr-xr-x          1,647 2025/12/16 22:06:18 .git/hooks/pre-commit.sample
+-rwxr-xr-x            420 2025/12/16 22:06:18 .git/hooks/pre-merge-commit.sample
+-rwxr-xr-x          1,378 2025/12/16 22:06:18 .git/hooks/pre-push.sample
+-rwxr-xr-x          4,902 2025/12/16 22:06:18 .git/hooks/pre-rebase.sample
+-rwxr-xr-x            548 2025/12/16 22:06:18 .git/hooks/pre-receive.sample
+-rwxr-xr-x          1,496 2025/12/16 22:06:18 .git/hooks/prepare-commit-msg.sample
+-rwxr-xr-x          2,787 2025/12/16 22:06:18 .git/hooks/push-to-checkout.sample
+-rwxr-xr-x          3,654 2025/12/16 22:06:18 .git/hooks/update.sample
+drwxr-xr-x          4,096 2025/12/16 22:06:18 .git/info
+-rw-r--r--            240 2025/12/16 22:06:18 .git/info/exclude
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/logs
+-rw-r--r--            657 2025/12/16 22:28:38 .git/logs/HEAD
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/logs/refs
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/logs/refs/heads
+-rw-r--r--            657 2025/12/16 22:28:38 .git/logs/refs/heads/main
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/logs/refs/remotes
+drwxr-xr-x          4,096 2025/12/16 22:21:38 .git/logs/refs/remotes/origin
+-rw-r--r--            192 2025/12/16 22:06:20 .git/logs/refs/remotes/origin/HEAD
+-rw-r--r--            465 2025/12/16 22:28:38 .git/logs/refs/remotes/origin/main
+drwxr-xr-x          4,096 2025/12/16 23:03:57 .git/objects
+drwxr-xr-x          4,096 2025/12/16 23:03:57 .git/objects/01
+-r--r--r--          2,993 2025/12/16 23:03:57 .git/objects/01/c9c4128429feb8e3979293c430403611574d56
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/objects/02
+-r--r--r--            166 2025/12/16 22:28:38 .git/objects/02/db674ac1fc3e03120509a336c07eb7eeca6eff
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/04
+-r--r--r--          2,591 2025/12/16 22:56:05 .git/objects/04/88251d09c1daf12768ab4ed4882a75600e7e7f
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/objects/0a
+-r--r--r--             26 2025/12/16 22:56:03 .git/objects/0a/020f0b70cdf8656fb1b46b5dbf022797697080
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/12
+-r--r--r--         16,922 2025/12/16 22:56:05 .git/objects/12/973be2f93c4912475e6f5c15d6bf6900ef6375
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/20
+-r--r--r--         10,365 2025/12/16 22:56:05 .git/objects/20/f7ebeb43f772239987fc095da925d8761fd0be
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/2b
+-r--r--r--         10,028 2025/12/16 22:56:05 .git/objects/2b/08b48c81bd69bf33e19856314bcf93a6a61e0e
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/32
+-r--r--r--     23,725,572 2025/12/16 22:56:05 .git/objects/32/1e2a4dce307c5b724ffaa67665ff402a796de2
+drwxr-xr-x          4,096 2025/12/16 22:56:27 .git/objects/34
+-r--r--r--            173 2025/12/16 22:56:27 .git/objects/34/4b9a2831f7a4a780db7fa27c22b1251c4da8c0
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/35
+-r--r--r--          6,575 2025/12/16 22:56:05 .git/objects/35/934ce8c85178124f6d37ec9ce5f1a6c59501b5
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/38
+-r--r--r--          9,769 2025/12/16 22:56:05 .git/objects/38/a501509dcbd2add21c7d4004be8565ae6870a4
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/objects/39
+-r--r--r--          2,616 2025/12/16 22:56:03 .git/objects/39/7b99838b6fe144f72f34bb9c0af57d8926ef37
+drwxr-xr-x          4,096 2025/12/16 22:56:27 .git/objects/3c
+-r--r--r--            375 2025/12/16 22:56:27 .git/objects/3c/4235b550c585300ceb879e1c4616fd1924aaaa
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/3e
+-r--r--r--         10,731 2025/12/16 22:56:05 .git/objects/3e/cc8e077037a0db084001c512e94653a481cd9f
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/objects/3f
+-r--r--r--            161 2025/12/16 22:28:38 .git/objects/3f/78cdf9ea38feb919146ec4b0f3aa25a8079dd6
+drwxr-xr-x          4,096 2025/12/16 23:03:57 .git/objects/41
+-r--r--r--            374 2025/12/16 23:03:57 .git/objects/41/3e6aa891c898f6153d3c58194537c803484865
+-r--r--r--             71 2025/12/16 22:56:27 .git/objects/41/596cc601efbf2110a7cbd4fbb9a6bad97c0a8a
+drwxr-xr-x          4,096 2025/12/16 22:56:03 .git/objects/42
+-r--r--r--          4,662 2025/12/16 22:56:03 .git/objects/42/d0de5b1a5de54c87ab4bedd2d558edac3ddc2e
+drwxr-xr-x          4,096 2025/12/16 22:24:16 .git/objects/45
+-r--r--r--            162 2025/12/16 22:24:16 .git/objects/45/3bdc1659626530909325f29104c7ec2625671f
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/4d
+-r--r--r--          9,792 2025/12/16 22:56:05 .git/objects/4d/f75f531a6bf8ffcf1f3d598718b735d3fcb1f7
+drwxr-xr-x          4,096 2025/12/16 22:56:27 .git/objects/54
+-r--r--r--            289 2025/12/16 22:56:27 .git/objects/54/5455d982051654e9c123906d57f2644e0d92b0
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/56
+-r--r--r--         30,599 2025/12/16 22:56:05 .git/objects/56/f56e17c7bc6e810dec28cc918981a92119e026
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/57
+-r--r--r--         10,230 2025/12/16 22:56:05 .git/objects/57/e4a1cb8cd22e3defdbc02d9c498913e2d5b81b
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/5b
+-r--r--r--          4,357 2025/12/16 22:56:05 .git/objects/5b/fec70aea527ba1ff3b27683c5d5becf7dfbca7
+drwxr-xr-x          4,096 2025/12/16 22:24:16 .git/objects/65
+-r--r--r--            161 2025/12/16 22:24:16 .git/objects/65/25c708a2fdc7446b788a20fc2fdcafc10175ff
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/objects/6d
+-r--r--r--            171 2025/12/16 22:28:38 .git/objects/6d/cd53169e1e9c35084ee0a675d2ef49d78c1df1
+drwxr-xr-x          4,096 2025/12/16 22:24:16 .git/objects/73
+-r--r--r--          1,158 2025/12/16 22:24:16 .git/objects/73/fb805a410409b9395c14e958e1389bd4560184
+drwxr-xr-x          4,096 2025/12/16 22:56:27 .git/objects/76
+-r--r--r--            288 2025/12/16 22:56:27 .git/objects/76/8062afdff338e946c2ba4b0f32314d659ad63d
+drwxr-xr-x          4,096 2025/12/16 22:21:38 .git/objects/7d
+-r--r--r--            162 2025/12/16 22:21:38 .git/objects/7d/d21e29953e92c618da5732d6f69b9df8ba8bbc
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/90
+-r--r--r--         23,402 2025/12/16 22:56:05 .git/objects/90/2b97f5a0e8ae7663bff6dcfb3b352d57596817
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/97
+-r--r--r--         16,817 2025/12/16 22:56:05 .git/objects/97/6848dd06c8d4695f7d2ebfe9f30fca8a01544f
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/9a
+-r--r--r--          9,967 2025/12/16 22:56:05 .git/objects/9a/7af092292c8f15e773c52ac2db9b727cf6c59c
+drwxr-xr-x          4,096 2025/12/16 22:56:27 .git/objects/a0
+-r--r--r--             55 2025/12/16 22:56:27 .git/objects/a0/dc4b6332b66b77b2f2b82217525be341b66884
+drwxr-xr-x          4,096 2025/12/16 22:56:04 .git/objects/a1
+-r--r--r--     23,667,437 2025/12/16 22:56:05 .git/objects/a1/97cd4aea98e00e2f3f5633ba14e450e113e601
+drwxr-xr-x          4,096 2025/12/16 22:21:38 .git/objects/a4
+-r--r--r--          1,144 2025/12/16 22:21:38 .git/objects/a4/44178db34cc63a98fe8ce884f67f5467ae0831
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/ab
+-r--r--r--          2,788 2025/12/16 22:56:05 .git/objects/ab/b640c48eca365b7fbc94172e8483069db75482
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/af
+-r--r--r--          7,079 2025/12/16 22:56:05 .git/objects/af/2aaa51cd2c0d889f8a105ca10da5cc0e0de27c
+drwxr-xr-x          4,096 2025/12/16 23:03:57 .git/objects/b1
+-r--r--r--          4,778 2025/12/16 23:03:57 .git/objects/b1/8ffe36c78011105c151844995cf76d05220559
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/b7
+-r--r--r--          9,724 2025/12/16 22:56:05 .git/objects/b7/27bbf1ebdf71f779f49b448260cef10c25c1e5
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/b9
+-r--r--r--            781 2025/12/16 22:56:05 .git/objects/b9/fd9435ed6223529b110f8397c77559593b98ee
+drwxr-xr-x          4,096 2025/12/16 22:56:27 .git/objects/c7
+-r--r--r--             55 2025/12/16 22:56:27 .git/objects/c7/8e7eec3ddb106520e90b781d52d15679cf9540
+drwxr-xr-x          4,096 2025/12/16 22:56:27 .git/objects/d1
+-r--r--r--            439 2025/12/16 22:56:27 .git/objects/d1/0f09747f45842b8ebe4ff3dbe07451a363d7a7
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/d2
+-r--r--r--          2,617 2025/12/16 22:56:05 .git/objects/d2/a84c9b3abdf088cb7247f483f88fda0d383e33
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/db
+-r--r--r--         13,394 2025/12/16 22:56:05 .git/objects/db/71cc9849de0614839284bbb13334de8b6e8f67
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/dc
+-r--r--r--         11,319 2025/12/16 22:56:05 .git/objects/dc/3767eede662f2ba36033d70db55d57323229fc
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/df
+-r--r--r--         13,772 2025/12/16 22:56:05 .git/objects/df/3c34906de4985aa6ad41c37a09b625684c5e40
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/e8
+-r--r--r--             47 2025/12/16 22:56:05 .git/objects/e8/8feaee3a67147f83bb5c62d5fca9b31b723b83
+drwxr-xr-x          4,096 2025/12/16 22:21:38 .git/objects/ef
+-r--r--r--            169 2025/12/16 22:21:38 .git/objects/ef/e731a6ccc3151315b3af10c4d50833f77922a5
+drwxr-xr-x          4,096 2025/12/16 23:03:57 .git/objects/f5
+-r--r--r--            438 2025/12/16 23:03:57 .git/objects/f5/d825d933ee2310eed28009310e4151fe697060
+drwxr-xr-x          4,096 2025/12/16 22:56:27 .git/objects/f6
+-r--r--r--             55 2025/12/16 22:56:27 .git/objects/f6/c10ba48a073bf3a9cd3a3763acbcd6a0db0621
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/f8
+-r--r--r--            114 2025/12/16 22:56:05 .git/objects/f8/e2baae05070c9d94cb904fb48916fa9c5a103a
+drwxr-xr-x          4,096 2025/12/16 23:03:57 .git/objects/fb
+-r--r--r--            174 2025/12/16 23:03:57 .git/objects/fb/d26e55628d238c3d40f1a3a7421d74be0daa7e
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/fc
+-r--r--r--         10,395 2025/12/16 22:56:05 .git/objects/fc/2305a10756df793fd196c7e3e1b45a75e32a3c
+drwxr-xr-x          4,096 2025/12/16 22:06:18 .git/objects/info
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/objects/pack
+-r--r--r--          1,436 2025/12/16 22:06:20 .git/objects/pack/pack-da7e62f7798bba3e80a79ba2206e3c94cf450b5b.idx
+-r--r--r--        997,622 2025/12/16 22:06:20 .git/objects/pack/pack-da7e62f7798bba3e80a79ba2206e3c94cf450b5b.pack
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/refs
+drwxr-xr-x          4,096 2025/12/16 23:03:57 .git/refs/heads
+-rw-r--r--             41 2025/12/16 23:03:57 .git/refs/heads/main
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/refs/remotes
+drwxr-xr-x          4,096 2025/12/16 23:03:57 .git/refs/remotes/origin
+-rw-r--r--             30 2025/12/16 22:06:20 .git/refs/remotes/origin/HEAD
+-rw-r--r--             41 2025/12/16 23:03:57 .git/refs/remotes/origin/main
+drwxr-xr-x          4,096 2025/12/16 22:06:18 .git/refs/tags
+drwxr-xr-x          4,096 2025/12/16 23:05:07 TP5-Transformer
+-rw-r--r--          6,148 2025/12/16 22:06:20 TP5-Transformer/.DS_Store
+-rw-r--r--    315,392,189 2025/12/16 22:12:32 TP5-Transformer/MNIST_5digitsDifficile.pkl
+-rw-r--r--        585,982 2025/12/16 22:06:20 TP5-Transformer/Seance Transformer.pdf
+-rw-r--r--         13,054 2025/12/16 23:03:57 TP5-Transformer/TRANSFORMER.py
+-rw-r--r--     25,719,635 2025/12/16 22:54:29 TP5-Transformer/Transformer_140_256_2_10000
+-rw-r--r--     25,719,635 2025/12/16 22:44:49 TP5-Transformer/Transformer_140_256_2_54000
+-rw-r--r--         14,640 2025/12/16 23:19:14 TP5-Transformer/main_transformer.py
+drwxr-xr-x          4,096 2025/12/16 23:05:05 TP5-Transformer/__pycache__
+-rw-r--r--          6,166 2025/12/16 23:05:05 TP5-Transformer/__pycache__/TRANSFORMER.cpython-39.pyc
+drwxr-xr-x          4,096 2025/12/16 22:43:43 TP5-Transformer/test_20251216_224343
+-rw-r--r--             34 2025/12/16 22:43:44 TP5-Transformer/test_20251216_224343/output.log
+drwxr-xr-x          4,096 2025/12/16 22:45:31 TP5-Transformer/test_20251216_224531
+-rw-r--r--         39,603 2025/12/16 22:46:38 TP5-Transformer/test_20251216_224531/output.log
+drwxr-xr-x          4,096 2025/12/16 22:54:51 TP5-Transformer/test_20251216_225451
+-rw-r--r--         38,327 2025/12/16 22:55:49 TP5-Transformer/test_20251216_225451/output.log
+drwxr-xr-x          4,096 2025/12/16 22:29:16 TP5-Transformer/train_20251216_222907
+-rw-r--r--     25,719,635 2025/12/16 22:42:18 TP5-Transformer/train_20251216_222907/Transformer_140_256_2_54000
+-rw-r--r--         13,247 2025/12/16 22:29:10 TP5-Transformer/train_20251216_222907/batch_sample_0.png
+-rw-r--r--         12,713 2025/12/16 22:29:10 TP5-Transformer/train_20251216_222907/batch_sample_1.png
+-rw-r--r--         13,829 2025/12/16 22:29:10 TP5-Transformer/train_20251216_222907/batch_sample_2.png
+-rw-r--r--         14,497 2025/12/16 22:29:10 TP5-Transformer/train_20251216_222907/batch_sample_3.png
+-rw-r--r--         13,378 2025/12/16 22:29:10 TP5-Transformer/train_20251216_222907/batch_sample_4.png
+-rw-r--r--         25,677 2025/12/16 22:42:22 TP5-Transformer/train_20251216_222907/loss_plot.png
+-rw-r--r--            109 2025/12/16 22:42:23 TP5-Transformer/train_20251216_222907/output.log
+drwxr-xr-x          4,096 2025/12/16 22:50:03 TP5-Transformer/train_20251216_224958
+-rw-r--r--     25,719,635 2025/12/16 22:53:11 TP5-Transformer/train_20251216_224958/Transformer_140_256_2_10000
+-rw-r--r--         12,971 2025/12/16 22:50:01 TP5-Transformer/train_20251216_224958/batch_sample_0.png
+-rw-r--r--         13,403 2025/12/16 22:50:02 TP5-Transformer/train_20251216_224958/batch_sample_1.png
+-rw-r--r--         13,002 2025/12/16 22:50:02 TP5-Transformer/train_20251216_224958/batch_sample_2.png
+-rw-r--r--         12,871 2025/12/16 22:50:02 TP5-Transformer/train_20251216_224958/batch_sample_3.png
+-rw-r--r--         12,710 2025/12/16 22:50:02 TP5-Transformer/train_20251216_224958/batch_sample_4.png
+-rw-r--r--         32,874 2025/12/16 22:53:11 TP5-Transformer/train_20251216_224958/loss_plot.png
+-rw-r--r--            109 2025/12/16 22:53:12 TP5-Transformer/train_20251216_224958/output.log
+drwxr-xr-x          4,096 2025/12/16 23:05:14 TP5-Transformer/train_CNN-T_20251216_230507
+-rw-r--r--     25,889,835 2025/12/16 23:17:52 TP5-Transformer/train_CNN-T_20251216_230507/Transformer_140_256_2_54000
+-rw-r--r--         12,117 2025/12/16 23:05:10 TP5-Transformer/train_CNN-T_20251216_230507/batch_sample_0.png
+-rw-r--r--         14,314 2025/12/16 23:05:10 TP5-Transformer/train_CNN-T_20251216_230507/batch_sample_1.png
+-rw-r--r--         13,741 2025/12/16 23:05:10 TP5-Transformer/train_CNN-T_20251216_230507/batch_sample_2.png
+-rw-r--r--         13,250 2025/12/16 23:05:10 TP5-Transformer/train_CNN-T_20251216_230507/batch_sample_3.png
+-rw-r--r--         14,181 2025/12/16 23:05:10 TP5-Transformer/train_CNN-T_20251216_230507/batch_sample_4.png
+-rw-r--r--         25,692 2025/12/16 23:18:32 TP5-Transformer/train_CNN-T_20251216_230507/loss_plot.png
+-rw-r--r--            109 2025/12/16 23:18:32 TP5-Transformer/train_CNN-T_20251216_230507/output.log
+drwxr-xr-x          4,096 2025/12/16 22:06:20 TP6-ViT
+-rw-r--r--          6,148 2025/12/16 22:06:20 TP6-ViT/.DS_Store
+-rw-r--r--        456,743 2025/12/16 22:06:20 TP6-ViT/Seance ViT.pdf
+-rw-r--r--         12,830 2025/12/16 22:06:20 TP6-ViT/TRANSFORMER.py
+-rw-r--r--         14,531 2025/12/16 22:06:20 TP6-ViT/main_transformer.py
+
+sent 7,406 bytes  received 18,194 bytes  51,200.00 bytes/sec
+total size is 494,604,927  speedup is 19,320.50
+Working directory : /home/masaunier/Mesonet_TP5_6
+[INFO] Using python at 
+Requirement already satisfied: torch in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (2.8.0)
+Requirement already satisfied: nvidia-nvtx-cu12==12.8.90 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.90)
+Requirement already satisfied: nvidia-curand-cu12==10.3.9.90 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (10.3.9.90)
+Requirement already satisfied: sympy>=1.13.3 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (1.14.0)
+Requirement already satisfied: typing-extensions>=4.10.0 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (4.15.0)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.8.93 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.5.8.93)
+Requirement already satisfied: networkx in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (3.2.1)
+Requirement already satisfied: fsspec in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (2025.10.0)
+Requirement already satisfied: nvidia-cublas-cu12==12.8.4.1 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.4.1)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.8.90 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.90)
+Requirement already satisfied: nvidia-cufile-cu12==1.13.1.3 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (1.13.1.3)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.3.90 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (11.7.3.90)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.7.1 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (0.7.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.3.83 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (11.3.3.83)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.8.93 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.93)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.8.93 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.93)
+Requirement already satisfied: nvidia-nccl-cu12==2.27.3 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (2.27.3)
+Requirement already satisfied: triton==3.4.0 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (3.4.0)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.8.90 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.90)
+Requirement already satisfied: nvidia-cudnn-cu12==9.10.2.21 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (9.10.2.21)
+Requirement already satisfied: filelock in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (3.19.1)
+Requirement already satisfied: jinja2 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (3.1.6)
+Requirement already satisfied: importlib-metadata in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from triton==3.4.0->torch) (8.7.0)
+Requirement already satisfied: setuptools>=40.8.0 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from triton==3.4.0->torch) (80.9.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from sympy>=1.13.3->torch) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from jinja2->torch) (3.0.3)
+Requirement already satisfied: zipp>=3.20 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from importlib-metadata->triton==3.4.0->torch) (3.23.0)
+torch installed.
+pickle installed.
+Requirement already satisfied: tqdm in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (4.67.1)
+Requirement already satisfied: numpy in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (2.0.2)
+tqdm and numpy installed.
+matplotlib installed.
+Requirement already satisfied: editdistance in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (0.8.1)
+editdistance installed.
+Job started at Tue Dec 16 11:20:09 PM CET 2025
+Using python:  /home/masaunier/.cache/bcresnet_venv/bin/python
+Device : cuda
+Loading training and test data...
+Recognition in progress...
+y : 72104 bs : 721
+y : 14959 bs : 144
+y : 06901 bs : 339
+y : 59734 bs : 397
+y : 96654 bs : 766
+y : 07401 bs : 27
+y : 31347 bs : 313
+y : 27121 bs : 37
+y : 17423 bs : 1746
+y : 51244 bs : 3104
+y : 63556 bs : 235
+y : 04195 bs : 041
+y : 78937 bs : 769
+y : 46430 bs : 1630
+y : 70291 bs : 703
+y : 73297 bs : 737
+y : 76278 bs : 762
+y : 47361 bs : 473
+y : 36931 bs : 36931
+y : 41769 bs : 459
+y : 60549 bs : 603
+y : 92194 bs : 921
+y : 87397 bs : 873
+y : 44492 bs : 6892
+y : 54767 bs : 5424
+y : 90585 bs : 705
+y : 66578 bs : 66687
+y : 10164 bs : 104
+y : 67317 bs : 673
+y : 18202 bs : 182
+y : 99551 bs : 991
+y : 56034 bs : 560
+y : 46546 bs : 7096
+y : 54514 bs : 5404
+y : 47232 bs : 472
+y : 71818 bs : 715
+y : 18508 bs : 185
+y : 92501 bs : 425
+y : 11090 bs : 130
+y : 31642 bs : 312
+y : 36111 bs : 3639
+y : 39529 bs : 1852
+y : 45939 bs : 659
+y : 03655 bs : 039
+y : 72271 bs : 722
+y : 28417 bs : 284
+y : 33887 bs : 0389
+y : 92241 bs : 92
+y : 59872 bs : 5992
+y : 30442 bs : 3048
+y : 41957 bs : 41952
+y : 72826 bs : 532
+y : 85779 bs : 6577
+y : 18180 bs : 181
+y : 30199 bs : 3099
+y : 41821 bs : 4182
+y : 29759 bs : 2
+y : 26415 bs : 2645
+y : 82920 bs : 439
+y : 40028 bs : 4018
+y : 47124 bs : 971
+y : 02743 bs : 027
+y : 30031 bs : 3006
+y : 96525 bs : 765
+y : 92930 bs : 779
+y : 42071 bs : 9211
+y : 12153 bs : 123
+y : 39786 bs : 397
+y : 56138 bs : 361
+y : 10513 bs : 105
+y : 15561 bs : 153
+y : 85179 bs : 8517
+y : 46225 bs : 4625
+y : 06563 bs : 063
+y : 72088 bs : 72031
+y : 54114 bs : 591
+y : 03376 bs : 033
+y : 16219 bs : 189
+y : 28619 bs : 28619
+y : 52544 bs : 52549
+y : 28382 bs : 213
+y : 45031 bs : 450
+y : 77579 bs : 723
+y : 71921 bs : 719
+y : 42920 bs : 45923
+y : 49148 bs : 2968
+y : 18459 bs : 188
+y : 88376 bs : 88376
+y : 00302 bs : 013
+y : 66493 bs : 263
+y : 33239 bs : 332
+y : 12680 bs : 176
+y : 56663 bs : 7162
+y : 88275 bs : 883
+y : 89618 bs : 8318
+y : 41259 bs : 412
+y : 19754 bs : 697
+y : 08991 bs : 0599
+y : 05237 bs : 4537
+y : 89406 bs : 3940
+y : 39521 bs : 395
+y : 31365 bs : 3769
+y : 74226 bs : 7422
+y : 32654 bs : 32
+y : 89713 bs : 69
+y : 03831 bs : 634
+y : 93446 bs : 9316
+y : 42182 bs : 451
+y : 54884 bs : 5411
+y : 00232 bs : 408
+y : 77087 bs : 720
+y : 44796 bs : 103
+y : 90980 bs : 9580
+y : 46063 bs : 465
+y : 54833 bs : 748
+y : 93337 bs : 935
+y : 80821 bs : 804
+y : 70654 bs : 70
+y : 38096 bs : 316
+y : 38099 bs : 3898
+y : 68685 bs : 683
+y : 78602 bs : 786
+y : 40223 bs : 433
+y : 19751 bs : 197
+y : 08462 bs : 064
+y : 67932 bs : 670
+y : 98229 bs : 58229
+y : 27359 bs : 273
+y : 18020 bs : 185
+y : 52137 bs : 564
+y : 67125 bs : 675
+y : 80372 bs : 203
+y : 40918 bs : 609
+y : 67743 bs : 698
+y : 49195 bs : 423
+y : 17397 bs : 173
+y : 69137 bs : 6915
+y : 83367 bs : 8360
+y : 28585 bs : 21
+y : 11443 bs : 1049
+y : 10770 bs : 407
+y : 79448 bs : 794
+y : 55408 bs : 550
+y : 21084 bs : 2758
+y : 50406 bs : 136
+y : 17326 bs : 1032
+y : 72693 bs : 823
+y : 14625 bs : 146
+y : 42062 bs : 9
+y : 17341 bs : 879
+y : 05431 bs : 6541
+y : 17499 bs : 175
+y : 48402 bs : 9842
+y : 45116 bs : 4514
+y : 47194 bs : 2735
+y : 24155 bs : 2455
+y : 38314 bs : 783
+y : 56894 bs : 5694
+y : 15380 bs : 15380
+y : 32512 bs : 5612
+y : 83440 bs : 3334
+y : 88331 bs : 8833
+y : 73596 bs : 73596
+y : 32613 bs : 323
+y : 60721 bs : 634
+y : 71424 bs : 7152
+y : 21796 bs : 2179
+y : 11248 bs : 1149
+y : 17748 bs : 173
+y : 07313 bs : 073
+y : 10770 bs : 107
+y : 35527 bs : 355
+y : 66928 bs : 669
+y : 35225 bs : 3925
+y : 60829 bs : 608
+y : 28888 bs : 2865
+y : 74930 bs : 784
+y : 66321 bs : 663
+y : 32293 bs : 3209
+y : 00578 bs : 065
+y : 14460 bs : 5420
+y : 29147 bs : 291
+y : 47398 bs : 473
+y : 84712 bs : 847
+y : 12232 bs : 127
+y : 32391 bs : 381
+y : 74035 bs : 74
+y : 58632 bs : 7262
+y : 67663 bs : 276
+y : 27811 bs : 218
+y : 75649 bs : 256
+y : 51334 bs : 724
+y : 78911 bs : 789
+y : 69144 bs : 297
+y : 54062 bs : 540
+y : 23151 bs : 231
+y : 20381 bs : 203
+y : 26716 bs : 216
+y : 23901 bs : 239
+y : 22089 bs : 2289
+y : 90251 bs : 902
+y : 97810 bs : 975
+y : 41796 bs : 913
+y : 42681 bs : 926
+y : 37544 bs : 3791
+y : 18138 bs : 16
+y : 12580 bs : 125
+y : 62117 bs : 2215
+y : 15346 bs : 153
+y : 95092 bs : 15092
+y : 24821 bs : 341
+y : 72494 bs : 724
+y : 40392 bs : 469
+y : 23383 bs : 2755
+y : 57358 bs : 573
+y : 12446 bs : 1296
+y : 49510 bs : 495
+y : 69595 bs : 625
+y : 97380 bs : 973
+y : 37136 bs : 371
+y : 78597 bs : 7854
+y : 96963 bs : 763
+y : 74453 bs : 74
+y : 54787 bs : 542
+y : 80768 bs : 807
+y : 87331 bs : 572
+y : 95273 bs : 962
+y : 51121 bs : 514
+y : 47475 bs : 475
+y : 45408 bs : 7508
+y : 36960 bs : 360
+y : 27444 bs : 274
+y : 46647 bs : 757
+y : 93455 bs : 925
+y : 87372 bs : 572
+y : 70241 bs : 704
+y : 16692 bs : 1692
+y : 87201 bs : 891
+y : 50917 bs : 509
+y : 06086 bs : 38
+y : 81803 bs : 111
+y : 37236 bs : 372
+y : 21611 bs : 34
+y : 37908 bs : 379
+y : 05402 bs : 254
+y : 87298 bs : 56
+y : 40958 bs : 4015
+y : 51213 bs : 512
+y : 17457 bs : 870
+y : 20988 bs : 258
+y : 62541 bs : 2
+y : 92158 bs : 921
+y : 70244 bs : 704
+y : 36882 bs : 3582
+y : 40504 bs : 443
+y : 47934 bs : 4776
+y : 15973 bs : 159
+y : 58805 bs : 58909
+y : 33660 bs : 890
+y : 16035 bs : 120
+y : 44129 bs : 95
+y : 14699 bs : 1469
+y : 39844 bs : 394
+y : 31318 bs : 318
+y : 87948 bs : 378
+y : 87971 bs : 029
+y : 45605 bs : 732
+y : 22215 bs : 272
+y : 52496 bs : 5244
+y : 27722 bs : 2762
+y : 11283 bs : 412
+y : 72417 bs : 544
+y : 17678 bs : 176
+y : 27317 bs : 23347
+y : 58262 bs : 582
+y : 25650 bs : 256
+y : 92433 bs : 92053
+y : 97668 bs : 976
+y : 04158 bs : 0438
+y : 29180 bs : 291
+y : 67210 bs : 6501
+y : 55202 bs : 5507
+y : 20249 bs : 209
+y : 80994 bs : 5099
+y : 65491 bs : 651
+y : 83499 bs : 834
+y : 12281 bs : 122
+y : 96409 bs : 369
+y : 48386 bs : 196
+y : 02519 bs : 029
+y : 62940 bs : 629
+y : 96062 bs : 961
+y : 54238 bs : 54
+y : 45503 bs : 1703
+y : 85358 bs : 252
+y : 65763 bs : 457
+y : 39611 bs : 3961
+y : 29043 bs : 994
+y : 36957 bs : 8637
+y : 37778 bs : 37
+y : 79830 bs : 198
+y : 72794 bs : 720
+y : 54932 bs : 549
+y : 14023 bs : 140
+y : 75788 bs : 7546
+y : 50114 bs : 5014
+y : 83900 bs : 739
+y : 06623 bs : 766
+y : 78477 bs : 784
+y : 92414 bs : 924
+y : 52499 bs : 72439
+y : 18409 bs : 18403
+y : 84877 bs : 147
+y : 07886 bs : 0753
+y : 04882 bs : 042
+y : 47666 bs : 476
+y : 47188 bs : 4315
+y : 23630 bs : 27
+y : 03769 bs : 037
+y : 79954 bs : 74854
+y : 33612 bs : 33612
+y : 37332 bs : 371
+y : 03384 bs : 013
+y : 36350 bs : 350
+y : 20907 bs : 2647
+y : 46935 bs : 4535
+y : 19614 bs : 196
+y : 54505 bs : 545
+y : 95212 bs : 90
+y : 91994 bs : 9195
+y : 08452 bs : 2
+y : 92121 bs : 921
+y : 73688 bs : 736
+y : 49198 bs : 495
+y : 57511 bs : 571
+y : 86524 bs : 265
+y : 43235 bs : 476
+y : 68862 bs : 556
+y : 31058 bs : 316
+y : 92967 bs : 729
+y : 04871 bs : 048
+y : 74109 bs : 711
+y : 72009 bs : 720
+y : 17878 bs : 170
+y : 47204 bs : 677
+y : 60311 bs : 623
+y : 33967 bs : 233
+y : 41530 bs : 433
+y : 87396 bs : 676
+y : 93502 bs : 9350
+y : 74517 bs : 745
+y : 58088 bs : 598
+y : 15030 bs : 152
+y : 31403 bs : 3140
+y : 72718 bs : 724
+y : 07043 bs : 670
+y : 19877 bs : 107
+y : 14993 bs : 16993
+y : 21790 bs : 817
+y : 20337 bs : 2035
+y : 69233 bs : 47
+y : 77007 bs : 77048
+y : 52987 bs : 529
+y : 44266 bs : 492
+y : 19682 bs : 192
+y : 90831 bs : 960
+y : 16351 bs : 16351
+y : 11312 bs : 113
+y : 30201 bs : 3882
+y : 35574 bs : 350
+y : 89696 bs : 396
+y : 83668 bs : 8366
+y : 51424 bs : 310
+y : 45119 bs : 451
+y : 02495 bs : 024
+y : 71885 bs : 718
+y : 69871 bs : 09
+y : 16763 bs : 169
+y : 22089 bs : 213
+y : 25108 bs : 251
+y : 19579 bs : 1359
+y : 69061 bs : 675
+y : 55838 bs : 508
+y : 26507 bs : 265
+y : 46134 bs : 731
+y : 73234 bs : 754
+y : 25271 bs : 251
+y : 72641 bs : 726
+y : 57860 bs : 43
+y : 18257 bs : 132
+y : 76935 bs : 772
+y : 84240 bs : 37240
+y : 88349 bs : 82
+y : 27586 bs : 375
+y : 56086 bs : 360
+y : 73649 bs : 736
+y : 46632 bs : 4755
+y : 41014 bs : 4
+y : 62911 bs : 62
+y : 06395 bs : 013
+y : 65658 bs : 69657
+y : 46439 bs : 26
+y : 13419 bs : 13
+y : 17119 bs : 121
+y : 35407 bs : 354
+y : 36175 bs : 361
+y : 53301 bs : 5301
+y : 57586 bs : 376
+y : 51042 bs : 413
+y : 34679 bs : 34274
+y : 81849 bs : 3169
+y : 28627 bs : 386
+y : 00675 bs : 006
+y : 86093 bs : 860
+y : 71354 bs : 913
+y : 33556 bs : 3366
+y : 30234 bs : 304
+y : 23099 bs : 239
+y : 47284 bs : 592
+y : 70628 bs : 706
+y : 52857 bs : 528
+y : 30823 bs : 3168
+y : 28255 bs : 2825
+y : 76468 bs : 7648
+y : 48274 bs : 5827
+y : 52039 bs : 92
+y : 46725 bs : 967
+y : 61123 bs : 66
+y : 67876 bs : 57931
+y : 48948 bs : 228
+y : 63831 bs : 632
+y : 06225 bs : 045
+y : 69581 bs : 6973
+y : 41784 bs : 41784
+y : 61843 bs : 618
+y : 12808 bs : 428
+y : 59142 bs : 593
+y : 02709 bs : 1370
+y : 02576 bs : 7275
+y : 79426 bs : 794
+y : 24480 bs : 244
+y : 44580 bs : 74
+y : 68985 bs : 629
+y : 69048 bs : 590
+y : 71345 bs : 719
+y : 80913 bs : 9032
+y : 36987 bs : 369
+y : 10571 bs : 15
+y : 75279 bs : 753
+y : 18524 bs : 185
+y : 94722 bs : 947
+y : 34919 bs : 349
+y : 21794 bs : 217
+y : 41672 bs : 73
+y : 78819 bs : 78869
+y : 71175 bs : 741
+y : 33513 bs : 135
+y : 76138 bs : 768
+y : 75990 bs : 195
+y : 02882 bs : 627
+y : 37130 bs : 370
+y : 34438 bs : 3432
+y : 92397 bs : 9257
+y : 11704 bs : 1116
+y : 96591 bs : 96
+y : 70200 bs : 742
+y : 46707 bs : 467
+y : 14645 bs : 16
+y : 49917 bs : 29
+y : 95338 bs : 758
+y : 23622 bs : 6320
+y : 11111 bs : 01
+y : 69843 bs : 692
+y : 71645 bs : 713
+y : 04742 bs : 217
+y : 40701 bs : 40
+y : 98860 bs : 9763
+y : 04968 bs : 041
+y : 22384 bs : 763
+y : 82217 bs : 822
+y : 54404 bs : 544
+y : 39731 bs : 367
+y : 01259 bs : 014
+y : 21018 bs : 210
+y : 91683 bs : 911
+y : 89362 bs : 993
+y : 83221 bs : 830
+y : 04292 bs : 546
+y : 43791 bs : 439
+y : 52490 bs : 524
+y : 38536 bs : 385
+y : 09462 bs : 092
+y : 50274 bs : 5074
+y : 66866 bs : 6683
+y : 86917 bs : 865
+y : 25990 bs : 2592
+y : 72767 bs : 737
+y : 06524 bs : 064
+y : 72099 bs : 720
+y : 22944 bs : 229
+y : 23321 bs : 733
+y : 70764 bs : 704
+y : 13874 bs : 159
+y : 59251 bs : 592
+y : 87371 bs : 873
+y : 55091 bs : 33081
+y : 40633 bs : 403
+y : 60497 bs : 10497
+y : 51689 bs : 5409
+y : 55793 bs : 55743
+y : 83815 bs : 233
+y : 35055 bs : 390
+y : 38677 bs : 3867
+y : 73705 bs : 137
+y : 90255 bs : 902
+y : 31778 bs : 367
+y : 65938 bs : 658
+y : 95379 bs : 251
+y : 17003 bs : 170
+y : 72581 bs : 721
+y : 86295 bs : 862
+y : 75786 bs : 751
+y : 25148 bs : 25148
+y : 45830 bs : 457
+y : 62733 bs : 6233
+y : 21073 bs : 2143
+y : 40393 bs : 403
+y : 28903 bs : 78903
+y : 80765 bs : 307
+y : 47390 bs : 473
+y : 86256 bs : 862
+y : 10044 bs : 15
+y : 01232 bs : 012
+y : 77852 bs : 778
+y : 57691 bs : 5762
+y : 41642 bs : 416
+y : 43543 bs : 435
+y : 95015 bs : 986
+y : 38919 bs : 389
+y : 79552 bs : 502
+y : 74601 bs : 7460
+y : 11044 bs : 874
+y : 76300 bs : 76382
+y : 43061 bs : 930
+y : 96138 bs : 961
+y : 12562 bs : 13562
+y : 73601 bs : 736
+y : 97668 bs : 936
+y : 92958 bs : 723
+y : 31007 bs : 310
+y : 66216 bs : 5511
+y : 93186 bs : 936
+y : 90600 bs : 9608
+y : 06359 bs : 063
+y : 34558 bs : 7402
+y : 53040 bs : 530
+y : 29682 bs : 396
+y : 31211 bs : 312
+y : 56980 bs : 369
+y : 66553 bs : 6057
+y : 86214 bs : 8662
+y : 54378 bs : 5488
+y : 50935 bs : 2355
+y : 11044 bs : 3104
+y : 70170 bs : 701
+y : 16145 bs : 2605
+y : 66578 bs : 463
+y : 44725 bs : 445
+y : 37077 bs : 527
+y : 96428 bs : 96025
+y : 57839 bs : 374
+y : 58998 bs : 588
+y : 62892 bs : 5028
+y : 36118 bs : 361
+y : 93407 bs : 237
+y : 96414 bs : 929
+y : 13493 bs : 1349
+y : 14774 bs : 14736
+y : 72930 bs : 129
+y : 88840 bs : 802
+y : 44152 bs : 741
+y : 83495 bs : 736
+y : 28153 bs : 283
+y : 79425 bs : 795
+y : 63593 bs : 625
+y : 59319 bs : 192
+y : 53069 bs : 536
+y : 84049 bs : 34063
+y : 29010 bs : 29
+y : 31658 bs : 718
+y : 15330 bs : 15392
+y : 35592 bs : 351
+y : 87049 bs : 3704
+y : 19775 bs : 197
+y : 52091 bs : 320
+y : 86239 bs : 8699
+y : 62191 bs : 621
+y : 35503 bs : 365
+y : 83376 bs : 9316
+y : 60140 bs : 802
+y : 69812 bs : 698
+y : 99597 bs : 195
+y : 37801 bs : 374
+y : 30461 bs : 304
+y : 02584 bs : 125
+y : 41154 bs : 461
+y : 66069 bs : 163
+y : 26271 bs : 263
+y : 79400 bs : 594
+y : 38223 bs : 342
+y : 16057 bs : 160
+y : 79267 bs : 79651
+y : 97868 bs : 7766
+y : 84684 bs : 716
+y : 12813 bs : 123
+y : 94037 bs : 942
+y : 32337 bs : 329
+y : 34062 bs : 34062
+y : 08153 bs : 083
+y : 54171 bs : 541
+y : 57573 bs : 5762
+y : 22737 bs : 207
+y : 37854 bs : 376
+y : 52565 bs : 1265
+y : 36741 bs : 367
+y : 71523 bs : 719
+y : 63142 bs : 032
+y : 67438 bs : 6798
+y : 06216 bs : 08
+y : 53919 bs : 539
+y : 32184 bs : 331
+y : 46586 bs : 425
+y : 97786 bs : 4
+y : 97394 bs : 973
+y : 05464 bs : 054
+y : 12300 bs : 120
+y : 26657 bs : 256
+y : 08647 bs : 38
+y : 90734 bs : 90734
+y : 21885 bs : 248
+y : 92718 bs : 967
+y : 88276 bs : 3376
+y : 01271 bs : 042
+y : 08360 bs : 0836
+y : 53628 bs : 5362
+y : 70142 bs : 70142
+y : 11444 bs : 8694
+y : 47162 bs : 4762
+y : 99001 bs : 391
+y : 88434 bs : 28
+y : 20616 bs : 20
+y : 12221 bs : 923
+y : 23781 bs : 231
+y : 00216 bs : 512
+y : 60162 bs : 602
+y : 51748 bs : 518
+y : 21438 bs : 214
+y : 39948 bs : 792
+y : 34727 bs : 347
+y : 57043 bs : 573
+y : 32676 bs : 324
+y : 00677 bs : 806
+y : 05581 bs : 0339
+y : 07028 bs : 04628
+y : 15088 bs : 1588
+y : 03277 bs : 052
+y : 26475 bs : 26
+y : 55292 bs : 592
+y : 84686 bs : 346
+y : 50087 bs : 102
+y : 61711 bs : 627
+y : 27400 bs : 278
+y : 77638 bs : 7763
+y : 64209 bs : 542
+y : 40578 bs : 408
+y : 27471 bs : 374
+y : 13662 bs : 136
+y : 91948 bs : 312
+y : 36959 bs : 369
+y : 62467 bs : 625
+y : 70669 bs : 706
+y : 48353 bs : 473
+y : 49005 bs : 4975
+y : 25071 bs : 2507
+y : 11676 bs : 110
+y : 79664 bs : 3966
+y : 14311 bs : 745
+y : 22410 bs : 324
+y : 87634 bs : 826
+y : 00633 bs : 034
+y : 07171 bs : 677
+y : 13109 bs : 1309
+y : 97541 bs : 275
+y : 48953 bs : 7032
+y : 51982 bs : 519
+y : 33990 bs : 754
+y : 10293 bs : 102
+y : 93362 bs : 933
+y : 49837 bs : 49
+y : 40478 bs : 408
+y : 49899 bs : 49323
+y : 75928 bs : 769
+y : 22022 bs : 337
+y : 38468 bs : 330
+y : 68246 bs : 46
+y : 79339 bs : 7934
+y : 43144 bs : 431
+y : 70596 bs : 705
+y : 04444 bs : 524
+y : 61233 bs : 6132
+y : 64596 bs : 5426
+y : 85658 bs : 257
+y : 64186 bs : 641
+y : 52845 bs : 925
+y : 54770 bs : 547
+y : 78223 bs : 790
+y : 70180 bs : 7005
+y : 71987 bs : 314
+y : 55917 bs : 5917
+y : 54912 bs : 592
+y : 21667 bs : 3336
+y : 11407 bs : 848
+y : 42406 bs : 426
+y : 47695 bs : 476
+y : 34650 bs : 34670
+y : 18828 bs : 182
+y : 35780 bs : 350
+y : 85711 bs : 65
+y : 01378 bs : 013
+y : 50711 bs : 507
+y : 01145 bs : 01145
+y : 27623 bs : 2768
+y : 02859 bs : 021
+y : 69721 bs : 6972
+y : 36418 bs : 36415
+y : 24051 bs : 2415
+y : 02264 bs : 034
+y : 43961 bs : 233
+y : 65792 bs : 6592
+y : 02601 bs : 034
+y : 43528 bs : 4362
+y : 80889 bs : 133
+y : 09676 bs : 396
+y : 39347 bs : 3340
+y : 77490 bs : 314
+y : 64842 bs : 699
+y : 72810 bs : 912
+y : 07833 bs : 076
+y : 31376 bs : 310
+y : 13166 bs : 3316
+y : 57475 bs : 514
+y : 95849 bs : 259
+y : 91650 bs : 971
+y : 13703 bs : 63209
+y : 48220 bs : 48
+y : 25151 bs : 251
+y : 48891 bs : 6839
+y : 21351 bs : 21358
+y : 09448 bs : 094
+y : 32597 bs : 90592
+y : 66200 bs : 562
+y : 05871 bs : 048
+y : 52385 bs : 51385
+y : 18204 bs : 150
+y : 99623 bs : 741
+y : 35648 bs : 356
+y : 09283 bs : 053
+y : 67572 bs : 152
+y : 94912 bs : 9492
+y : 86070 bs : 80
+y : 91167 bs : 4195
+y : 59919 bs : 591
+y : 59250 bs : 592
+y : 41089 bs : 4159
+y : 08989 bs : 039
+y : 42579 bs : 425
+y : 89809 bs : 8706
+y : 96899 bs : 269
+y : 59851 bs : 598
+y : 03352 bs : 033
+y : 16502 bs : 16502
+y : 81562 bs : 8342
+y : 30226 bs : 301
+y : 43551 bs : 4353
+y : 72169 bs : 725
+y : 19955 bs : 038
+y : 16228 bs : 162
+y : 67146 bs : 6714
+y : 04033 bs : 04
+y : 22368 bs : 213
+y : 98538 bs : 908
+y : 54520 bs : 540
+y : 56328 bs : 504
+y : 39957 bs : 341
+y : 94671 bs : 846
+y : 37366 bs : 3736
+y : 09019 bs : 095
+y : 92880 bs : 970
+y : 16975 bs : 169
+y : 34749 bs : 347
+y : 94363 bs : 9963
+y : 11769 bs : 3169
+y : 18411 bs : 731
+y : 99436 bs : 5743
+y : 81604 bs : 816
+y : 13774 bs : 639
+y : 95100 bs : 9562
+y : 11621 bs : 1131
+y : 98403 bs : 9921
+y : 64907 bs : 649
+y : 16575 bs : 165
+y : 25185 bs : 2958
+y : 47067 bs : 470
+y : 02581 bs : 5211
+y : 04571 bs : 041
+y : 85190 bs : 1520
+y : 06073 bs : 063
+y : 18397 bs : 1897
+y : 00895 bs : 20845
+y : 98327 bs : 91
+y : 29721 bs : 295
+y : 13753 bs : 132
+y : 19822 bs : 198
+y : 28857 bs : 2857
+y : 38988 bs : 784
+y : 68239 bs : 659
+y : 75629 bs : 756
+y : 28816 bs : 288
+y : 88791 bs : 337
+y : 80172 bs : 802
+y : 07519 bs : 3724
+y : 02098 bs : 6205
+y : 62393 bs : 623
+y : 80211 bs : 751
+y : 11429 bs : 21429
+y : 72511 bs : 78211
+y : 21999 bs : 299
+y : 10202 bs : 7062
+y : 11464 bs : 1169
+y : 15497 bs : 1547
+y : 71562 bs : 745
+y : 22806 bs : 323
+y : 96197 bs : 463
+y : 71485 bs : 72
+y : 34349 bs : 363
+y : 75074 bs : 254
+y : 88153 bs : 885
+y : 95976 bs : 4590
+y : 90363 bs : 90363
+y : 98221 bs : 982
+y : 28685 bs : 389
+y : 53949 bs : 329
+y : 25151 bs : 251
+y : 44144 bs : 392
+y : 35912 bs : 359
+y : 23302 bs : 2
+y : 90099 bs : 10295
+y : 60932 bs : 6372
+y : 84199 bs : 5279
+y : 72799 bs : 124
+y : 59511 bs : 525
+y : 83519 bs : 873
+y : 53549 bs : 539
+y : 59319 bs : 59519
+y : 09754 bs : 097
+y : 92010 bs : 920
+y : 51493 bs : 61493
+y : 36152 bs : 362
+y : 52209 bs : 527
+y : 26601 bs : 26
+y : 20302 bs : 203
+y : 55795 bs : 557
+y : 50895 bs : 528
+y : 03259 bs : 032
+y : 08845 bs : 113
+y : 88454 bs : 258
+y : 85492 bs : 0592
+y : 21268 bs : 718
+y : 87036 bs : 870
+y : 64388 bs : 043
+y : 72200 bs : 430
+y : 93991 bs : 539
+y : 98664 bs : 786
+y : 26928 bs : 825
+y : 54579 bs : 545
+y : 99218 bs : 492
+y : 34078 bs : 3408
+y : 39346 bs : 3910
+y : 56239 bs : 561
+y : 26006 bs : 260
+y : 12879 bs : 1839
+y : 82047 bs : 524
+y : 75056 bs : 730
+y : 46743 bs : 467
+y : 07507 bs : 0757
+y : 42089 bs : 42
+y : 94246 bs : 91
+y : 78769 bs : 783
+y : 41373 bs : 453
+y : 08876 bs : 259
+y : 93922 bs : 139
+y : 92183 bs : 9275
+y : 29684 bs : 296
+y : 01284 bs : 012
+y : 52781 bs : 521
+y : 13035 bs : 13035
+y : 70319 bs : 703
+y : 36317 bs : 3620
+y : 73084 bs : 730
+y : 82652 bs : 834
+y : 97390 bs : 913
+y : 99642 bs : 3542
+y : 97211 bs : 973
+y : 67475 bs : 679
+y : 96821 bs : 983
+y : 44576 bs : 246
+y : 13259 bs : 139
+y : 93611 bs : 7361
+y : 46972 bs : 469
+y : 15146 bs : 1546
+y : 38110 bs : 38
+y : 31684 bs : 316
+y : 90730 bs : 907
+y : 29066 bs : 290
+y : 63677 bs : 63677
+y : 28608 bs : 386
+y : 30298 bs : 302
+y : 32538 bs : 1259
+y : 80019 bs : 20519
+y : 51396 bs : 51396
+y : 01417 bs : 014
+y : 12379 bs : 123
+y : 74993 bs : 2479
+y : 92827 bs : 527
+y : 18091 bs : 130
+y : 01779 bs : 063
+y : 69992 bs : 6592
+y : 16135 bs : 1635
+y : 71976 bs : 2196
+y : 45766 bs : 4376
+y : 99636 bs : 99236
+y : 29812 bs : 598
+y : 25523 bs : 259
+y : 72101 bs : 721
+y : 04528 bs : 248
+y : 28351 bs : 28351
+y : 78112 bs : 7782
+y : 97840 bs : 925
+y : 30788 bs : 768
+y : 47785 bs : 49785
+y : 84981 bs : 369
+y : 38031 bs : 484
+y : 79551 bs : 7456
+y : 65749 bs : 234
+y : 35471 bs : 304
+y : 20816 bs : 208
+y : 07347 bs : 2773
+y : 39608 bs : 3960
+y : 64877 bs : 6479
+y : 93869 bs : 938
+y : 72340 bs : 723
+y : 21835 bs : 21595
+y : 57246 bs : 572
+y : 72830 bs : 72830
+y : 87890 bs : 3736
+y : 84458 bs : 844
+y : 56630 bs : 564
+y : 93768 bs : 93
+y : 93495 bs : 485
+y : 89128 bs : 89028
+y : 86813 bs : 868
+y : 79011 bs : 7901
+y : 47081 bs : 970
+y : 74571 bs : 74
+y : 21139 bs : 214
+y : 62128 bs : 828
+y : 07669 bs : 522
+y : 37052 bs : 570
+y : 80543 bs : 20543
+y : 84662 bs : 32
+y : 79513 bs : 795
+y : 24361 bs : 291
+y : 94476 bs : 9012
+y : 54199 bs : 531
+y : 27801 bs : 275
+y : 36134 bs : 36
+y : 11156 bs : 1152
+y : 07072 bs : 07393
+y : 32522 bs : 5082
+y : 94981 bs : 943
+y : 21612 bs : 301
+y : 78000 bs : 74
+y : 82292 bs : 822
+y : 27992 bs : 2492
+y : 75134 bs : 734
+y : 94185 bs : 841
+y : 62831 bs : 62831
+y : 28499 bs : 251
+y : 37077 bs : 2709
+y : 23240 bs : 7340
+y : 39984 bs : 388
+y : 10609 bs : 1039
+y : 68611 bs : 651
+y : 98923 bs : 1823
+y : 55942 bs : 5542
+y : 19439 bs : 094
+y : 60406 bs : 6092
+y : 01234 bs : 012
+y : 78901 bs : 789
+y : 23478 bs : 234
+y : 90123 bs : 901
+y : 45678 bs : 456
+y : 98347 bs : 934
+y : 86340 bs : 762
+y : 97193 bs : 9715
+y : 84730 bs : 3470
+y : 91454 bs : 914
+y : 62062 bs : 590
+y : 11117 bs : 6877
+y : 24752 bs : 247
+y : 94584 bs : 745
+y : 29700 bs : 899
+y : 75117 bs : 7307
+y : 66682 bs : 306
+y : 27740 bs : 277
+y : 24218 bs : 2131
+y : 96105 bs : 961
+y : 96980 bs : 969
+y : 30839 bs : 7783
+y : 63012 bs : 632
+y : 34567 bs : 3456
+y : 01234 bs : 011
+y : 56789 bs : 5267
+y : 01234 bs : 612
+y : 56785 bs : 5678
+y : 48747 bs : 380
+y : 73988 bs : 739
+y : 31582 bs : 31582
+y : 74215 bs : 742
+y : 45586 bs : 155
+y : 44418 bs : 4313
+y : 75518 bs : 758
+y : 91363 bs : 713
+y : 32269 bs : 520
+y : 96553 bs : 7253
+y : 38165 bs : 31
+y : 68197 bs : 687
+y : 68374 bs : 683
+y : 70900 bs : 75
+y : 37930 bs : 379
+y : 20101 bs : 2505
+y : 04010 bs : 240
+y : 47962 bs : 479
+y : 62299 bs : 6299
+y : 01234 bs : 032
+y : 56789 bs : 5667
+y : 01234 bs : 012
+y : 56789 bs : 567
+y : 01234 bs : 011
+y : 56789 bs : 56789
+y : 80566 bs : 805
+y : 08023 bs : 0833
+y : 79471 bs : 796
+y : 91714 bs : 915
+y : 00417 bs : 0048
+y : 57133 bs : 571
+y : 31697 bs : 31697
+y : 43025 bs : 430
+y : 26089 bs : 230
+y : 43548 bs : 435
+y : 15906 bs : 159
+y : 43633 bs : 436
+y : 81475 bs : 814
+y : 72200 bs : 72
+y : 17795 bs : 195
+y : 98968 bs : 9061
+y : 82361 bs : 823
+y : 29895 bs : 275
+y : 26248 bs : 261
+y : 46501 bs : 4632
+y : 56789 bs : 567
+y : 01234 bs : 7134
+y : 56789 bs : 169
+y : 01234 bs : 012
+y : 56789 bs : 569
+y : 74209 bs : 7449
+y : 01588 bs : 0138
+y : 02784 bs : 034
+y : 46104 bs : 961
+y : 53942 bs : 539
+y : 05013 bs : 052
+y : 29160 bs : 290
+y : 11804 bs : 7104
+y : 77636 bs : 776
+y : 07354 bs : 073
+y : 24183 bs : 241
+y : 56706 bs : 56706
+y : 71258 bs : 712
+y : 19382 bs : 142
+y : 87671 bs : 371
+y : 46293 bs : 462
+y : 01234 bs : 0124
+y : 56701 bs : 561
+y : 23450 bs : 230
+y : 12891 bs : 128
+y : 40950 bs : 700
+y : 80771 bs : 807
+y : 12936 bs : 12636
+y : 72381 bs : 72361
+y : 29887 bs : 248
+y : 17110 bs : 1736
+y : 34264 bs : 344
+y : 74274 bs : 748
+y : 91068 bs : 91063
+y : 55535 bs : 282
+y : 97485 bs : 9748
+y : 96930 bs : 969
+y : 38918 bs : 369
+y : 16001 bs : 7605
+y : 23456 bs : 234
+y : 78901 bs : 769
+y : 23456 bs : 234
+y : 78901 bs : 761
+y : 23456 bs : 236
+y : 78935 bs : 7685
+y : 32932 bs : 329
+y : 14552 bs : 145
+y : 32139 bs : 8215
+y : 72128 bs : 721
+y : 91887 bs : 91887
+y : 81007 bs : 310
+y : 78750 bs : 780
+y : 61574 bs : 624
+y : 61250 bs : 613
+y : 79903 bs : 789
+y : 84481 bs : 80
+y : 86590 bs : 865
+y : 00371 bs : 0894
+y : 64266 bs : 5426
+y : 04541 bs : 045
+y : 38639 bs : 3896
+y : 95937 bs : 627
+y : 85647 bs : 857
+y : 62209 bs : 628
+y : 40123 bs : 401
+y : 45678 bs : 4
+y : 90123 bs : 901
+y : 56012 bs : 962
+y : 34568 bs : 3488
+y : 71328 bs : 1136
+y : 07599 bs : 075
+y : 60941 bs : 627
+y : 32123 bs : 321
+y : 83265 bs : 132
+y : 68274 bs : 6254
+y : 81805 bs : 8105
+y : 39419 bs : 39419
+y : 21967 bs : 219
+y : 90461 bs : 7016
+y : 73872 bs : 73
+y : 96583 bs : 7603
+y : 90571 bs : 903
+y : 61093 bs : 6119
+y : 34406 bs : 344
+y : 25423 bs : 204
+y : 46002 bs : 460
+y : 01456 bs : 017
+y : 78901 bs : 231
+y : 23456 bs : 354
+y : 78012 bs : 482
+y : 34567 bs : 395
+y : 89871 bs : 891
+y : 37528 bs : 375
+y : 07599 bs : 0739
+y : 09115 bs : 0915
+y : 88632 bs : 882
+y : 18326 bs : 1832
+y : 56741 bs : 561
+y : 05319 bs : 253
+y : 21960 bs : 210
+y : 46173 bs : 461
+y : 87296 bs : 57
+y : 58357 bs : 88
+y : 16109 bs : 369
+y : 62542 bs : 613
+y : 34460 bs : 39460
+y : 02012 bs : 022
+y : 34567 bs : 396
+y : 89012 bs : 392
+y : 34567 bs : 156
+y : 89012 bs : 39012
+y : 34567 bs : 922
+y : 89865 bs : 865
+y : 06894 bs : 768
+y : 19530 bs : 173
+y : 48914 bs : 524
+y : 05521 bs : 033
+y : 54076 bs : 3907
+y : 01706 bs : 214
+y : 89517 bs : 89317
+y : 98608 bs : 758
+y : 17713 bs : 677
+y : 23142 bs : 251
+y : 00784 bs : 05789
+y : 64938 bs : 69
+y : 47256 bs : 472
+y : 36963 bs : 36963
+y : 22469 bs : 525
+y : 02551 bs : 024
+y : 33978 bs : 236
+y : 72257 bs : 7225
+y : 98213 bs : 98510
+y : 13012 bs : 130
+y : 34567 bs : 348
+y : 89012 bs : 854
+y : 34567 bs : 341
+y : 89012 bs : 592
+y : 34567 bs : 345
+y : 89126 bs : 256
+y : 53070 bs : 55070
+y : 41436 bs : 7036
+y : 72312 bs : 9226
+y : 12960 bs : 120
+y : 13027 bs : 130
+y : 57629 bs : 076
+y : 19060 bs : 190
+y : 60206 bs : 602
+y : 15843 bs : 150
+y : 01544 bs : 015
+y : 85757 bs : 853
+y : 83488 bs : 3362
+y : 52971 bs : 5201
+y : 38107 bs : 38607
+y : 59694 bs : 30604
+y : 77993 bs : 777
+y : 44386 bs : 4438
+y : 20123 bs : 201
+y : 45678 bs : 4567
+y : 90123 bs : 9013
+y : 45678 bs : 456
+y : 90123 bs : 9012
+y : 45678 bs : 4586
+y : 90839 bs : 908
+y : 55268 bs : 55268
+y : 49171 bs : 491
+y : 23596 bs : 2
+y : 91112 bs : 911
+y : 95681 bs : 951
+y : 20775 bs : 209
+y : 82989 bs : 529
+y : 04671 bs : 34671
+y : 34560 bs : 345
+y : 36870 bs : 360
+y : 42747 bs : 437
+y : 54342 bs : 542
+y : 81512 bs : 312
+y : 02564 bs : 025
+y : 30003 bs : 303
+y : 35706 bs : 35706
+y : 48863 bs : 487
+y : 46998 bs : 463
+y : 27710 bs : 2
+y : 12345 bs : 123
+y : 67890 bs : 678
+y : 12345 bs : 123
+y : 67801 bs : 653
+y : 23456 bs : 736
+y : 78217 bs : 782
+y : 25080 bs : 250
+y : 27883 bs : 274
+y : 60276 bs : 603
+y : 61288 bs : 6128
+y : 77477 bs : 926
+y : 37454 bs : 374
+y : 33841 bs : 2341
+y : 19743 bs : 29
+y : 73302 bs : 7302
+y : 55663 bs : 5063
+y : 52599 bs : 5225
+y : 84106 bs : 341
+y : 09688 bs : 2968
+y : 56119 bs : 361
+y : 89235 bs : 895
+y : 59421 bs : 571
+y : 93920 bs : 930
+y : 60400 bs : 820
+y : 12347 bs : 123
+y : 89012 bs : 890
+y : 37890 bs : 378
+y : 12347 bs : 1244
+y : 89730 bs : 843
+y : 31876 bs : 318
+y : 40268 bs : 702
+y : 32812 bs : 52942
+y : 07104 bs : 271
+y : 45806 bs : 4580
+y : 23151 bs : 231
+y : 85940 bs : 85940
+y : 75883 bs : 758
+y : 89262 bs : 892
+y : 53173 bs : 53173
+y : 91996 bs : 2118
+y : 03928 bs : 039
+y : 14352 bs : 1432
+y : 92589 bs : 725
+y : 50124 bs : 50
+y : 56012 bs : 562
+y : 34567 bs : 345
+y : 12345 bs : 125
+y : 10456 bs : 10452
+y : 63442 bs : 6313
+y : 81064 bs : 5136
+y : 97233 bs : 6723
+y : 92093 bs : 92
+y : 39152 bs : 97152
+y : 37784 bs : 317
+y : 02402 bs : 320
+y : 47807 bs : 6707
+y : 06932 bs : 0662
+y : 86057 bs : 766
+y : 51081 bs : 520
+y : 67297 bs : 672
+y : 95862 bs : 95862
+y : 62817 bs : 62817
+y : 50113 bs : 50
+y : 84918 bs : 2457
+y : 68901 bs : 689
+y : 23456 bs : 23456
+y : 78901 bs : 756
+y : 23478 bs : 278
+y : 90178 bs : 306
+y : 99898 bs : 39
+y : 41773 bs : 6173
+y : 37666 bs : 3660
+y : 19017 bs : 192
+y : 63217 bs : 63717
+y : 13917 bs : 139
+y : 68414 bs : 637
+y : 36961 bs : 36961
+y : 44724 bs : 647
+y : 40123 bs : 4073
+y : 45678 bs : 4973
+y : 90123 bs : 901
+y : 45690 bs : 152
+y : 12347 bs : 12
+y : 81351 bs : 21351
+y : 77214 bs : 3744
+y : 83443 bs : 134
+y : 97412 bs : 5342
+y : 35916 bs : 342
+y : 01002 bs : 913
+y : 87114 bs : 3716
+y : 04736 bs : 0436
+y : 80374 bs : 103
+y : 06926 bs : 5166
+y : 58690 bs : 386
+y : 40619 bs : 306
+y : 20951 bs : 209
+y : 37693 bs : 37643
+y : 02201 bs : 072
+y : 23456 bs : 234
+y : 78901 bs : 789
+y : 23456 bs : 2360
+y : 78901 bs : 789
+y : 23456 bs : 234
+y : 78921 bs : 789
+y : 72508 bs : 728
+y : 02788 bs : 327
+y : 30602 bs : 302
+y : 76612 bs : 7412
+y : 88774 bs : 134
+y : 77374 bs : 073
+y : 54338 bs : 748
+y : 45411 bs : 4541
+y : 97437 bs : 872
+y : 33025 bs : 31225
+y : 56315 bs : 3695
+y : 25998 bs : 2589
+y : 41060 bs : 410
+y : 96885 bs : 968
+y : 61198 bs : 611
+y : 92355 bs : 123
+y : 94219 bs : 94219
+y : 49139 bs : 49137
+y : 20604 bs : 30604
+y : 06012 bs : 0612
+y : 34567 bs : 34567
+y : 89012 bs : 89011
+y : 34567 bs : 345
+y : 89012 bs : 5490
+y : 34567 bs : 34567
+y : 89380 bs : 790
+y : 71075 bs : 716
+y : 56901 bs : 569
+y : 00834 bs : 2234
+y : 31500 bs : 310
+y : 95349 bs : 7591
+y : 37692 bs : 376
+y : 45726 bs : 45726
+y : 49494 bs : 484
+y : 12258 bs : 7283
+y : 13294 bs : 1334
+y : 38221 bs : 38201
+y : 28651 bs : 281
+y : 67213 bs : 672
+y : 93875 bs : 938
+y : 70748 bs : 30
+y : 85066 bs : 350
+y : 37699 bs : 309
+y : 48410 bs : 430
+y : 66012 bs : 6663
+y : 34567 bs : 345
+y : 89012 bs : 59012
+y : 34567 bs : 3467
+y : 89012 bs : 890
+y : 34567 bs : 340
+y : 89740 bs : 847
+y : 40179 bs : 401
+y : 51428 bs : 5140
+y : 94378 bs : 945
+y : 24433 bs : 2443
+y : 69958 bs : 2
+y : 67068 bs : 670
+y : 26393 bs : 26395
+y : 28617 bs : 2961
+y : 48890 bs : 4892
+y : 33905 bs : 7342
+y : 29410 bs : 299
+y : 37587 bs : 375
+y : 78297 bs : 182
+y : 12642 bs : 126
+y : 52366 bs : 5336
+y : 50028 bs : 50128
+y : 16104 bs : 369
+y : 31619 bs : 3761
+y : 01456 bs : 01
+y : 78912 bs : 7891
+y : 34567 bs : 345
+y : 01234 bs : 01234
+y : 56789 bs : 567
+y : 84007 bs : 84607
+y : 24386 bs : 2438
+y : 63263 bs : 13763
+y : 30147 bs : 364
+y : 80319 bs : 800
+y : 01912 bs : 012
+y : 70138 bs : 703
+y : 29276 bs : 376
+y : 55998 bs : 549
+y : 29132 bs : 291
+y : 34319 bs : 343
+y : 09368 bs : 093
+y : 70105 bs : 700
+y : 82770 bs : 825
+y : 12345 bs : 123
+y : 67890 bs : 678
+y : 12345 bs : 12
+y : 67890 bs : 670
+y : 12345 bs : 123
+y : 67891 bs : 6739
+y : 74815 bs : 74015
+y : 65728 bs : 6508
+y : 63386 bs : 136
+y : 54091 bs : 540
+y : 72915 bs : 725
+y : 13223 bs : 13223
+y : 06437 bs : 06437
+y : 69048 bs : 6908
+y : 14061 bs : 3481
+y : 26922 bs : 219
+y : 35510 bs : 3510
+y : 77962 bs : 728
+y : 94702 bs : 9402
+y : 34008 bs : 3908
+y : 88513 bs : 085
+y : 74988 bs : 74
+y : 90989 bs : 609
+y : 02656 bs : 026
+y : 74754 bs : 74
+y : 13531 bs : 135
+y : 23456 bs : 231
+y : 12346 bs : 12
+y : 01245 bs : 014
+y : 67817 bs : 6791
+y : 24141 bs : 2201
+y : 49684 bs : 4996
+y : 53784 bs : 637
+y : 33567 bs : 33367
+y : 06168 bs : 061
+y : 70150 bs : 7630
+y : 85015 bs : 860
+y : 84239 bs : 842
+y : 76919 bs : 769
+y : 06712 bs : 062
+y : 39245 bs : 392
+y : 53753 bs : 528
+y : 18223 bs : 1820
+y : 02949 bs : 025
+y : 70274 bs : 2814
+y : 99259 bs : 999
+y : 83867 bs : 838
+y : 00123 bs : 00123
+y : 45678 bs : 436
+y : 90123 bs : 901
+y : 45678 bs : 4678
+y : 90123 bs : 701
+y : 45678 bs : 756
+y : 90072 bs : 92
+y : 65537 bs : 6037
+y : 86666 bs : 3165
+y : 43883 bs : 4383
+y : 01905 bs : 019
+y : 41912 bs : 511
+y : 70138 bs : 70133
+y : 29274 bs : 292
+y : 26559 bs : 2659
+y : 91157 bs : 71159
+y : 68294 bs : 65294
+y : 31909 bs : 3190
+y : 36870 bs : 360
+y : 10582 bs : 109
+y : 77012 bs : 7772
+y : 34567 bs : 346
+y : 89012 bs : 890
+y : 34589 bs : 345
+y : 01234 bs : 012
+y : 56789 bs : 867
+y : 21213 bs : 291
+y : 99853 bs : 99
+y : 70775 bs : 467
+y : 79947 bs : 788
+y : 03415 bs : 03415
+y : 81484 bs : 314
+y : 18664 bs : 185
+y : 60553 bs : 7093
+y : 35725 bs : 357
+y : 96926 bs : 969
+y : 21208 bs : 243
+y : 38308 bs : 248
+y : 74950 bs : 74050
+y : 97004 bs : 5200
+y : 60916 bs : 619
+y : 27683 bs : 271
+y : 52183 bs : 5219
+y : 86102 bs : 361
+y : 14012 bs : 14
+y : 34567 bs : 347
+y : 89012 bs : 390
+y : 34567 bs : 3476
+y : 89012 bs : 890
+y : 34567 bs : 34567
+y : 89764 bs : 897
+y : 76234 bs : 762
+y : 87869 bs : 379
+y : 83228 bs : 8326
+y : 48565 bs : 780
+y : 02011 bs : 020
+y : 29682 bs : 276
+y : 10652 bs : 106
+y : 97539 bs : 970
+y : 37183 bs : 276
+y : 81955 bs : 8159
+y : 01198 bs : 218
+y : 26045 bs : 360
+y : 03186 bs : 031
+y : 75993 bs : 7699
+y : 03144 bs : 0399
+y : 04901 bs : 045
+y : 23567 bs : 235
+y : 80123 bs : 804
+y : 56789 bs : 62
+y : 01235 bs : 043
+y : 67899 bs : 678
+y : 70901 bs : 901
+y : 58809 bs : 58307
+y : 32784 bs : 3978
+y : 61049 bs : 210
+y : 42050 bs : 140
+y : 16932 bs : 16952
+y : 91601 bs : 31633
+y : 18776 bs : 18876
+y : 36072 bs : 36078
+y : 41706 bs : 419
+y : 71258 bs : 712
+y : 18287 bs : 1023
+y : 68716 bs : 68
+y : 29301 bs : 993
+y : 23456 bs : 236
+y : 78901 bs : 789
+y : 23456 bs : 234
+y : 78901 bs : 794
+y : 23456 bs : 236
+y : 78989 bs : 286
+y : 57031 bs : 5768
+y : 68415 bs : 63
+y : 64278 bs : 642
+y : 13434 bs : 739
+y : 72050 bs : 320
+y : 19232 bs : 192
+y : 35578 bs : 318
+y : 49971 bs : 699
+y : 19078 bs : 192
+y : 34863 bs : 34862
+y : 80962 bs : 5002
+y : 10106 bs : 306
+y : 23890 bs : 239
+y : 72345 bs : 723
+y : 52854 bs : 524
+y : 66679 bs : 6679
+y : 18215 bs : 182
+y : 34794 bs : 647
+y : 00012 bs : 000983
+y : 34567 bs : 34967
+y : 89012 bs : 8901
+y : 34567 bs : 34
+y : 89012 bs : 590
+y : 34569 bs : 340
+y : 01315 bs : 074
+y : 12492 bs : 182
+y : 46801 bs : 763
+y : 19266 bs : 1926
+y : 87429 bs : 17425
+y : 70210 bs : 7020
+y : 36012 bs : 360
+y : 34567 bs : 345
+y : 89012 bs : 852
+y : 34567 bs : 34567
+y : 89012 bs : 590
+y : 34567 bs : 345
+y : 89865 bs : 148
+y : 97023 bs : 970
+y : 43851 bs : 438
+y : 52301 bs : 583
+y : 21326 bs : 713
+y : 53072 bs : 550
+y : 74640 bs : 746
+y : 59989 bs : 099
+y : 53174 bs : 531
+y : 76540 bs : 760
+y : 06620 bs : 086
+y : 63774 bs : 6374
+y : 43928 bs : 4398
+y : 96095 bs : 760
+y : 38871 bs : 359
+y : 40485 bs : 4055
+y : 23901 bs : 231
+y : 91517 bs : 916
+y : 48621 bs : 686
+y : 68801 bs : 688
+y : 23478 bs : 234
+y : 90123 bs : 901
+y : 46789 bs : 46859
+y : 01234 bs : 512
+y : 78914 bs : 389
+y : 53309 bs : 6384
+y : 54308 bs : 745
+y : 46707 bs : 467
+y : 71691 bs : 7501
+y : 36238 bs : 86733
+y : 23895 bs : 2589
+y : 88717 bs : 887
+y : 11034 bs : 1134
+y : 26474 bs : 216
+y : 27429 bs : 204
+y : 27921 bs : 271
+y : 06534 bs : 1694
+y : 85969 bs : 859
+y : 06308 bs : 729
+y : 16001 bs : 165
+y : 23456 bs : 7345
+y : 70123 bs : 704
+y : 47890 bs : 4789
+y : 12347 bs : 127
+y : 25164 bs : 251
+y : 39909 bs : 39
+y : 71643 bs : 745
+y : 62098 bs : 795
+y : 65700 bs : 6570
+y : 17432 bs : 17
+y : 41376 bs : 415
+y : 47779 bs : 579
+y : 84382 bs : 84562
+y : 83580 bs : 63580
+y : 54713 bs : 647
+y : 17962 bs : 0726
+y : 09173 bs : 091
+y : 39164 bs : 391
+y : 39821 bs : 39521
+y : 86415 bs : 866
+y : 56501 bs : 369
+y : 23456 bs : 239
+y : 78901 bs : 789
+y : 23456 bs : 234
+y : 78901 bs : 784
+y : 23456 bs : 231
+y : 78969 bs : 739
+y : 70234 bs : 702
+y : 38513 bs : 385
+y : 01213 bs : 083
+y : 20726 bs : 207
+y : 40599 bs : 403
+y : 89531 bs : 8903
+y : 74700 bs : 79050
+y : 66637 bs : 162
+y : 42898 bs : 42
+y : 71404 bs : 714
+y : 85239 bs : 859
+y : 01915 bs : 213
+y : 17612 bs : 176
+y : 16801 bs : 763
+y : 23456 bs : 734
+y : 78901 bs : 782
+y : 23456 bs : 296
+y : 78012 bs : 780
+y : 35678 bs : 356
+y : 10456 bs : 1065
+y : 63442 bs : 6343
+y : 81064 bs : 810
+y : 97292 bs : 9729
+y : 09339 bs : 0933
+y : 15231 bs : 1519
+y : 67378 bs : 673
+y : 40240 bs : 40
+y : 24780 bs : 285
+y : 70693 bs : 706
+y : 24860 bs : 240
+y : 57510 bs : 57510
+y : 81672 bs : 316
+y : 97956 bs : 936
+y : 52628 bs : 52
+y : 17557 bs : 2755
+y : 35011 bs : 3517
+y : 38494 bs : 384
+y : 51868 bs : 518
+y : 90123 bs : 90
+y : 45678 bs : 458
+y : 90123 bs : 90123
+y : 45678 bs : 45678
+y : 90123 bs : 901
+y : 45678 bs : 4527
+y : 93532 bs : 93532
+y : 93214 bs : 9321
+y : 55232 bs : 552
+y : 13972 bs : 139
+y : 12891 bs : 128
+y : 88781 bs : 888
+y : 00677 bs : 007
+y : 87506 bs : 875
+y : 15746 bs : 157
+y : 12507 bs : 125
+y : 99034 bs : 99036
+y : 48418 bs : 3842
+y : 65900 bs : 659
+y : 03716 bs : 037
+y : 46045 bs : 460
+y : 41386 bs : 416
+y : 39959 bs : 3896
+y : 37856 bs : 578
+y : 47622 bs : 47623
+y : 09401 bs : 094
+y : 23456 bs : 234
+y : 78901 bs : 7891
+y : 23456 bs : 236
+y : 78901 bs : 789
+y : 23456 bs : 234
+y : 78964 bs : 789
+y : 26475 bs : 267
+y : 54729 bs : 544
+y : 39382 bs : 392
+y : 09560 bs : 395
+y : 10653 bs : 1063
+y : 53800 bs : 538
+y : 34153 bs : 341
+y : 08306 bs : 083
+y : 27817 bs : 27
+y : 13854 bs : 138
+y : 20976 bs : 206
+y : 74162 bs : 340
+y : 67198 bs : 671
+y : 06949 bs : 269
+y : 96237 bs : 96
+y : 19225 bs : 192
+y : 37801 bs : 37804
+y : 23478 bs : 238
+y : 90123 bs : 90125
+y : 47890 bs : 478
+y : 17898 bs : 278
+y : 92613 bs : 92613
+y : 54826 bs : 546
+y : 43459 bs : 439
+y : 20394 bs : 203
+y : 97387 bs : 913
+y : 44985 bs : 1985
+y : 82662 bs : 3752
+y : 31327 bs : 315
+y : 31901 bs : 31901
+y : 13507 bs : 1307
+y : 81514 bs : 314
+y : 60049 bs : 609
+y : 16690 bs : 1695
+y : 76110 bs : 76
+y : 12347 bs : 72346
+y : 23456 bs : 234
+y : 70127 bs : 752
+y : 86397 bs : 8639
+y : 19396 bs : 199
+y : 17244 bs : 132
+y : 57001 bs : 531
+y : 66827 bs : 4633
+y : 72421 bs : 734
+y : 61069 bs : 510
+y : 83963 bs : 8339
+y : 01234 bs : 286
+y : 56789 bs : 301
+y : 01234 bs : 082
+y : 56789 bs : 569
+y : 01234 bs : 01234
+y : 56789 bs : 567
+y : 16899 bs : 169
+y : 01244 bs : 013
+y : 37444 bs : 3744
+y : 03875 bs : 03875
+y : 82175 bs : 82175
+y : 38525 bs : 3802
+y : 11621 bs : 186
+y : 38642 bs : 356
+y : 62550 bs : 670
+y : 28068 bs : 2504
+y : 17919 bs : 179
+y : 26766 bs : 3446
+y : 87492 bs : 57492
+y : 13305 bs : 1330
+y : 58037 bs : 3303
+y : 97027 bs : 537
+y : 91780 bs : 917
+y : 35360 bs : 353
+y : 12345 bs : 12345
+y : 67890 bs : 678
+y : 12345 bs : 123
+y : 67890 bs : 118
+y : 12347 bs : 125
+y : 89642 bs : 896
+y : 64789 bs : 647
+y : 29393 bs : 243
+y : 00104 bs : 8804
+y : 26353 bs : 269
+y : 03415 bs : 03415
+y : 30830 bs : 306
+y : 61780 bs : 617
+y : 92671 bs : 326
+y : 96949 bs : 762
+y : 96712 bs : 9612
+y : 53780 bs : 637
+y : 12456 bs : 12436
+y : 78901 bs : 75901
+y : 34567 bs : 3477
+y : 80134 bs : 501
+y : 78975 bs : 789
+y : 51997 bs : 3197
+y : 10059 bs : 100
+y : 71722 bs : 7122
+y : 36832 bs : 7672
+y : 00617 bs : 036
+y : 58629 bs : 236
+y : 48871 bs : 425
+y : 08775 bs : 251
+y : 85346 bs : 853
+y : 11550 bs : 41550
+y : 72364 bs : 723
+y : 12415 bs : 125
+y : 42048 bs : 42
+y : 61902 bs : 619
+y : 56936 bs : 517
+y : 36012 bs : 3612
+y : 34567 bs : 34067
+y : 89012 bs : 7961
+y : 34567 bs : 345
+y : 89012 bs : 890
+y : 35678 bs : 336
+y : 10957 bs : 1075
+y : 51869 bs : 31869
+y : 04193 bs : 043
+y : 84470 bs : 544
+y : 19287 bs : 192
+y : 82596 bs : 8246
+y : 06553 bs : 043
+y : 33981 bs : 339
+y : 10610 bs : 306
+y : 06211 bs : 0631
+y : 32778 bs : 3477
+y : 87846 bs : 878
+y : 02070 bs : 1457
+y : 36871 bs : 3671
+y : 59937 bs : 699
+y : 24943 bs : 20943
+y : 62253 bs : 6235
+y : 25594 bs : 2559
+y : 17201 bs : 1720
+y : 23456 bs : 394
+y : 78901 bs : 7811
+y : 23456 bs : 334
+y : 78901 bs : 781
+y : 23456 bs : 234
+y : 78910 bs : 789
+y : 12753 bs : 12953
+y : 44006 bs : 745
+y : 96657 bs : 366
+y : 23449 bs : 27
+y : 14079 bs : 6407
+y : 57231 bs : 572
+y : 44099 bs : 845
+y : 61833 bs : 61833
+y : 73988 bs : 336
+y : 47762 bs : 4762
+y : 19878 bs : 196
+y : 87223 bs : 870
+y : 93355 bs : 835
+y : 07956 bs : 074
+y : 51411 bs : 524
+y : 28261 bs : 751
+y : 50123 bs : 5012
+y : 45678 bs : 4558
+y : 90123 bs : 702
+y : 45678 bs : 4067
+y : 90123 bs : 9503
+y : 45678 bs : 438
+y : 80600 bs : 306
+y : 23794 bs : 257
+y : 71917 bs : 747
+y : 14001 bs : 540
+y : 75713 bs : 759
+y : 33169 bs : 331
+y : 71302 bs : 912
+y : 60894 bs : 608
+y : 35481 bs : 3548
+y : 59066 bs : 590
+y : 38147 bs : 381
+y : 52001 bs : 521
+y : 78968 bs : 7363
+y : 82361 bs : 923
+y : 29520 bs : 19
+y : 12345 bs : 1095
+y : 67890 bs : 670
+y : 12345 bs : 103
+y : 67890 bs : 67890
+y : 12345 bs : 123
+y : 67897 bs : 67
+y : 46140 bs : 450
+y : 99378 bs : 9517
+y : 47585 bs : 275
+y : 32205 bs : 546
+y : 86038 bs : 1938
+y : 10304 bs : 108
+y : 74929 bs : 749
+y : 57171 bs : 271
+y : 66562 bs : 660
+y : 87649 bs : 896
+y : 95374 bs : 953
+y : 30466 bs : 306
+y : 11321 bs : 51571
+y : 00123 bs : 001
+y : 47890 bs : 470
+y : 12345 bs : 173
+y : 67801 bs : 676
+y : 23478 bs : 2344
+y : 90839 bs : 904
+y : 55268 bs : 9598
+y : 41712 bs : 213
+y : 35691 bs : 35691
+y : 11212 bs : 107
+y : 07758 bs : 072
+y : 29867 bs : 256
+y : 34687 bs : 34
+y : 04277 bs : 0437
+y : 54342 bs : 842
+y : 81510 bs : 875
+y : 23357 bs : 297
+y : 06863 bs : 168
+y : 99827 bs : 1437
+y : 71017 bs : 3406
+y : 89012 bs : 8676
+y : 34567 bs : 345
+y : 80123 bs : 801
+y : 47897 bs : 67837
+y : 86419 bs : 864
+y : 38447 bs : 3647
+y : 01928 bs : 019
+y : 78260 bs : 786
+y : 65333 bs : 623
+y : 91406 bs : 932
+y : 10062 bs : 450
+y : 11778 bs : 2691
+y : 46070 bs : 460
+y : 36871 bs : 328
+y : 52494 bs : 524
+y : 36417 bs : 327
+y : 26501 bs : 363
+y : 23456 bs : 7356
+y : 78901 bs : 789
+y : 23456 bs : 234
+FP 5014
+TOTAL characters 20000
+String FP 1939
+TOTAL strings 2000
+Recognition ended successfully, Character Error Rate =  25.069999999999997 %
+                              , Character Recognition Rate =  74.93 %
+                              , String Error Rate    =  96.95 %
+                              , String Recognition Rate    =  3.049999999999997 %
+Nombre de paramètres du modèle: 6415564
+Job finished at Tue Dec 16 11:21:22 PM CET 2025
