@@ -85,6 +85,8 @@ pip install tqdm numpy
 echo "tqdm and numpy installed."
 pip install matplotlib >/dev/null
 echo "matplotlib installed."
+pip install editdistance
+echo "editdistance installed."
 PYTHON_BIN="$VENV_DIR/bin/python"
 
 echo "Job started at `date`"
