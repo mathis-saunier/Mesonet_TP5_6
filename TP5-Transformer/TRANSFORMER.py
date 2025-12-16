@@ -205,6 +205,127 @@ class CNN_Transformer(nn.Module):
         
         return mask
 
+        return mask
+
+###########################################################
+class PositionalEncoding2D(nn.Module):
+    def __init__(self, dim_model, dropout_p, max_len, n_y):
+        super().__init__()
+        self.dropout = nn.Dropout(dropout_p)
+        
+        d_model = dim_model
+        assert d_model % 2 == 0
+        d_model_half = d_model // 2
+        
+        # We assume max_len is the total sequence length limit
+        # max_x would be max_len // n_y
+        max_x = max_len // n_y + 1
+        
+        # X encoding
+        pe_x = torch.zeros(max_x, d_model_half)
+        pos_x = torch.arange(0, max_x, dtype=torch.float).unsqueeze(1)
+        div_term = torch.exp(torch.arange(0, d_model_half, 2).float() * (-math.log(10000.0) / d_model_half))
+        pe_x[:, 0::2] = torch.sin(pos_x * div_term)
+        pe_x[:, 1::2] = torch.cos(pos_x * div_term)
+        
+        # Y encoding
+        pe_y = torch.zeros(n_y, d_model_half)
+        pos_y = torch.arange(0, n_y, dtype=torch.float).unsqueeze(1)
+        pe_y[:, 0::2] = torch.sin(pos_y * div_term)
+        pe_y[:, 1::2] = torch.cos(pos_y * div_term)
+        
+        # Combine
+        # Sequence order: (x0,y0), (x0,y1)... (x0, yn), (x1,y0)...
+        # We want to repeat pe_x for each y, and repeat pe_y for each x
+        
+        # pe_x: (max_x, d/2) -> repeat each element n_y times
+        pe_x_expanded = pe_x.repeat_interleave(n_y, dim=0) # (max_x * n_y, d/2)
+        
+        # pe_y: (n_y, d/2) -> repeat whole sequence max_x times
+        pe_y_expanded = pe_y.repeat(max_x, 1) # (max_x * n_y, d/2)
+        
+        pe = torch.cat([pe_x_expanded, pe_y_expanded], dim=1) # (seq_len, d_model)
+        
+        pe = pe.unsqueeze(0) # (1, seq_len, d_model)
+        self.register_buffer('pos_encoding', pe)
+        
+    def forward(self, x):
+        # x: (batch, seq_len, d_model)
+        return self.dropout(x + self.pos_encoding[:, :x.size(1), :])
+
+###########################################################
+class VisionTransformer(nn.Module):
+    def __init__(self, config, device):
+        super(VisionTransformer, self).__init__()
+        self.input_features = config['input_features'] # This should be n*n
+        self.batch_size = config['batch_size']
+        self.num_epochs =config['num_epochs']
+        self.learning_rate =config['learning_rate']
+        self.num_classes =config['num_classes']
+        self.hidden_size =config['hidden_size']
+        self.num_heads =config['num_heads']
+        self.num_layers =config['num_layers']
+        self.dropout =config['dropout']
+        self.pad_idx =config['x_pad_idx']
+        self.max_length =config['max_length']
+        self.START_TOKEN =config['START_TOKEN']
+        self.END_TOKEN =config['END_TOKEN']
+        self.DEVICE = device
+        
+        self.n_y = config['n_y'] # Number of patches in Y direction
+
+        self.positional_encoding_layer = PositionalEncoding2D(dim_model = self.hidden_size, 
+                                                            dropout_p = self.dropout, 
+                                                            max_len = self.max_length,
+                                                            n_y = self.n_y)
+        
+        self.positional_encoding_layer_y = PositionalEncoding(dim_model = self.hidden_size,
+                                                              dropout_p = self.dropout,
+                                                              max_len = self.max_length)
+
+        self.x_embedding = nn.Linear(self.input_features, self.hidden_size)        
+        
+        self.y_embedding = nn.Embedding(config['num_classes'],config['hidden_size'])         
+        
+        self.transformer = nn.Transformer(d_model=config['hidden_size'], 
+                                                      nhead=config['num_heads'], 
+                                                      num_encoder_layers =config['num_layers'],
+                                                      num_decoder_layers =config['num_layers'],
+                                                      dim_feedforward = config['hidden_size'],
+                                                      dropout=config['dropout'],
+                                                      batch_first=True)
+        # Output layer for text prediction
+        self.output_layer = nn.Linear(config['hidden_size'], config['num_classes'])
+
+    def forward(self, x,y,y_output_mask,src_key_padding_mask,tgt_key_padding_mask):
+
+        # Embedding + positional encoding - Out size = (batch_size, sequence length, dim_model)
+
+        #x = self.x_embedding(x) * math.sqrt(self.hidden_size)
+        x = self.x_embedding(x)
+
+        x = self.positional_encoding_layer(x)
+        
+        y = self.y_embedding(y) * math.sqrt(self.hidden_size)
+        y = self.positional_encoding_layer_y(y)
+
+        # Transformer blocks - Out size = (sequence length, batch_size, num_tokens)
+        transformer_out = self.transformer(x, y,
+                                           tgt_mask = y_output_mask,
+                                           src_key_padding_mask=src_key_padding_mask,
+                                           tgt_key_padding_mask=tgt_key_padding_mask)
+        output = self.output_layer(transformer_out)
+        return output
+    
+    def get_tgt_mask(self, size):
+        # Generates a squeare matrix where the each row allows one word more to be seen
+        mask = torch.tril(torch.ones(size, size) == 1) # Lower triangular matrix
+        mask = mask.float()
+        mask = mask.masked_fill(mask == 0, float('-inf')) # Convert zeros to -inf
+        mask = mask.masked_fill(mask == 1, float(0.0)) # Convert ones to 0
+        
+        return mask
+
 #########################################################
 def train_loop(dataloader, model, loss_fn, optimizer):
     #print("Training loop...")

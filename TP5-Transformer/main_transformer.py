@@ -107,6 +107,29 @@ def SlidingWindow(x,w_width,stride):
       feature[t,:] = x[begin:end,:].reshape((w_width*D))
       begin += stride
   return torch.from_numpy(np.float32(feature/norm))
+
+###############################################################
+def SlidingWindow2D(x, patch_size, stride_x, stride_y):
+    # x: (Width, Height) = (T, D)
+    T, D = x.shape
+    # Number of patches in X
+    NX = (T - patch_size) // stride_x + 1
+    # Number of patches in Y
+    NY = (D - patch_size) // stride_y + 1
+    
+    patches = []
+    # Order: X then Y (column-wise scan of patches)
+    for i in range(NX):
+        for j in range(NY):
+            start_x = i * stride_x
+            start_y = j * stride_y
+            patch = x[start_x:start_x+patch_size, start_y:start_y+patch_size]
+            patches.append(patch.flatten())
+            
+    patches = np.stack(patches) # (SeqLen, patch_size*patch_size)
+    norm = 255.0 # Standard normalization for pixels
+    return torch.from_numpy(np.float32(patches/norm))
+
 ##############################################################################
 # extraction d'une fenetre glissante sur les images d'entrée
 def Apply_SlidingWindow(x,w_width,stride,SHOW=False):
@@ -121,6 +144,13 @@ def Apply_SlidingWindow(x,w_width,stride,SHOW=False):
             plt.show()
 
     return xx
+
+def Apply_SlidingWindow2D(x, patch_size, stride_x, stride_y, SHOW=False):
+    xx=[]
+    for n in range(len(x)):
+        xx = xx + [SlidingWindow2D(x[n], patch_size, stride_x, stride_y)]
+    # No visualization for 2D patches implemented yet
+    return xx
 #######################################
 if __name__ == '__main__':
 
@@ -128,6 +158,7 @@ if __name__ == '__main__':
     REPRISE = False
     SHOW = True
     USE_CNN = False # Set to True to use CNN_Transformer
+    USE_VIT = True # Set to True to use VisionTransformer (2D patches)
 
     device="cpu"
     if torch.backends.mps.is_available():
@@ -138,7 +169,12 @@ if __name__ == '__main__':
 
     # Create output directory
     now = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    prefix = "CNN-T" if USE_CNN else ""
+    prefix = ""
+    if USE_CNN:
+        prefix = "CNN-T"
+    elif USE_VIT:
+        prefix = "ViT"
+    
     if TRAINING:
         output_dir = f"train_{prefix}_{now}" if prefix else f"train_{now}"
     else:
@@ -179,7 +215,22 @@ if __name__ == '__main__':
         'max_length':140,
         'START_TOKEN':10,
         'END_TOKEN':11,
+        # ViT specific
+        'patch_size': 4,
+        'stride_x': 4,
+        'stride_y': 4,
     }
+    
+    if USE_VIT:
+        config['input_features'] = config['patch_size'] * config['patch_size']
+        # Calculate n_y (number of patches in Y direction)
+        # Image height is 28
+        config['n_y'] = (28 - config['patch_size']) // config['stride_y'] + 1
+        # Adjust max_length if needed, though 140 is usually enough for sequence length
+        # Sequence length will be roughly (Width/stride_x) * n_y
+        # If Width=140 (5 digits * 28), stride_x=4 -> 35 steps. n_y=7. Total seq len = 245.
+        # So we might need to increase max_length
+        config['max_length'] = 300 
 
     x_train,x_test,y_train,y_test = Load_MNISTSequences('MNIST_5digitsDifficile.pkl')
     N_train = len(y_train)
@@ -212,7 +263,11 @@ if __name__ == '__main__':
         # des réseaux récurrentsou des CNN qui exploitent le contexte
         # pour le TRAIN
         #print("Apply sliding window",w_width,stride,"...")
-        x_train = Apply_SlidingWindow(x_train,config['w_width'],config['w_stride'])
+        if USE_VIT:
+            x_train = Apply_SlidingWindow2D(x_train, config['patch_size'], config['stride_x'], config['stride_y'])
+        else:
+            x_train = Apply_SlidingWindow(x_train,config['w_width'],config['w_stride'])
+            
         train = x_train[:N_train_seq]
         gt_train = y_train[:N_train_seq]
         Train_seq_dataset = DigitSequenceDataset(train,gt_train)
@@ -244,12 +299,16 @@ if __name__ == '__main__':
         if not REPRISE:
             if USE_CNN:
                 my_transformer = TRANSFORMER.CNN_Transformer(config,device).to(device)
+            elif USE_VIT:
+                my_transformer = TRANSFORMER.VisionTransformer(config,device).to(device)
             else:
                 my_transformer = TRANSFORMER.Transformer(config,device).to(device)
         else:
             # reprise de l'apprentissage 
             if USE_CNN:
                 my_transformer = TRANSFORMER.CNN_Transformer(config,device)
+            elif USE_VIT:
+                my_transformer = TRANSFORMER.VisionTransformer(config,device)
             else:
                 my_transformer = TRANSFORMER.Transformer(config,device)
             my_transformer.load_state_dict(torch.load(model_name))
@@ -293,7 +352,11 @@ if __name__ == '__main__':
         print("Nombre de paramètres libres:",nb_train_param)
     else:
         ###########################################################################
-        x_test = Apply_SlidingWindow(x_test,config['w_width'], config['w_stride'])
+        if USE_VIT:
+            x_test = Apply_SlidingWindow2D(x_test, config['patch_size'], config['stride_x'], config['stride_y'])
+        else:
+            x_test = Apply_SlidingWindow(x_test,config['w_width'], config['w_stride'])
+            
         N_test_seq = len(x_test)
         Test_seq_dataset = DigitSequenceDataset(x_test,y_test)
         test_dataloader = torch.utils.data.DataLoader(Test_seq_dataset,
@@ -302,6 +365,8 @@ if __name__ == '__main__':
 
         if USE_CNN:
             my_transformer = TRANSFORMER.CNN_Transformer(config,device)
+        elif USE_VIT:
+            my_transformer = TRANSFORMER.VisionTransformer(config,device)
         else:
             my_transformer = TRANSFORMER.Transformer(config,device)
         my_transformer.load_state_dict(torch.load(model_name))
