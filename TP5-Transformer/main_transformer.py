@@ -154,7 +154,7 @@ def Apply_SlidingWindow2D(x, patch_size, stride_x, stride_y, SHOW=False):
 #######################################
 if __name__ == '__main__':
 
-    TRAINING = True  # Training if True Testing otherwise
+    TRAINING = False  # Training if True Testing otherwise
     REPRISE = False
     SHOW = True
     USE_CNN = False # Set to True to use CNN_Transformer
