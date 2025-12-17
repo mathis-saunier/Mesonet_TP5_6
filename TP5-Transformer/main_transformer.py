@@ -10,7 +10,6 @@ Original file is located at
 import numpy as np
 
 import sys
-import datetime
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 import pickle
@@ -22,11 +21,11 @@ import torch
 from torch import nn
 from torch.utils.data import Dataset, DataLoader
 
-# from google.colab import drive
-# !mkdir -p drive
-# drive.mount('/content/drive',force_remount=True)
-# #!cd /content/drive/MyDrive/ColabNotebooks
-# sys.path.append('/content/drive/MyDrive/ColabNotebooks')
+#from google.colab import drive
+#!mkdir -p drive
+#drive.mount('/content/drive',force_remount=True)
+#!cd /content/drive/MyDrive/ColabNotebooks
+#sys.path.append('/content/drive/MyDrive/ColabNotebooks')
 
 import TRANSFORMER
 
@@ -89,9 +88,14 @@ def pad_collate(batch):
   x_lens = torch.LongTensor(x_lens)
   y_lens = torch.LongTensor(y_lens)
   xx_pad = torch.nn.utils.rnn.pad_sequence(xx, batch_first=True, padding_value=-1)
-  yy_pad = torch.nn.utils.rnn.pad_sequence(yy, batch_first=True, padding_value=12) # on padera à 12 0-9 +START(10)+END(11)  12= Token de padding sur les sorties de la GT
+  yy_pad = torch.nn.utils.rnn.pad_sequence(yy, batch_first=True, padding_value=12) # on padera à 12 0-9 +START(10)+END(11)
 
+  #return xx_pad.transpose(1,2).flip(1), yy_pad, x_lens, y_lens
   return xx_pad, yy_pad, x_lens, y_lens
+
+  #return xx_pad.transpose(1,2).flip(1)[:,None,:,:], yy_pad, x_lens, y_lens
+
+
 
 ###############################################################
 def SlidingWindow(x,w_width,stride):
@@ -107,29 +111,6 @@ def SlidingWindow(x,w_width,stride):
       feature[t,:] = x[begin:end,:].reshape((w_width*D))
       begin += stride
   return torch.from_numpy(np.float32(feature/norm))
-
-###############################################################
-def SlidingWindow2D(x, patch_size, stride_x, stride_y):
-    # x: (Width, Height) = (T, D)
-    T, D = x.shape
-    # Number of patches in X
-    NX = (T - patch_size) // stride_x + 1
-    # Number of patches in Y
-    NY = (D - patch_size) // stride_y + 1
-    
-    patches = []
-    # Order: X then Y (column-wise scan of patches)
-    for i in range(NX):
-        for j in range(NY):
-            start_x = i * stride_x
-            start_y = j * stride_y
-            patch = x[start_x:start_x+patch_size, start_y:start_y+patch_size]
-            patches.append(patch.flatten())
-            
-    patches = np.stack(patches) # (SeqLen, patch_size*patch_size)
-    norm = 255.0 # Standard normalization for pixels
-    return torch.from_numpy(np.float32(patches/norm))
-
 ##############################################################################
 # extraction d'une fenetre glissante sur les images d'entrée
 def Apply_SlidingWindow(x,w_width,stride,SHOW=False):
@@ -145,289 +126,251 @@ def Apply_SlidingWindow(x,w_width,stride,SHOW=False):
 
     return xx
 
-def Apply_SlidingWindow2D(x, patch_size, stride_x, stride_y, SHOW=False):
-    xx=[]
-    for n in range(len(x)):
-        xx = xx + [SlidingWindow2D(x[n], patch_size, stride_x, stride_y)]
-    # No visualization for 2D patches implemented yet
-    return xx
-#######################################
-if __name__ == '__main__':
+TRAINING = True  # Training if True Testing otherwise
+SHOW = True
 
-    TRAINING = False  # Training if True Testing otherwise
-    REPRISE = False
-    SHOW = True
-    USE_CNN = False # Set to True to use CNN_Transformer
-    USE_VIT = True # Set to True to use VisionTransformer (2D patches)
+device="cpu"
+if torch.backends.mps.is_available():
+    device = torch.device("mps")
+elif torch.cuda.is_available():
+    device = torch.device("cuda")
+print("Device :",device)
+#w_width = 5
+#stride =5
+config = {
+    'w_width':5, #5,
+    'w_stride':5,#3, # 3, 5
+    'input_features':140, # 140 = 5 x 28   84 = 3 x 28
+    'batch_size':256,
+    'num_epochs':500,
+    'hidden_size':256,
+    'num_heads':2,
+    'num_layers':6,
+    'learning_rate':1e-4,
+    'dropout':0.4,
+    'num_classes':12, # START_TOKEN + END_TOKEN
+    'pad_idx':-1, # pour l'entrée
+    'max_length':140,
+    'START_TOKEN':10,
+    'END_TOKEN':11,
+}
 
-    device="cpu"
-    if torch.backends.mps.is_available():
-        device = torch.device("mps")
-    elif torch.cuda.is_available():
-        device = torch.device("cuda")
-    print("Device :",device)
+x_train,x_test,y_train,y_test = Load_MNISTSequences('MNIST_5digitsDifficile.pkl')
+N_train = len(y_train)
 
-    # Create output directory
-    now = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    prefix = ""
-    if USE_CNN:
-        prefix = "CNN-T"
-    elif USE_VIT:
-        prefix = "ViT"
-    
-    if TRAINING:
-        output_dir = f"train_{prefix}_{now}" if prefix else f"train_{now}"
+l_seq_digits = 5
+D = 28 # 28 X 28
+
+N_max = 60000 # digits
+N_max_seq = int(N_max / l_seq_digits) # 60000 / 5 digits
+
+N_train = 54000 # digits
+N_train_seq = int(N_train / l_seq_digits)
+END_TRAIN = N_train_seq # 90% 10 000 digits = 5 X 2000
+
+N_batch = int(N_train_seq / config['batch_size'])
+N_valid = 6000 #6000
+N_valid_seq = int(N_valid / l_seq_digits)
+START_VALID = N_max_seq - N_valid_seq  # 10% for validation 1000 digits = 5 X 200
+
+#dir_name = "/content/sample_data/"
+dir_name = ""
+
+model_name = dir_name+"CNNTransformer_"+str(config['input_features'])+"_"+str(config['hidden_size'])+"_"+str(config['num_heads'])+"_"+str(N_train)
+#model_name = "Transformer_"+str(config['hidden_size'])+"_"+str(config['num_heads'])+"_"+str(N_train)
+
+############## Train #######################
+
+# On crée les dataloarder de pytorch pour géréer les lots de séquences
+# car on ne peut plus mettre les séquences bout à bout puisqu'on entaine
+# des réseaux récurrentsou des CNN qui exploitent le contexte
+# pour le TRAIN
+#print("Apply sliding window",w_width,stride,"...")
+x_train = Apply_SlidingWindow(x_train,config['w_width'],config['w_stride']) #,SHOW=True)
+train = x_train[:N_train_seq]
+gt_train = y_train[:N_train_seq]
+Train_seq_dataset = DigitSequenceDataset(train,gt_train)
+train_dataloader = torch.utils.data.DataLoader(Train_seq_dataset,
+                                                batch_size = config['batch_size'],
+                                                shuffle=True,
+                                                collate_fn = pad_collate)
+
+############### pour la VALID #################
+valid = x_train[N_max_seq - N_valid_seq:]
+gt_valid = y_train[N_max_seq - N_valid_seq:]
+Valid_seq_dataset = DigitSequenceDataset(valid,gt_valid)
+valid_dataloader = torch.utils.data.DataLoader(Valid_seq_dataset,
+                                                batch_size = config['batch_size'],
+                                                collate_fn = pad_collate)
+
+###########################################################
+if SHOW:
+    for batch in (train_dataloader):
+        for i in range(5):
+            plt.imshow(batch[0][i,:,:].numpy(), cmap='gray')
+            plt.title(batch[1][i,:])
+            plt.show()
+
+        break
+############################################################
+# apprentissage from scratch
+my_transformer = TRANSFORMER.CNNTransformer(config,device).to(device)
+
+# reprise de l'apprentissage
+#my_transformer = TRANSFORMER.Transformer(config,device)
+#my_transformer.load_state_dict(torch.load(model_name))
+#my_transformer.to(device)
+
+loss_fn = torch.nn.CrossEntropyLoss(ignore_index=config['pad_idx'],reduction='mean')
+optimizer = torch.optim.Adam(my_transformer.parameters(),lr=config['learning_rate'])
+
+train_loss = []
+valid_loss = []
+for e in tqdm(range(config['num_epochs'])):
+    train_loss.append(TRANSFORMER.train_loop(train_dataloader,
+                                              my_transformer,
+                                              loss_fn,
+                                              optimizer))
+    if e == 0:
+        valid_loss.append(train_loss[0])
+    valid_loss.append(TRANSFORMER.valid_loop(valid_dataloader,
+                                              my_transformer,
+                                              loss_fn))
+
+    ###################################################################
+    plt.plot(valid_loss,color = 'red', label = "valid")
+    plt.plot(train_loss, color = 'blue', label = " train")
+    plt.title("Transformer: Cross Ent. loss over epochs")
+    plt.legend()
+    plt.show()
+    ###################################################################
+    if e == 0:
+        best_valid_loss = valid_loss[0]
     else:
-        output_dir = f"test_{prefix}_{now}" if prefix else f"test_{now}"
-    
-    os.makedirs(output_dir, exist_ok=True)
-    
-    # Redirect prints to file
-    class Logger(object):
-        def __init__(self, filename):
-            self.terminal = sys.stdout
-            self.log = open(filename, "a")
-            
-        def write(self, message):
-            self.terminal.write(message)
-            self.log.write(message)
-            
-        def flush(self):
-            self.terminal.flush()
-            self.log.flush()
-            
-    sys.stdout = Logger(os.path.join(output_dir, "output.log"))
+        if valid_loss[-1] < best_valid_loss:
+            best_valid_loss = valid_loss[-1]
+            # on mémorise ce modèle
+            best_iteration = e
+            torch.save(my_transformer.state_dict(), model_name)
 
-    config = {
-        'w_width':5, #5,
-        'w_stride':5,#3, # 3, 5
-        'input_features':140, # 140 = 5 x 28   84 = 3 x 28
-        'batch_size':256,
-        'num_epochs':500,
-        'hidden_size':256,
-        'num_heads':2,
-        'num_layers':6,
-        'learning_rate':1e-4,
-        'dropout':0.4,
-        'num_classes':12, # START_TOKEN + END_TOKEN
-        'x_pad_idx':-1, # pour padder les entrées
-        'y_pad_idx':12, # pour padder la GT = TOKEN DE PADDING 
-        'max_length':140,
-        'START_TOKEN':10,
-        'END_TOKEN':11,
-        # ViT specific
-        'patch_size': 4,
-        'stride_x': 4,
-        'stride_y': 4,
-    }
-    
-    if USE_VIT:
-        config['input_features'] = config['patch_size'] * config['patch_size']
-        # Calculate n_y (number of patches in Y direction)
-        # Image height is 28
-        config['n_y'] = (28 - config['patch_size']) // config['stride_y'] + 1
-        # Adjust max_length if needed, though 140 is usually enough for sequence length
-        # Sequence length will be roughly (Width/stride_x) * n_y
-        # If Width=140 (5 digits * 28), stride_x=4 -> 35 steps. n_y=7. Total seq len = 245.
-        # So we might need to increase max_length
-        config['max_length'] = 300 
+print('Embedded Training Ended successfully')
+nb_train_param = count_parameters(my_transformer)
+print("Nombre de paramètres libres:",nb_train_param)
 
-    x_train,x_test,y_train,y_test = Load_MNISTSequences('MNIST_5digitsDifficile.pkl')
-    N_train = len(y_train)
+SHOW = False
 
-    l_seq_digits = 5
-    D = 28 # 28 X 28
+device="cpu"
+if torch.backends.mps.is_available():
+    device = torch.device("mps")
+elif torch.cuda.is_available():
+    device = torch.device("cuda")
+print("Device :",device)
+#w_width = 5
+#stride =5
+config = {
+    'w_width':5, #5,
+    'w_stride':5,#3, # 3, 5
+    'input_features':140, # 140 = 5 x 28   84 = 3 x 28
+    'batch_size':256,
+    'num_epochs':500,
+    'hidden_size':256,
+    'num_heads':2,
+    'num_layers':6,
+    'learning_rate':1e-4,
+    'dropout':0.4,
+    'num_classes':12, # START_TOKEN + END_TOKEN
+    'pad_idx':-1, # pour l'entrée
+    'max_length':140,
+    'START_TOKEN':10,
+    'END_TOKEN':11,
+}
 
-    N_max = 60000 # digits
-    N_max_seq = int(N_max / l_seq_digits) # 60000 / 5 digits
+x_train,x_test,y_train,y_test = Load_MNISTSequences('MNIST_5digitsDifficile.pkl')
+N_train = len(y_train)
 
-    N_train = 54000 # digits 54000
-    N_train_seq = int(N_train / l_seq_digits)
-    END_TRAIN = N_train_seq # 90% 10 000 digits = 5 X 2000
+l_seq_digits = 5
+D = 28 # 28 X 28
 
-    N_batch = int(N_train_seq / config['batch_size'])
-    N_valid = 6000 #6000
-    N_valid_seq = int(N_valid / l_seq_digits)
-    START_VALID = N_max_seq - N_valid_seq  # 10% for validation 1000 digits = 5 X 200
+N_max = 60000 # digits
+N_max_seq = int(N_max / l_seq_digits) # 60000 / 5 digits
 
-    #dir_name = "/content/sample_data/"
-    dir_name = ""
-    if TRAINING:
-        dir_name = output_dir + "/"
-    
-    model_name = dir_name+"Transformer_"+str(config['input_features'])+"_"+str(config['hidden_size'])+"_"+str(config['num_heads'])+"_"+str(N_train)
+N_train = 10000 # digits 54000
+N_train_seq = int(N_train / l_seq_digits)
+END_TRAIN = N_train_seq # 90% 10 000 digits = 5 X 2000
 
-    if TRAINING:
-        # On crée les dataloarder de pytorch pour géréer les lots de séquences
-        # car on ne peut plus mettre les séquences bout à bout puisqu'on entaine
-        # des réseaux récurrentsou des CNN qui exploitent le contexte
-        # pour le TRAIN
-        #print("Apply sliding window",w_width,stride,"...")
-        if USE_VIT:
-            x_train = Apply_SlidingWindow2D(x_train, config['patch_size'], config['stride_x'], config['stride_y'])
-        else:
-            x_train = Apply_SlidingWindow(x_train,config['w_width'],config['w_stride'])
-            
-        train = x_train[:N_train_seq]
-        gt_train = y_train[:N_train_seq]
-        Train_seq_dataset = DigitSequenceDataset(train,gt_train)
-        train_dataloader = torch.utils.data.DataLoader(Train_seq_dataset,
-                                                        batch_size = config['batch_size'],
-                                                        shuffle=True,
-                                                        collate_fn = pad_collate)
+N_batch = int(N_train_seq / config['batch_size'])
+N_valid = 1000 #6000
+N_valid_seq = int(N_valid / l_seq_digits)
+START_VALID = N_max_seq - N_valid_seq  # 10% for validation 1000 digits = 5 X 200
 
-        ############### pour la VALID #################
-        valid = x_train[N_max_seq - N_valid_seq:]
-        gt_valid = y_train[N_max_seq - N_valid_seq:]
-        Valid_seq_dataset = DigitSequenceDataset(valid,gt_valid)
-        valid_dataloader = torch.utils.data.DataLoader(Valid_seq_dataset,
-                                                       batch_size = config['batch_size'],
-                                                       collate_fn = pad_collate)
+#dir_name = "/content/sample_data/"
+dir_name = ""
 
-        ###########################################################
-        if SHOW:
-            for batch in (train_dataloader):
-                for i in range(5):
-                    plt.imshow(batch[0][i,:,:].numpy(), cmap='gray')
-                    plt.title(batch[1][i,:])
-                    plt.savefig(os.path.join(output_dir, f"batch_sample_{i}.png"))
-                    plt.close()
+model_name = dir_name+"Transformer_"+str(config['input_features'])+"_"+str(config['hidden_size'])+"_"+str(config['num_heads'])+"_"+str(N_train)
+#model_name = "Transformer_"+str(config['hidden_size'])+"_"+str(config['num_heads'])+"_"+str(N_train)
 
+############################### TEST #######################################
+x_test = Apply_SlidingWindow(x_test,config['w_width'], config['w_stride'],SHOW=False)
+N_test_seq = len(x_test)
+Test_seq_dataset = DigitSequenceDataset(x_test,y_test)
+test_dataloader = torch.utils.data.DataLoader(Test_seq_dataset,
+                                                batch_size = 1,
+                                              collate_fn = pad_collate)
+
+my_transformer = TRANSFORMER.Transformer(config,device)
+my_transformer.load_state_dict(torch.load(model_name))
+my_transformer.to(device)
+TOTAL = 0
+FP =0
+# loop testing every test sample and computing the Character Rrror Rate (CER)
+print("Recognition in progress...")
+
+with torch.no_grad():
+
+    for batch ,(X, y,X_l,y_l) in tqdm(enumerate(test_dataloader)):
+        X = X.to(my_transformer.DEVICE)
+
+        ###### formate la gt en string ##########################
+        y = y[0].numpy()[1:-1]
+        y = ''.join([str(y[i]) for i in range(y.shape[0])])
+
+        src_padding_mask = (X[:,:,0] == config['pad_idx']).to(my_transformer.DEVICE)
+
+        y_input = torch.tensor([[config['START_TOKEN']]], dtype=torch.long).to(my_transformer.DEVICE)
+
+        # iterative decoding stage symbol by symbol
+        # on each test example : batch size is 1
+        # stop at max_length
+        for _ in range(config['max_length']):
+
+            pred = my_transformer(X.float(),y_input,
+                                  y_output_mask = None,
+                                  src_key_padding_mask=src_padding_mask,
+                                  tgt_key_padding_mask = None)
+            next_output = pred.topk(1)[1].view(-1)[-1].item() # num with highest probability
+            next_output = torch.tensor([[next_output]]).to(my_transformer.DEVICE)
+
+            # Concatenate previous input with predicted best word
+            y_input = torch.cat((y_input, next_output), dim=1)
+
+            if next_output[0,0] == config['END_TOKEN'] :
                 break
-        ############################################################
-        # apprentissage from scratch
-        if not REPRISE:
-            if USE_CNN:
-                my_transformer = TRANSFORMER.CNN_Transformer(config,device).to(device)
-            elif USE_VIT:
-                my_transformer = TRANSFORMER.VisionTransformer(config,device).to(device)
-            else:
-                my_transformer = TRANSFORMER.Transformer(config,device).to(device)
-        else:
-            # reprise de l'apprentissage 
-            if USE_CNN:
-                my_transformer = TRANSFORMER.CNN_Transformer(config,device)
-            elif USE_VIT:
-                my_transformer = TRANSFORMER.VisionTransformer(config,device)
-            else:
-                my_transformer = TRANSFORMER.Transformer(config,device)
-            my_transformer.load_state_dict(torch.load(model_name))
-            my_transformer.to(device)
-        
-        loss_fn = torch.nn.CrossEntropyLoss(ignore_index=config['y_pad_idx'],reduction='mean')
-        optimizer = torch.optim.Adam(my_transformer.parameters(),lr=config['learning_rate'])
 
-        train_loss = []
-        valid_loss = []
-        for e in tqdm(range(config['num_epochs'])):
-            train_loss.append(TRANSFORMER.train_loop(train_dataloader,
-                                                     my_transformer,
-                                                     loss_fn,
-                                                     optimizer))
-            if e == 0:
-                valid_loss.append(train_loss[0])
-            valid_loss.append(TRANSFORMER.valid_loop(valid_dataloader,
-                                                     my_transformer,
-                                                     loss_fn))
+        best_sequence =y_input.to('cpu')[0].numpy()[1:-1]
 
-            ###################################################################
-            plt.plot(valid_loss,color = 'red', label = "valid")
-            plt.plot(train_loss, color = 'blue', label = " train")
-            plt.title("Transformer: Cross Ent. loss over epochs")
-            plt.legend()
-            plt.savefig(os.path.join(output_dir, "loss_plot.png"))
-            plt.close()
-            ###################################################################
-            if e == 0:
-                best_valid_loss = valid_loss[0]
-            else:
-                if valid_loss[-1] < best_valid_loss:
-                    best_valid_loss = valid_loss[-1]
-                    # on mémorise ce modèle
-                    best_iteration = e
-                    torch.save(my_transformer.state_dict(), model_name)
+        bs = ''.join([str(best_sequence[i]) for i in range(best_sequence.shape[0])])
 
-        print('Embedded Training Ended successfully')
-        nb_train_param = count_parameters(my_transformer)
-        print("Nombre de paramètres libres:",nb_train_param)
-    else:
-        ###########################################################################
-        if USE_VIT:
-            x_test = Apply_SlidingWindow2D(x_test, config['patch_size'], config['stride_x'], config['stride_y'])
-        else:
-            x_test = Apply_SlidingWindow(x_test,config['w_width'], config['w_stride'])
-            
-        N_test_seq = len(x_test)
-        Test_seq_dataset = DigitSequenceDataset(x_test,y_test)
-        test_dataloader = torch.utils.data.DataLoader(Test_seq_dataset,
-                                                      batch_size = 1,
-                                                      collate_fn = pad_collate)
+        if SHOW:
+            if batch % 100 == 0:
+                plt.imshow(X[0,:,:].cpu().numpy(), cmap='gray')
+                #plt.title('gt: '+y[0]+' bs: '+bs)
+                plt.show()
 
-        if USE_CNN:
-            my_transformer = TRANSFORMER.CNN_Transformer(config,device)
-        elif USE_VIT:
-            my_transformer = TRANSFORMER.VisionTransformer(config,device)
-        else:
-            my_transformer = TRANSFORMER.Transformer(config,device)
-        my_transformer.load_state_dict(torch.load(model_name))
-        my_transformer.to(device)
-        
-        TOTAL = 0
-        FP =0
-        String_FP = 0
-        
-        # loop testing every test sample and computing the Character Rrror Rate (CER)
-        print("Recognition in progress...")
-        with torch.no_grad():
+        #FP += editdistance.eval(y[0],bs)
+        FP += editdistance.eval(y,bs)
 
-            for batch ,(X, y,X_l,y_l) in tqdm(enumerate(test_dataloader)):
-                X = X.to(my_transformer.DEVICE)
-                
-                ###### formate la gt en string ##########################
-                y = y[0].numpy()[1:-1]
-                y = ''.join([str(y[i]) for i in range(y.shape[0])])
-                src_padding_mask = (X[:,:,0] == config['x_pad_idx']).to(
-                    my_transformer.DEVICE)
-                
-                y_input = torch.tensor([[config['START_TOKEN']]], dtype=torch.long).to(
-                    my_transformer.DEVICE)
+        TOTAL += len(y)
 
-                # iterative decoding stage symbol by symbol
-                # on each test example : batch size is 1
-                # stop at max_length
-                for _ in range(config['max_length']):
-                    pred = my_transformer(X.float(),y_input,
-                                          y_output_mask = None,
-                                          src_key_padding_mask=src_padding_mask,
-                                          tgt_key_padding_mask = None)
-                    next_output = pred.topk(1)[1].view(-1)[-1].item() # num with highest probability
-                    next_output = torch.tensor([[next_output]]).to(
-                        my_transformer.DEVICE)
-
-                    # Concatenate previous input with predicted best word
-                    y_input = torch.cat((y_input, next_output), dim=1)
-
-                    if next_output[0,0] == config['END_TOKEN'] :
-                        break
-                
-                best_sequence = y_input.to('cpu')[0].numpy()[1:-1]
-                bs = ''.join([str(best_sequence[i]) for i in range(best_sequence.shape[0])])
-
-                Edit_dist = editdistance.eval(y,bs)
-                if SHOW:
-                    print("y :",y,"bs :",bs)
-                FP += Edit_dist
-                TOTAL += len(y)
-                if Edit_dist !=0:
-                    String_FP +=1
-                TOTAL += len(y)
-
-        print("FP",FP)
-        print("TOTAL characters",TOTAL)
-        print("String FP",String_FP)
-        print("TOTAL strings",N_test_seq)
-        print('Recognition ended successfully, Character Error Rate = ',FP/TOTAL*100,'%')
-        print('                              , Character Recognition Rate = ',(1-FP/TOTAL)*100,'%')
-        print('                              , String Error Rate    = ',String_FP/N_test_seq*100,'%')
-        print('                              , String Recognition Rate    = ',(1-String_FP/N_test_seq)*100,'%')
-        print("Nombre de paramètres du modèle:",count_parameters(my_transformer))
+print("FP",FP)
+print("TOTAL",TOTAL)
+print('Recognition ended successfully, Character Error Rate = ',FP/TOTAL/5)
