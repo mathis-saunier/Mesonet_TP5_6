@@ -126,136 +126,137 @@ def Apply_SlidingWindow(x,w_width,stride,SHOW=False):
 
     return xx
 
-TRAINING = True  # Training if True Testing otherwise
+TRAINING = False  # Training if True Testing otherwise
 SHOW = True
 
-device="cpu"
-if torch.backends.mps.is_available():
-    device = torch.device("mps")
-elif torch.cuda.is_available():
-    device = torch.device("cuda")
-print("Device :",device)
-#w_width = 5
-#stride =5
-config = {
-    'w_width':5, #5,
-    'w_stride':5,#3, # 3, 5
-    'input_features':140, # 140 = 5 x 28   84 = 3 x 28
-    'batch_size':256,
-    'num_epochs':500,
-    'hidden_size':256,
-    'num_heads':2,
-    'num_layers':6,
-    'learning_rate':1e-4,
-    'dropout':0.4,
-    'num_classes':12, # START_TOKEN + END_TOKEN
-    'pad_idx':-1, # pour l'entrée
-    'max_length':140,
-    'START_TOKEN':10,
-    'END_TOKEN':11,
-}
+if TRAINING:
+    device="cpu"
+    if torch.backends.mps.is_available():
+        device = torch.device("mps")
+    elif torch.cuda.is_available():
+        device = torch.device("cuda")
+    print("Device :",device)
+    #w_width = 5
+    #stride =5
+    config = {
+        'w_width':5, #5,
+        'w_stride':5,#3, # 3, 5
+        'input_features':140, # 140 = 5 x 28   84 = 3 x 28
+        'batch_size':256,
+        'num_epochs':500,
+        'hidden_size':256,
+        'num_heads':2,
+        'num_layers':6,
+        'learning_rate':1e-4,
+        'dropout':0.4,
+        'num_classes':12, # START_TOKEN + END_TOKEN
+        'pad_idx':-1, # pour l'entrée
+        'max_length':140,
+        'START_TOKEN':10,
+        'END_TOKEN':11,
+    }
 
-x_train,x_test,y_train,y_test = Load_MNISTSequences('MNIST_5digitsDifficile.pkl')
-N_train = len(y_train)
+    x_train,x_test,y_train,y_test = Load_MNISTSequences('MNIST_5digitsDifficile.pkl')
+    N_train = len(y_train)
 
-l_seq_digits = 5
-D = 28 # 28 X 28
+    l_seq_digits = 5
+    D = 28 # 28 X 28
 
-N_max = 60000 # digits
-N_max_seq = int(N_max / l_seq_digits) # 60000 / 5 digits
+    N_max = 60000 # digits
+    N_max_seq = int(N_max / l_seq_digits) # 60000 / 5 digits
 
-N_train = 54000 # digits
-N_train_seq = int(N_train / l_seq_digits)
-END_TRAIN = N_train_seq # 90% 10 000 digits = 5 X 2000
+    N_train = 54000 # digits
+    N_train_seq = int(N_train / l_seq_digits)
+    END_TRAIN = N_train_seq # 90% 10 000 digits = 5 X 2000
 
-N_batch = int(N_train_seq / config['batch_size'])
-N_valid = 6000 #6000
-N_valid_seq = int(N_valid / l_seq_digits)
-START_VALID = N_max_seq - N_valid_seq  # 10% for validation 1000 digits = 5 X 200
+    N_batch = int(N_train_seq / config['batch_size'])
+    N_valid = 6000 #6000
+    N_valid_seq = int(N_valid / l_seq_digits)
+    START_VALID = N_max_seq - N_valid_seq  # 10% for validation 1000 digits = 5 X 200
 
-#dir_name = "/content/sample_data/"
-dir_name = ""
+    #dir_name = "/content/sample_data/"
+    dir_name = ""
 
-model_name = dir_name+"CNNTransformer_"+str(config['input_features'])+"_"+str(config['hidden_size'])+"_"+str(config['num_heads'])+"_"+str(N_train)
-#model_name = "Transformer_"+str(config['hidden_size'])+"_"+str(config['num_heads'])+"_"+str(N_train)
+    model_name = dir_name+"CNNTransformer_"+str(config['input_features'])+"_"+str(config['hidden_size'])+"_"+str(config['num_heads'])+"_"+str(N_train)
+    #model_name = "Transformer_"+str(config['hidden_size'])+"_"+str(config['num_heads'])+"_"+str(N_train)
 
-############## Train #######################
+    ############## Train #######################
 
-# On crée les dataloarder de pytorch pour géréer les lots de séquences
-# car on ne peut plus mettre les séquences bout à bout puisqu'on entaine
-# des réseaux récurrentsou des CNN qui exploitent le contexte
-# pour le TRAIN
-#print("Apply sliding window",w_width,stride,"...")
-x_train = Apply_SlidingWindow(x_train,config['w_width'],config['w_stride']) #,SHOW=True)
-train = x_train[:N_train_seq]
-gt_train = y_train[:N_train_seq]
-Train_seq_dataset = DigitSequenceDataset(train,gt_train)
-train_dataloader = torch.utils.data.DataLoader(Train_seq_dataset,
-                                                batch_size = config['batch_size'],
-                                                shuffle=True,
-                                                collate_fn = pad_collate)
+    # On crée les dataloarder de pytorch pour géréer les lots de séquences
+    # car on ne peut plus mettre les séquences bout à bout puisqu'on entaine
+    # des réseaux récurrentsou des CNN qui exploitent le contexte
+    # pour le TRAIN
+    #print("Apply sliding window",w_width,stride,"...")
+    x_train = Apply_SlidingWindow(x_train,config['w_width'],config['w_stride']) #,SHOW=True)
+    train = x_train[:N_train_seq]
+    gt_train = y_train[:N_train_seq]
+    Train_seq_dataset = DigitSequenceDataset(train,gt_train)
+    train_dataloader = torch.utils.data.DataLoader(Train_seq_dataset,
+                                                    batch_size = config['batch_size'],
+                                                    shuffle=True,
+                                                    collate_fn = pad_collate)
 
-############### pour la VALID #################
-valid = x_train[N_max_seq - N_valid_seq:]
-gt_valid = y_train[N_max_seq - N_valid_seq:]
-Valid_seq_dataset = DigitSequenceDataset(valid,gt_valid)
-valid_dataloader = torch.utils.data.DataLoader(Valid_seq_dataset,
-                                                batch_size = config['batch_size'],
-                                                collate_fn = pad_collate)
+    ############### pour la VALID #################
+    valid = x_train[N_max_seq - N_valid_seq:]
+    gt_valid = y_train[N_max_seq - N_valid_seq:]
+    Valid_seq_dataset = DigitSequenceDataset(valid,gt_valid)
+    valid_dataloader = torch.utils.data.DataLoader(Valid_seq_dataset,
+                                                    batch_size = config['batch_size'],
+                                                    collate_fn = pad_collate)
 
-###########################################################
-if SHOW:
-    for batch in (train_dataloader):
-        for i in range(5):
-            plt.imshow(batch[0][i,:,:].numpy(), cmap='gray')
-            plt.title(batch[1][i,:])
-            plt.show()
+    ###########################################################
+    if SHOW:
+        for batch in (train_dataloader):
+            for i in range(5):
+                plt.imshow(batch[0][i,:,:].numpy(), cmap='gray')
+                plt.title(batch[1][i,:])
+                plt.show()
 
-        break
-############################################################
-# apprentissage from scratch
-my_transformer = TRANSFORMER.CNNTransformer(config,device).to(device)
+            break
+    ############################################################
+    # apprentissage from scratch
+    my_transformer = TRANSFORMER.CNNTransformer(config,device).to(device)
 
-# reprise de l'apprentissage
-#my_transformer = TRANSFORMER.Transformer(config,device)
-#my_transformer.load_state_dict(torch.load(model_name))
-#my_transformer.to(device)
+    # reprise de l'apprentissage
+    #my_transformer = TRANSFORMER.Transformer(config,device)
+    #my_transformer.load_state_dict(torch.load(model_name))
+    #my_transformer.to(device)
 
-loss_fn = torch.nn.CrossEntropyLoss(ignore_index=config['pad_idx'],reduction='mean')
-optimizer = torch.optim.Adam(my_transformer.parameters(),lr=config['learning_rate'])
+    loss_fn = torch.nn.CrossEntropyLoss(ignore_index=config['pad_idx'],reduction='mean')
+    optimizer = torch.optim.Adam(my_transformer.parameters(),lr=config['learning_rate'])
 
-train_loss = []
-valid_loss = []
-for e in tqdm(range(config['num_epochs'])):
-    train_loss.append(TRANSFORMER.train_loop(train_dataloader,
-                                              my_transformer,
-                                              loss_fn,
-                                              optimizer))
-    if e == 0:
-        valid_loss.append(train_loss[0])
-    valid_loss.append(TRANSFORMER.valid_loop(valid_dataloader,
-                                              my_transformer,
-                                              loss_fn))
+    train_loss = []
+    valid_loss = []
+    for e in tqdm(range(config['num_epochs'])):
+        train_loss.append(TRANSFORMER.train_loop(train_dataloader,
+                                                my_transformer,
+                                                loss_fn,
+                                                optimizer))
+        if e == 0:
+            valid_loss.append(train_loss[0])
+        valid_loss.append(TRANSFORMER.valid_loop(valid_dataloader,
+                                                my_transformer,
+                                                loss_fn))
 
-    ###################################################################
-    plt.plot(valid_loss,color = 'red', label = "valid")
-    plt.plot(train_loss, color = 'blue', label = " train")
-    plt.title("Transformer: Cross Ent. loss over epochs")
-    plt.legend()
-    plt.show()
-    ###################################################################
-    if e == 0:
-        best_valid_loss = valid_loss[0]
-    else:
-        if valid_loss[-1] < best_valid_loss:
-            best_valid_loss = valid_loss[-1]
-            # on mémorise ce modèle
-            best_iteration = e
-            torch.save(my_transformer.state_dict(), model_name)
+        ###################################################################
+        plt.plot(valid_loss,color = 'red', label = "valid")
+        plt.plot(train_loss, color = 'blue', label = " train")
+        plt.title("Transformer: Cross Ent. loss over epochs")
+        plt.legend()
+        plt.show()
+        ###################################################################
+        if e == 0:
+            best_valid_loss = valid_loss[0]
+        else:
+            if valid_loss[-1] < best_valid_loss:
+                best_valid_loss = valid_loss[-1]
+                # on mémorise ce modèle
+                best_iteration = e
+                torch.save(my_transformer.state_dict(), model_name)
 
-print('Embedded Training Ended successfully')
-nb_train_param = count_parameters(my_transformer)
-print("Nombre de paramètres libres:",nb_train_param)
+    print('Embedded Training Ended successfully')
+    nb_train_param = count_parameters(my_transformer)
+    print("Nombre de paramètres libres:",nb_train_param)
 
 SHOW = False
 
