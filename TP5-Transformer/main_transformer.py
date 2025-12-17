@@ -317,7 +317,7 @@ test_dataloader = torch.utils.data.DataLoader(Test_seq_dataset,
                                                 batch_size = 1,
                                               collate_fn = pad_collate)
 
-my_transformer = TRANSFORMER.Transformer(config,device)
+my_transformer = TRANSFORMER.CNNTransformer(config,device)
 my_transformer.load_state_dict(torch.load(model_name))
 my_transformer.to(device)
 TOTAL = 0
