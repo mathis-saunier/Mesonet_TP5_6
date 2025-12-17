@@ -16,6 +16,7 @@ import pickle
 from tqdm import tqdm
 import os
 import editdistance
+import datetime
 
 import torch
 from torch import nn
@@ -28,6 +29,26 @@ from torch.utils.data import Dataset, DataLoader
 #sys.path.append('/content/drive/MyDrive/ColabNotebooks')
 
 import TRANSFORMER
+
+# Setup logging and directory
+now = datetime.datetime.now()
+date_str = now.strftime("%Y%m%d_%H%M%S")
+save_dir = f"CNN_Jade_{date_str}"
+os.makedirs(save_dir, exist_ok=True)
+
+class Logger(object):
+    def __init__(self):
+        self.terminal = sys.stdout
+        self.log = open(os.path.join(save_dir, "log.txt"), "a")
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+
+    def flush(self):
+        pass
+
+sys.stdout = Logger()
 
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
@@ -120,13 +141,15 @@ def Apply_SlidingWindow(x,w_width,stride,SHOW=False):
     if SHOW:
         for i in range(5):
             plt.imshow(x[i].numpy(), cmap='gray')
-            plt.show()
+            plt.savefig(os.path.join(save_dir, f"sliding_window_input_{i}.png"))
+            plt.close()
             plt.imshow(xx[i].numpy(), cmap='gray')
-            plt.show()
+            plt.savefig(os.path.join(save_dir, f"sliding_window_output_{i}.png"))
+            plt.close()
 
     return xx
 
-TRAINING = False  # Training if True Testing otherwise
+TRAINING = True  # Training if True Testing otherwise
 SHOW = True
 
 if TRAINING:
@@ -142,8 +165,8 @@ if TRAINING:
         'w_width':5, #5,
         'w_stride':5,#3, # 3, 5
         'input_features':140, # 140 = 5 x 28   84 = 3 x 28
-        'batch_size':256,
-        'num_epochs':500,
+        'batch_size':512,
+        'num_epochs':1000,
         'hidden_size':256,
         'num_heads':2,
         'num_layers':6,
@@ -203,14 +226,15 @@ if TRAINING:
     valid_dataloader = torch.utils.data.DataLoader(Valid_seq_dataset,
                                                     batch_size = config['batch_size'],
                                                     collate_fn = pad_collate)
-
-    ###########################################################
     if SHOW:
         for batch in (train_dataloader):
             for i in range(5):
                 plt.imshow(batch[0][i,:,:].numpy(), cmap='gray')
                 plt.title(batch[1][i,:])
-                plt.show()
+                plt.savefig(os.path.join(save_dir, f"train_sample_{i}.png"))
+                plt.close()
+
+            breaklt.show()
 
             break
     ############################################################
@@ -237,13 +261,14 @@ if TRAINING:
         valid_loss.append(TRANSFORMER.valid_loop(valid_dataloader,
                                                 my_transformer,
                                                 loss_fn))
-
         ###################################################################
         plt.plot(valid_loss,color = 'red', label = "valid")
         plt.plot(train_loss, color = 'blue', label = " train")
         plt.title("Transformer: Cross Ent. loss over epochs")
         plt.legend()
-        plt.show()
+        plt.savefig(os.path.join(save_dir, f"loss_curve_{e}.png"))
+        plt.close()
+        ###################################################################
         ###################################################################
         if e == 0:
             best_valid_loss = valid_loss[0]
@@ -272,8 +297,8 @@ config = {
     'w_width':5, #5,
     'w_stride':5,#3, # 3, 5
     'input_features':140, # 140 = 5 x 28   84 = 3 x 28
-    'batch_size':256,
-    'num_epochs':500,
+    'batch_size':512,
+    'num_epochs':1000,
     'hidden_size':256,
     'num_heads':2,
     'num_layers':6,
@@ -359,11 +384,12 @@ with torch.no_grad():
 
         best_sequence =y_input.to('cpu')[0].numpy()[1:-1]
 
-        bs = ''.join([str(best_sequence[i]) for i in range(best_sequence.shape[0])])
-
         if SHOW:
             if batch % 100 == 0:
                 plt.imshow(X[0,:,:].cpu().numpy(), cmap='gray')
+                #plt.title('gt: '+y[0]+' bs: '+bs)
+                plt.savefig(os.path.join(save_dir, f"test_sample_{batch}.png"))
+                plt.close()(X[0,:,:].cpu().numpy(), cmap='gray')
                 #plt.title('gt: '+y[0]+' bs: '+bs)
                 plt.show()
 
