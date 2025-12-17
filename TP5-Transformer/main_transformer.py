@@ -226,15 +226,14 @@ if TRAINING:
     valid_dataloader = torch.utils.data.DataLoader(Valid_seq_dataset,
                                                     batch_size = config['batch_size'],
                                                     collate_fn = pad_collate)
+
+    ###########################################################
     if SHOW:
         for batch in (train_dataloader):
             for i in range(5):
                 plt.imshow(batch[0][i,:,:].numpy(), cmap='gray')
                 plt.title(batch[1][i,:])
-                plt.savefig(os.path.join(save_dir, f"train_sample_{i}.png"))
-                plt.close()
-
-            breaklt.show()
+                plt.show()
 
             break
     ############################################################
@@ -261,14 +260,13 @@ if TRAINING:
         valid_loss.append(TRANSFORMER.valid_loop(valid_dataloader,
                                                 my_transformer,
                                                 loss_fn))
+
         ###################################################################
         plt.plot(valid_loss,color = 'red', label = "valid")
         plt.plot(train_loss, color = 'blue', label = " train")
         plt.title("Transformer: Cross Ent. loss over epochs")
         plt.legend()
-        plt.savefig(os.path.join(save_dir, f"loss_curve_{e}.png"))
-        plt.close()
-        ###################################################################
+        plt.show()
         ###################################################################
         if e == 0:
             best_valid_loss = valid_loss[0]
@@ -384,12 +382,11 @@ with torch.no_grad():
 
         best_sequence =y_input.to('cpu')[0].numpy()[1:-1]
 
+        bs = ''.join([str(best_sequence[i]) for i in range(best_sequence.shape[0])])
+
         if SHOW:
             if batch % 100 == 0:
                 plt.imshow(X[0,:,:].cpu().numpy(), cmap='gray')
-                #plt.title('gt: '+y[0]+' bs: '+bs)
-                plt.savefig(os.path.join(save_dir, f"test_sample_{batch}.png"))
-                plt.close()(X[0,:,:].cpu().numpy(), cmap='gray')
                 #plt.title('gt: '+y[0]+' bs: '+bs)
                 plt.show()
 
