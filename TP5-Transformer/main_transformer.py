@@ -294,12 +294,12 @@ D = 28 # 28 X 28
 N_max = 60000 # digits
 N_max_seq = int(N_max / l_seq_digits) # 60000 / 5 digits
 
-N_train = 10000 # digits 54000
+N_train = 54000 # digits 54000
 N_train_seq = int(N_train / l_seq_digits)
 END_TRAIN = N_train_seq # 90% 10 000 digits = 5 X 2000
 
 N_batch = int(N_train_seq / config['batch_size'])
-N_valid = 1000 #6000
+N_valid = 6000 #6000
 N_valid_seq = int(N_valid / l_seq_digits)
 START_VALID = N_max_seq - N_valid_seq  # 10% for validation 1000 digits = 5 X 200
 
