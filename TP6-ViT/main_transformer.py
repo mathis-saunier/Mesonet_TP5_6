@@ -187,10 +187,10 @@ if __name__ == '__main__':
         'START_TOKEN':12, # 10 = Horizontal 11 = Vertical
         'END_TOKEN':13,
     }
-    #data_file = 'MNIST_5digitsDifficile.pkl' 
+    data_file = 'MNIST_5digitsDifficile.pkl' 
     #data_file = 'MNIST_5digits2DHorizontal.pkl'
     #data_file =  MNIST_5digits2DVertical.pkl' 
-    data_file = 'MNIST_5digits2DHorizontalFacile.pkl'
+    # data_file = 'MNIST_5digits2DHorizontalFacile.pkl'
     x_train,x_test,y_train,y_test = Load_MNISTSequences(data_file,config)
     N_train = len(y_train)
 
