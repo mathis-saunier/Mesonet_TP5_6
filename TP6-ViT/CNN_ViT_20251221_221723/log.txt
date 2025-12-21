@@ -1,0 +1,8 @@
+Device : cuda
+Loading training and test data...
+Recognition ended successfully
+Character Error Rate (CER): 4.48%
+Character Recognition Rate (CRR): 95.52%
+Sequence Error Rate (SER): 19.90%
+Sequence Recognition Rate (SRR): 80.10%
+Nombre de paramètres du modèle: 1147915

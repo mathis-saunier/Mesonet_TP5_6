@@ -142,7 +142,7 @@ def augment_data(x_train, y_train):
 
 if __name__ == '__main__':
 
-    TRAINING = True  # Training if True Testing otherwise
+    TRAINING = False  # Training if True Testing otherwise
     REPRISE = False
     SHOW = True
 
