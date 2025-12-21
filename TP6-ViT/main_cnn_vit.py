@@ -142,7 +142,7 @@ def augment_data(x_train, y_train):
 
 if __name__ == '__main__':
 
-    TRAINING = True  # Training if True Testing otherwise
+    TRAINING = False  # Training if True Testing otherwise
     REPRISE = False
     SHOW = False
 
@@ -154,18 +154,18 @@ if __name__ == '__main__':
     print("Device :",device)
 
     config = {
-        'w_width':8, # Not used for sliding window, but maybe relevant for CNN structure if dynamic
-        'w_stride':30,
-        'input_features':16, # CNN output channels
-        'max_length':225, # 15x15 feature map flattened
-        'batch_size':64,
-        'num_epochs':1000,
+        'w_width':10, # Patch size for SimpleViTSequence
+        'w_stride':30, # Not used
+        'input_features':16, # Not used
+        'max_length':225, # Not used
+        'batch_size':512,
+        'num_epochs':500,
         'hidden_size':128,
         'num_heads':4, 
-        'num_layers':6,
-        'learning_rate':3e-4, 
+        'num_layers':2,
+        'learning_rate':1e-3, 
         'dropout':0.1, 
-        'num_classes':14, 
+        'num_classes':15, 
         'x_pad_idx':-1, 
         'y_pad_idx':14, 
 
@@ -194,14 +194,12 @@ if __name__ == '__main__':
 
     dir_name = ""
     
-    model_name = dir_name+"CNN_ViT_"+str(config['num_layers'])+"_"+str(config['hidden_size'])+"_"+str(config['num_heads'])+"_"+str(N_train)
+    model_name = dir_name+"SimpleViT_"+str(config['num_layers'])+"_"+str(config['hidden_size'])+"_"+str(config['num_heads'])+"_"+str(N_train)
 
     if TRAINING:
         
         # Data Augmentation
         x_train_aug, y_train_aug = augment_data(x_train[:N_train_seq], y_train[:N_train_seq])
-        
-        # NO Sliding Window here! We pass full images to CNN
         
         Train_seq_dataset = DigitSequenceDataset(x_train_aug, y_train_aug)
         train_dataloader = torch.utils.data.DataLoader(Train_seq_dataset,
@@ -211,7 +209,6 @@ if __name__ == '__main__':
 
         ############### pour la VALID #################
         valid = x_train[N_max_seq - N_valid_seq:]
-        # NO Sliding Window here either
         gt_valid = y_train[N_max_seq - N_valid_seq:]
         Valid_seq_dataset = DigitSequenceDataset(valid,gt_valid)
         valid_dataloader = torch.utils.data.DataLoader(Valid_seq_dataset,
@@ -232,141 +229,75 @@ if __name__ == '__main__':
         ############################################################
         # apprentissage from scratch
         if not REPRISE:
-            my_transformer = TRANSFORMER.CNN_ViT(config,device).to(device)
+            my_transformer = TRANSFORMER.SimpleViTSequence(config,device).to(device)
         else:
             # reprise de l'apprentissage 
-            my_transformer = TRANSFORMER.CNN_ViT(config,device)
+            my_transformer = TRANSFORMER.SimpleViTSequence(config,device)
             my_transformer.load_state_dict(torch.load(model_name))
             my_transformer.to(device)
         
-        loss_fn = torch.nn.CrossEntropyLoss(ignore_index=config['y_pad_idx'], reduction='mean', label_smoothing=0.1)
-        optimizer = torch.optim.Adam(my_transformer.parameters(),lr=config['learning_rate'])
-        scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience=5, factor=0.5)
+        # Optimizer and Scheduler
+        optimizer = torch.optim.AdamW(my_transformer.parameters(), lr=config['learning_rate'], weight_decay=0.05)
+        
+        num_training_steps = len(train_dataloader) * config['num_epochs']
+        num_warmup_steps = int(0.1 * num_training_steps)
+        scheduler = TRANSFORMER.get_cosine_schedule_with_warmup(optimizer, num_warmup_steps, num_training_steps)
 
-        train_loss = []
-        valid_loss = []
+        train_loss_history = []
+        valid_loss_history = []
+        
+        best_valid_acc = 0.0
+        
         for e in tqdm(range(config['num_epochs'])):
-            train_loss.append(TRANSFORMER.train_loop(train_dataloader,
+            train_loss, train_acc = TRANSFORMER.train_loop(train_dataloader,
                                                      my_transformer,
-                                                     loss_fn,
-                                                     optimizer))
+                                                     TRANSFORMER.sequence_loss,
+                                                     optimizer,
+                                                     scheduler)
 
-            valid_loss.append(TRANSFORMER.valid_loop(valid_dataloader,
+            valid_loss, valid_acc, valid_seq_acc = TRANSFORMER.valid_loop(valid_dataloader,
                                                      my_transformer,
-                                                     loss_fn))
+                                                     TRANSFORMER.sequence_loss)
             
-            scheduler.step(valid_loss[-1])
+            train_loss_history.append(train_loss)
+            valid_loss_history.append(valid_loss)
 
-            if e == 0:
-                valid_loss.append(valid_loss[0])
+            print(f"Epoch {e+1}/{config['num_epochs']} - Train Loss: {train_loss:.4f} Acc: {train_acc:.4f} | Valid Loss: {valid_loss:.4f} Acc: {valid_acc:.4f} Seq Acc: {valid_seq_acc:.4f}")
+
             ###################################################################
-            plt.plot(valid_loss,color = 'red', label = "valid")
-            plt.plot(train_loss, color = 'blue', label = " train")
+            plt.plot(valid_loss_history,color = 'red', label = "valid")
+            plt.plot(train_loss_history, color = 'blue', label = " train")
             plt.title("Transformer: Cross Ent. loss over epochs")
             plt.legend()
             plt.savefig(os.path.join(save_dir, "loss_curve.png"))
             plt.close()
             ###################################################################
-            if e == 0:
-                best_valid_loss = valid_loss[0]
-            else:
-                if valid_loss[-1] < best_valid_loss:
-                    best_valid_loss = valid_loss[-1]
-                    # on mémorise ce modèle
-                    best_iteration = e
-                    torch.save(my_transformer.state_dict(), model_name)
+            
+            if valid_seq_acc > best_valid_acc:
+                best_valid_acc = valid_seq_acc
+                # on mémorise ce modèle
+                torch.save(my_transformer.state_dict(), model_name)
+                print(f"New best model saved with Seq Acc: {best_valid_acc:.4f}")
 
         print('Embedded Training Ended successfully')
         nb_train_param = count_parameters(my_transformer)
         print("Nombre de paramètres libres:",nb_train_param)
     else:
         ###########################################################################
-        # NO Sliding Window
-        # x_test = Apply_SlidingWindow2D(x_test,config)
+        # Testing
         N_test_seq = len(x_test)
         Test_seq_dataset = DigitSequenceDataset(x_test,y_test)
         test_dataloader = torch.utils.data.DataLoader(Test_seq_dataset,
-                                                      batch_size = 1,
+                                                      batch_size = config['batch_size'], # Can use batch size > 1 now
                                                       collate_fn = pad_collate)
 
-        my_transformer = TRANSFORMER.CNN_ViT(config,device)
+        my_transformer = TRANSFORMER.SimpleViTSequence(config,device)
         my_transformer.load_state_dict(torch.load(model_name))
         my_transformer.to(device)
         
-        TOTAL = 0
-        FP =0
-        String_FP = 0
-        TP_orientation = 0
+        digit_acc, seq_acc = TRANSFORMER.compute_accuracy(test_dataloader, my_transformer)
         
-        # loop testing every test sample and computing the Character Rrror Rate (CER)
-        print("Recognition in progress...")
-        with torch.no_grad():
-
-            for batch ,(X, y,X_l,y_l) in tqdm(enumerate(test_dataloader)):
-                X = X.to(my_transformer.DEVICE)
-                
-                ###### formate la gt en string ##########################
-                y = y[0].numpy()[1:-1]
-                if y[0] == 10:
-                    y = ''.join([str(y[i]) for i in range(1,y.shape[0])])
-                    y = 'H'+y
-                elif  y[0] == 11:
-                    y = ''.join([str(y[i]) for i in range(1,y.shape[0])])
-                    y = 'V'+y
-                    
-                src_padding_mask = (X[:,:,0] == config['x_pad_idx']).to(
-                    my_transformer.DEVICE)
-                
-                y_input = torch.tensor([[config['START_TOKEN']]], dtype=torch.long).to(
-                    my_transformer.DEVICE)
-
-                # iterative decoding stage symbol by symbol
-                # on each test example : batch size is 1
-                # stop at max_length
-                for _ in range(config['max_length']):
-                    pred = my_transformer(X.float(),y_input,
-                                          y_output_mask = None,
-                                          src_key_padding_mask=src_padding_mask,
-                                          tgt_key_padding_mask = None)
-                    next_output = pred.topk(1)[1].view(-1)[-1].item() # num with highest probability
-                    next_output = torch.tensor([[next_output]]).to(
-                        my_transformer.DEVICE)
-
-                    # Concatenate previous input with predicted best word
-                    y_input = torch.cat((y_input, next_output), dim=1)
-
-                    if next_output[0,0] == config['END_TOKEN'] :
-                        break
-                
-                best_sequence = y_input.to('cpu')[0].numpy()[1:-1]
-                if best_sequence[0] == 10:
-                    bs = ''.join([str(best_sequence[i]) for i in range(1,best_sequence.shape[0])])
-                    bs = 'H'+bs
-                elif best_sequence[0] == 11:
-                    bs = ''.join([str(best_sequence[i]) for i in range(1,best_sequence.shape[0])])
-                    bs = 'V'+bs
-                    
-                Edit_dist = editdistance.eval(y[1:],bs[1:])
-                if SHOW:
-                    print("y :",y,"bs :",bs)
-                FP += Edit_dist
-                TOTAL += len(y[1:])
-                
-                if y[0]==bs[0]:
-                    TP_orientation +=1
-                
-                if Edit_dist !=0:
-                    String_FP +=1
-                
-
-        print("FP",FP)
-        print("TOTAL characters",TOTAL)
-        print("String FP",String_FP)
-        print("TOTAL strings",N_test_seq)
-        print("TP_orientation",TP_orientation)
-        print('Recognition ended successfully, Character Error Rate = ',FP/TOTAL*100,'%')
-        print('                              , Character Recognition Rate = ',(1-FP/TOTAL)*100,'%')
-        print('                              , String Error Rate    = ',String_FP/N_test_seq*100,'%')
-        print('                              , String Recognition Rate    = ',(1-String_FP/N_test_seq)*100,'%')
-        print('                              , Orientation Recocognition Rate = ', (TP_orientation/N_test_seq)*100,'%')
+        print('Recognition ended successfully')
+        print(f'Digit Accuracy: {digit_acc*100:.2f}%')
+        print(f'Sequence Accuracy: {seq_acc*100:.2f}%')
         print("Nombre de paramètres du modèle:",count_parameters(my_transformer))
