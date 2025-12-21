@@ -174,7 +174,7 @@ if __name__ == '__main__':
         'w_stride':30,#3, # 3, 5
         'input_features':64, # 8*8 = 64
         'max_length':15, # 120 / 8 = 15
-        'batch_size':64,
+        'batch_size':256,
         'num_epochs':1000,
         'hidden_size':128,
         'num_heads':4, # Augmenter un peu les têtes
@@ -259,7 +259,7 @@ if __name__ == '__main__':
             my_transformer.load_state_dict(torch.load(model_name))
             my_transformer.to(device)
         
-        loss_fn = torch.nn.CrossEntropyLoss(ignore_index=config['y_pad_idx'],reduction='mean')
+        loss_fn = torch.nn.CrossEntropyLoss(ignore_index=config['y_pad_idx'], reduction='mean', label_smoothing=0.1)
         optimizer = torch.optim.Adam(my_transformer.parameters(),lr=config['learning_rate'])
 
         train_loss = []

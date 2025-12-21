@@ -259,6 +259,10 @@ class ViTTransformer(nn.Module):
                                                       dropout=config['dropout'],
                                                       batch_first=True,
                                                       norm_first=True) # Pre-Norm helps convergence
+        
+        # Normalisation finale (Cruciale avec norm_first=True)
+        self.norm = nn.LayerNorm(config['hidden_size'])
+        
         # Output layer for text prediction
         self.output_layer = nn.Linear(config['hidden_size'], config['num_classes'])
         
@@ -277,6 +281,10 @@ class ViTTransformer(nn.Module):
                                            tgt_mask = y_output_mask,
                                            src_key_padding_mask=None,
                                            tgt_key_padding_mask=tgt_key_padding_mask)
+        
+        # Appliquer la normalisation finale
+        transformer_out = self.norm(transformer_out)
+        
         output = self.output_layer(transformer_out)
         return output
     
@@ -324,6 +332,10 @@ def train_loop(dataloader, model, loss_fn, optimizer):
         # Backpropagation
         optimizer.zero_grad()
         loss.backward()
+        
+        # Gradient Clipping (Essentiel pour les Transformers)
+        torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+        
         optimizer.step()
     #print("\nTraining loss:",epoch_loss / nb_batches)
     return epoch_loss / nb_batches
