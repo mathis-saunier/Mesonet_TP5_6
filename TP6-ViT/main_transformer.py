@@ -156,7 +156,7 @@ def Apply_SlidingWindow2D(x,config):
 
 if __name__ == '__main__':
 
-    TRAINING = False  # Training if True Testing otherwise
+    TRAINING = True  # Training if True Testing otherwise
     REPRISE = False
     SHOW = False
 
@@ -172,8 +172,8 @@ if __name__ == '__main__':
         'w_stride':30,#3, # 3, 5
         'input_features':16, # 25 26 49 64 81 100 
                              # 121 144 169 196 225 256
-        'max_length':30, # 120 / w_width pour des images toutes de même taille 120 X 120
-        'batch_size':64,
+        'max_length':15, # 120 / w_width pour des images toutes de même taille 120 X 120
+        'batch_size':256,
         'num_epochs':1000,
         'hidden_size':128,
         'num_heads':2,
@@ -200,12 +200,12 @@ if __name__ == '__main__':
     N_max = 60000 # digits
     N_max_seq = int(N_max / l_seq_digits) # 60000 / 5 digits
 
-    N_train = 54000 # digits 54000
+    N_train = 54 # digits 54000
     N_train_seq = int(N_train / l_seq_digits)
     END_TRAIN = N_train_seq # 90% 10 000 digits = 5 X 2000
 
     N_batch = int(N_train_seq / config['batch_size'])
-    N_valid = 6000 #6000
+    N_valid = 6 #6000
     N_valid_seq = int(N_valid / l_seq_digits)
     START_VALID = N_max_seq - N_valid_seq  # 10% for validation 1000 digits = 5 X 200
 
@@ -219,7 +219,7 @@ if __name__ == '__main__':
         # car on ne peut plus mettre les séquences bout à bout puisqu'on entaine
         # des réseaux récurrentsou des CNN qui exploitent le contexte
         # pour le TRAIN
-        x_train = Apply_SlidingWindow2D(x_train,config)
+        # x_train = Apply_SlidingWindow2D(x_train,config)
         
         train = x_train[:N_train_seq]
         gt_train = y_train[:N_train_seq]
@@ -296,7 +296,7 @@ if __name__ == '__main__':
         print("Nombre de paramètres libres:",nb_train_param)
     else:
         ###########################################################################
-        x_test = Apply_SlidingWindow2D(x_test,config)
+        # x_test = Apply_SlidingWindow2D(x_test,config)
         N_test_seq = len(x_test)
         Test_seq_dataset = DigitSequenceDataset(x_test,y_test)
         test_dataloader = torch.utils.data.DataLoader(Test_seq_dataset,
