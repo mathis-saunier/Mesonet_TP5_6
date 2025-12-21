@@ -1,306 +1,234 @@
 # -*- coding: utf-8 -*-
 
-import os
 import torch
 from torch import nn
-from torchvision.datasets import MNIST
-from torch.utils.data import DataLoader
-from torch.utils.data import random_split
-from torchvision import transforms
-
-import matplotlib.pyplot as plt
-import math
-import tqdm
+import torch.nn.functional as F
 from tqdm import tqdm
-import numpy as np
+import math
 
-class PositionalEncoding(nn.Module):
-    def __init__(self, dim_model, dropout_p, max_len):
+class SimpleViTSequence(nn.Module):
+    """ViT simplifié et optimisé pour la reconnaissance de séquences de chiffres"""
+    def __init__(self, config, device):
         super().__init__()
-        # Modified version from: https://pytorch.org/tutorials/beginner/transformer_tutorial.html
-        # max_len determines how far the position can have an effect on a token (window)
-        
-        # Info
-        self.dropout = nn.Dropout(dropout_p)
-        
-        # Encoding - From formula
-        pos_encoding = torch.zeros(max_len, dim_model)
-        positions_list = torch.arange(0, max_len, dtype=torch.float).view(-1, 1) # 0, 1, 2, 3, 4, 5
-        division_term = torch.exp(torch.arange(0, dim_model, 2).float() * (-math.log(10000.0)) / dim_model) # 1000^(2i/dim_model)
-        
-        # PE(pos, 2i) = sin(pos/1000^(2i/dim_model))
-        pos_encoding[:, 0::2] = torch.sin(positions_list * division_term)
-        
-        # PE(pos, 2i + 1) = cos(pos/1000^(2i/dim_model))
-        pos_encoding[:, 1::2] = torch.cos(positions_list * division_term)
-        
-        # Saving buffer (same as parameter without gradients needed)
-        # add the batch dimension
-        pos_encoding = pos_encoding.unsqueeze(0) #.transpose(0, 1) 
-        self.register_buffer("pos_encoding",pos_encoding)
-        
-    def forward(self, token_embedding: torch.tensor) -> torch.tensor:
-        # Residual connection + pos encoding
-        return self.dropout(token_embedding + self.pos_encoding[:,:token_embedding.size(1), :])
 
-class PositionalEncoding2D(nn.Module):
-    def __init__(self, dim_model,dropout_p, max_len):
-        super().__init__()
-        
-        # Info
-        self.dropout = nn.Dropout(dropout_p)
-        
-        # Encoding - From formula
-        demi_dim = int(dim_model/2)
-        # X DIMENSION
-        x_pos_encoding = torch.zeros(max_len, dim_model)
-        positions_list = torch.arange(0, max_len, dtype=torch.float).view(-1, 1) # 0, 1, 2, 3, 4, 5
-        #                                         first half the dimension for the x frequencies
-        division_term = torch.exp(torch.arange(0, demi_dim, 2).float() * (-math.log(10000.0)) / dim_model) # 1000^(2i/dim_model)
-        # PE(pos, 2i) = sin(pos/1000^(2i/dim_model))
-        x_pos_encoding[:, 0:demi_dim:2] = torch.sin(positions_list * division_term)
-        # PE(pos, 2i + 1) = cos(pos/1000^(2i/dim_model))
-        x_pos_encoding[:, 1:demi_dim:2] = torch.cos(positions_list * division_term)
-        # extension dans la dimension y en repetant les valeurs selon x
-        x_pos_encoding = x_pos_encoding.reshape((max_len,dim_model,1))     
-        x_pos_encoding = x_pos_encoding.repeat(1,1,max_len)
-        x_pos_encoding = torch.permute(x_pos_encoding,(0,2,1))
+        img_size = 120
+        patch_size = config['w_width']  # 10
+        embed_dim = config['hidden_size']  # 128
+        num_heads = config['num_heads']  # 4
+        depth = config['num_layers']  # 2
 
-        # Y DIMENSION
-        y_pos_encoding = torch.zeros(max_len, dim_model)
-        #                                         second half the dimension for the y frequencies
-        division_term = torch.exp(torch.arange(demi_dim,dim_model, 2).float() * (-math.log(10000.0)) / dim_model) # 1000^(2i/dim_model)
-        # PE(pos, 2i) = sin(pos/1000^(2i/dim_model))
-        y_pos_encoding[:,demi_dim:dim_model:2] = torch.sin(positions_list * division_term)
-        # PE(pos, 2i + 1) = cos(pos/1000^(2i/dim_model))
-        y_pos_encoding[:, demi_dim+1:dim_model:2] = torch.cos(positions_list * division_term)
-        # extension dans la dimension x en repetant les valeurs
-        y_pos_encoding = y_pos_encoding.repeat(1,max_len,1)
-        y_pos_encoding=y_pos_encoding.reshape((max_len,max_len,dim_model))
-
-        # create 2D positionnal encoding 
-        # on suppose des images carrées où le positionnal encoding peut être pré-calculé et mis à plat
-        # à l'avance, sinon il faudrait géréer les dimensions de chaque image dans le batch....
-        pos_encoding2D =  torch.flatten(x_pos_encoding+y_pos_encoding,start_dim=0,end_dim=1)
-        
-        #print("pos_encoding2D.shape:",pos_encoding2D.shape)
-        # Saving buffer (same as parameter without gradients needed)
-        # add the batch dimension
-        pos_encoding2D = pos_encoding2D.unsqueeze(0)
-
-        self.register_buffer("pos_encoding2D",pos_encoding2D)
-        
-    def forward(self, token_embedding: torch.tensor) -> torch.tensor:
-        # Residual connection + pos encoding
-        # on suppose des images touets de même dimension, donc 
-        return self.dropout(token_embedding + self.pos_encoding2D)
-    
-###########################################################
-class CNN_ViT(nn.Module):
-    def __init__(self, config,device):
-        super(CNN_ViT, self).__init__()
-        self.input_features = config['input_features']
-        self.batch_size = config['batch_size']
-        self.num_epochs =config['num_epochs']
-        self.learning_rate =config['learning_rate']
-        self.num_classes =config['num_classes']
-        self.hidden_size =config['hidden_size']
-        self.num_heads =config['num_heads']
-        self.num_layers =config['num_layers']
-        self.dropout =config['dropout']
-        self.x_pad_idx =config['x_pad_idx']
-        self.y_pad_idx =config['y_pad_idx']
-        self.max_length =config['max_length']
-        self.START_TOKEN =config['START_TOKEN']
-        self.END_TOKEN =config['END_TOKEN']
+        self.seq_len = 5
+        self.output_dim = config['num_classes']
         self.DEVICE = device
 
-        self.positional_encoding_layer = PositionalEncoding(dim_model = self.hidden_size, 
-                                                            dropout_p = self.dropout, 
-                                                            max_len = self.max_length)
-        
-        self.positional_encoding_layer2D = PositionalEncoding2D(dim_model = self.hidden_size, 
-                                                            dropout_p = self.dropout, 
-                                                            max_len = int(math.sqrt(self.max_length)))
-        
-        # CNN Output is 16 channels
-        self.x_embedding = nn.Linear(16, config['hidden_size'])      
-                
-        self.y_embedding = nn.Embedding(config['num_classes'],config['hidden_size'])         
-        
-        self.transformer = nn.Transformer(d_model=config['hidden_size'], 
-                                                      nhead=config['num_heads'], 
-                                                      num_encoder_layers =config['num_layers'],
-                                                      #num_encoder_layers = 1,
-                                                      num_decoder_layers =config['num_layers'],
-                                                      dim_feedforward = config['hidden_size']*4,
-                                                      dropout=config['dropout'],
-                                                      batch_first=True,
-                                                      norm_first=True)
-        
-        self.norm = nn.LayerNorm(config['hidden_size'])
-        
-        # Output layer for text prediction
-        self.output_layer = nn.Linear(config['hidden_size'], config['num_classes'])
+        # Patch embedding simplifié
+        self.patch_embed = nn.Conv2d(1, embed_dim, kernel_size=patch_size, stride=patch_size)
+        num_patches = (img_size // patch_size) ** 2  # 144
 
-        self.cnn = nn.Sequential(    
-            # entrée 120 X 120
-            nn.Conv2d(in_channels=1,out_channels=16,kernel_size=3,stride=1,padding=1),
-            nn.ReLU(),
-        
-            nn.Conv2d(in_channels=16,out_channels=32,kernel_size=3,stride=1,padding=1),
-            nn.ReLU(),
-                   
-            nn.Conv2d(in_channels=32,out_channels=64,kernel_size=3,stride=1,padding=1),
-            nn.ReLU(),
+        # Positional encoding (sans CLS token pour simplifier)
+        self.pos_embed = nn.Parameter(torch.zeros(1, num_patches, embed_dim))
+        self.dropout = nn.Dropout(config['dropout'])
 
-            nn.Conv2d(in_channels=64,out_channels=64,kernel_size=3,stride=1,padding=1),
-            nn.ReLU(),
-            nn.MaxPool2d(kernel_size=2),
-            
-            nn.Conv2d(in_channels=64,out_channels=128,kernel_size=3,stride=1,padding=1),
-            nn.ReLU(),
-
-            nn.Conv2d(in_channels=128, out_channels=128, kernel_size=3, stride=1, padding=1),
-            nn.ReLU(),
-            nn.MaxPool2d(kernel_size=2),
-            
-            nn.Conv2d(in_channels=128, out_channels=128, kernel_size=3, stride=1, padding=1),
-            nn.ReLU(),
-            
-            nn.Conv2d(in_channels=128, out_channels=64, kernel_size=3, stride=1, padding=1),
-            nn.ReLU(),
-
-            
-            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=3, stride=1, padding=1),
-            nn.ReLU(),
-            nn.MaxPool2d(kernel_size=2),
-            
-            # Carte 15 X 15 X 256 features
-            nn.Conv2d(in_channels=64, out_channels=32, kernel_size=3, stride=1, padding=1),
-            nn.ReLU(),
-
-            nn.Conv2d(in_channels=32, out_channels=16, kernel_size=3, stride=1, padding=1),
-            nn.ReLU(),
-            # sequence 225 X 16 features
-            nn.Flatten(start_dim=2,end_dim=3),
-            
+        # Transformer encoder
+        encoder_layer = nn.TransformerEncoderLayer(
+            d_model=embed_dim,
+            nhead=num_heads,
+            dim_feedforward=embed_dim * 2,
+            dropout=config['dropout'],
+            batch_first=True,
+            activation='gelu'
         )
-        
-    def forward(self, x, y, y_output_mask, src_key_padding_mask, tgt_key_padding_mask):
-        # x shape: (batch_size, 1, 120, 120)
-        
-        x = self.cnn(x) # (Batch, 16, 225)
-        
-        x = torch.permute(x,(0,2,1)) # (Batch, 225, 16)
-        
-        x = self.x_embedding(x) * math.sqrt(self.hidden_size)
+        self.transformer = nn.TransformerEncoder(encoder_layer, num_layers=depth)
 
-        x = self.positional_encoding_layer2D(x) 
-        
-        y = self.y_embedding(y) * math.sqrt(self.hidden_size)
-        y = self.positional_encoding_layer(y)
+        # Global average pooling
+        self.pool = nn.AdaptiveAvgPool1d(1)
 
-        transformer_out = self.transformer(x, y,
-                                           tgt_mask=y_output_mask,
-                                           src_key_padding_mask=None,
-                                           tgt_key_padding_mask=tgt_key_padding_mask)
-        
-        transformer_out = self.norm(transformer_out)
-        
-        output = self.output_layer(transformer_out)
-        return output
-    
-    def get_tgt_mask(self, size):
-        # Generates a squeare matrix where the each row allows one word more to be seen
-        mask = torch.tril(torch.ones(size, size) == 1) # Lower triangular matrix
-        mask = mask.float()
-        mask = mask.masked_fill(mask == 0, float('-inf')) # Convert zeros to -inf
-        mask = mask.masked_fill(mask == 1, float(0.0)) # Convert ones to 0
-        
-        # EX for size=5:
-        # [[0., -inf, -inf, -inf, -inf],
-        #  [0.,   0., -inf, -inf, -inf],
-        #  [0.,   0.,   0., -inf, -inf],
-        #  [0.,   0.,   0.,   0., -inf],
-        #  [0.,   0.,   0.,   0.,   0.]]
-        
-        return mask
-    
-#########################################################
-def train_loop(dataloader, model, loss_fn, optimizer):
-    size = len(dataloader.dataset)
-    nb_batches = len(dataloader)
-    epoch_loss = 0
-    
+        # Tête de classification
+        self.head = nn.Sequential(
+            nn.Linear(embed_dim, embed_dim),
+            nn.GELU(),
+            nn.Dropout(config['dropout']),
+            nn.Linear(embed_dim, self.seq_len * self.output_dim)
+        )
+
+        # Initialisation
+        self.apply(self._init_weights)
+        nn.init.normal_(self.pos_embed, std=0.02)
+
+    def _init_weights(self, m):
+        if isinstance(m, nn.Linear):
+            nn.init.trunc_normal_(m.weight, std=0.02)
+            if m.bias is not None:
+                nn.init.constant_(m.bias, 0)
+        elif isinstance(m, nn.Conv2d):
+            nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
+            if m.bias is not None:
+                nn.init.constant_(m.bias, 0)
+
+    def forward(self, x):
+        B = x.size(0)
+
+        # Patch embedding: B x 1 x 120 x 120 -> B x 128 x 12 x 12
+        x = self.patch_embed(x)
+        x = x.flatten(2).transpose(1, 2)  # B x 144 x 128
+
+        # Ajouter positional encoding
+        x = x + self.pos_embed
+        x = self.dropout(x)
+
+        # Transformer
+        x = self.transformer(x)  # B x 144 x 128
+
+        # Global average pooling
+        x = x.transpose(1, 2)  # B x 128 x 144
+        x = self.pool(x).squeeze(-1)  # B x 128
+
+        # Classification
+        x = self.head(x)  # B x 50
+        x = x.view(B, self.seq_len, self.output_dim)  # B x 5 x 10
+
+        return x
+
+
+def sequence_loss(logits, targets, pad_idx=14):
+    """
+    Loss function pour la prédiction de séquences.
+
+    Args:
+        logits: (B, seq_len, num_classes) - prédictions du modèle
+        targets: (B, seq_len) - ground truth
+        pad_idx: valeur de padding à ignorer
+
+    Returns:
+        loss: scalar
+    """
+    B, seq_len, num_classes = logits.shape
+
+    # Reshape pour CrossEntropyLoss
+    logits_flat = logits.reshape(-1, num_classes)
+    targets_flat = targets.reshape(-1)
+
+    # CrossEntropyLoss
+    loss = F.cross_entropy(logits_flat, targets_flat, ignore_index=pad_idx, reduction='mean')
+
+    return loss
+
+
+def get_cosine_schedule_with_warmup(optimizer, num_warmup_steps, num_training_steps):
+    """Learning rate scheduler avec warmup puis cosine decay"""
+    def lr_lambda(current_step):
+        if current_step < num_warmup_steps:
+            return float(current_step) / float(max(1, num_warmup_steps))
+        progress = float(current_step - num_warmup_steps) / float(max(1, num_training_steps - num_warmup_steps))
+        return max(0.0, 0.5 * (1.0 + math.cos(progress * math.pi)))
+
+    return torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda)
+
+
+def train_loop(dataloader, model, loss_fn, optimizer, scheduler=None):
+    """Boucle d'entraînement optimisée"""
     model.train()
-    
-    for batch, (X, y,X_l,y_l) in enumerate(dataloader):
-        
-        X = X.to(model.DEVICE)
-        y = y.to(model.DEVICE)
+    epoch_loss = 0
+    correct = 0
+    total = 0
 
-        y_input = y[:,:-1] 
-        y_output = y[:,1:] 
-        
-        l = y_input.size(1) # la longueur maximale d'un élément du batch
-        y_output_mask = model.get_tgt_mask(l).to(model.DEVICE)
-        
-        x_padding_mask = (X[:,:,0] == model.x_pad_idx).to(model.DEVICE)
-        y_input_padding_mask = (y_input == model.y_pad_idx).to(model.DEVICE)
-        
-        # Compute prediction and loss
-        pred = model(X.float(), y_input,
-                     y_output_mask,
-                     x_padding_mask, 
-                     y_input_padding_mask) #tgt_is_causal = True)
-        pred = pred.permute(1, 2, 0) 
-        y_output = y_output.permute(1, 0) 
+    for batch in dataloader:
+        X = batch[0].to(model.DEVICE)
+        y = batch[1].to(model.DEVICE)
+        # Correction: indices 1 to 6 for the 5 digits (0 is START)
+        targets = y[:, 1:6]  
 
-        loss = loss_fn(pred, y_output)
-        epoch_loss += loss.item()
-        
-        # Backpropagation
+        # Forward pass
+        logits = model(X.float())
+        loss = loss_fn(logits, targets)
+
+        # Backward pass
         optimizer.zero_grad()
         loss.backward()
+
+        # Gradient clipping
+        torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+
         optimizer.step()
-    #print("\nTraining loss:",epoch_loss / nb_batches)
-    return epoch_loss / nb_batches
+        if scheduler is not None:
+            scheduler.step()
 
-#########################################################
+        # Metrics
+        epoch_loss += loss.item()
+        preds = logits.argmax(dim=-1)
+        correct += (preds == targets).sum().item()
+        total += targets.numel()
+
+    avg_loss = epoch_loss / len(dataloader)
+    accuracy = correct / total if total > 0 else 0
+
+    return avg_loss, accuracy
+
+
 def valid_loop(dataloader, model, loss_fn):
+    """Boucle de validation"""
+    model.eval()
+    epoch_loss = 0
+    correct = 0
+    total = 0
+    correct_sequences = 0
+    total_sequences = 0
 
-    size = len(list(dataloader.dataset))
-    nb_batches = len(dataloader)
-    valid_loss = 0
-    
     with torch.no_grad():
-        for batch, (X, y,X_l,y_l) in enumerate(dataloader):
-            
-            X = X.to(model.DEVICE)
-            y = y.to(model.DEVICE)
-            
-            y_input = y[:,:-1] 
-            y_output = y[:,1:] 
-            
-            l = y_input.size(1) # la longueur maximale d'un élément du batch
-            y_output_mask = model.get_tgt_mask(l).to(model.DEVICE)
-             
-            x_padding_mask = (X[:,:,0] == model.x_pad_idx).to(model.DEVICE)
-            y_input_padding_mask = (y_input == model.y_pad_idx).to(model.DEVICE)
-            
-            # Compute prediction and loss
-            pred = model(X.float(),y_input,
-                         y_output_mask,
-                         x_padding_mask,
-                         tgt_key_padding_mask = y_input_padding_mask)
-            
-            pred = pred.permute(1, 2, 0)      
-            y_output = y_output.permute(1, 0) 
-            
-            loss = loss_fn(pred, y_output)
-            valid_loss += loss.item()
-    
-    valid_loss /= nb_batches
-    
-    return valid_loss
+        for batch in dataloader:
+            X = batch[0].to(model.DEVICE)
+            y = batch[1].to(model.DEVICE)
+            # Correction: indices 1 to 6 for the 5 digits
+            targets = y[:, 1:6]
+
+            # Forward pass
+            logits = model(X.float())
+            loss = loss_fn(logits, targets)
+
+            # Metrics
+            epoch_loss += loss.item()
+            preds = logits.argmax(dim=-1)
+            correct += (preds == targets).sum().item()
+            total += targets.numel()
+
+            # Sequence accuracy (tous les 5 chiffres corrects)
+            correct_sequences += (preds == targets).all(dim=1).sum().item()
+            total_sequences += targets.size(0)
+
+    avg_loss = epoch_loss / len(dataloader)
+    digit_accuracy = correct / total if total > 0 else 0
+    seq_accuracy = correct_sequences / total_sequences if total_sequences > 0 else 0
+
+    return avg_loss, digit_accuracy, seq_accuracy
+
+
+def compute_accuracy(dataloader, model):
+    """Calcule l'accuracy détaillée"""
+    model.eval()
+    correct_digits = 0
+    correct_sequences = 0
+    total_digits = 0
+    total_sequences = 0
+
+    with torch.no_grad():
+        for batch in dataloader:
+            X = batch[0].to(model.DEVICE)
+            y = batch[1].to(model.DEVICE)
+            # Correction: indices 1 to 6 for the 5 digits
+            targets = y[:, 1:6]
+
+            logits = model(X.float())
+            preds = logits.argmax(dim=-1)
+
+            # Digit accuracy
+            correct_digits += (preds == targets).sum().item()
+            total_digits += targets.numel()
+
+            # Sequence accuracy
+            correct_sequences += (preds == targets).all(dim=1).sum().item()
+            total_sequences += targets.size(0)
+
+    digit_acc = correct_digits / total_digits if total_digits > 0 else 0
+    seq_acc = correct_sequences / total_sequences if total_sequences > 0 else 0
+
+    return digit_acc, seq_acc
