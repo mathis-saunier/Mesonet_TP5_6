@@ -21,8 +21,16 @@ class SimpleViTSequence(nn.Module):
         self.output_dim = config['num_classes']
         self.DEVICE = device
 
-        # Patch embedding simplifié
-        self.patch_embed = nn.Conv2d(1, embed_dim, kernel_size=patch_size, stride=patch_size)
+        # Patch embedding avec convolutions
+        self.patch_embed = nn.Sequential(
+            nn.Conv2d(1, 32, kernel_size=3, stride=1, padding=1),
+            nn.BatchNorm2d(32),
+            nn.ReLU(),
+            nn.Conv2d(32, 64, kernel_size=3, stride=1, padding=1),
+            nn.BatchNorm2d(64),
+            nn.ReLU(),
+            nn.Conv2d(64, embed_dim, kernel_size=patch_size, stride=patch_size)
+        )
         num_patches = (img_size // patch_size) ** 2  # 144
 
         # Positional encoding (sans CLS token pour simplifier)

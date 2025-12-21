@@ -142,9 +142,9 @@ def augment_data(x_train, y_train):
 
 if __name__ == '__main__':
 
-    TRAINING = False  # Training if True Testing otherwise
+    TRAINING = True  # Training if True Testing otherwise
     REPRISE = False
-    SHOW = False
+    SHOW = True
 
     device="cpu"
     if torch.backends.mps.is_available():
