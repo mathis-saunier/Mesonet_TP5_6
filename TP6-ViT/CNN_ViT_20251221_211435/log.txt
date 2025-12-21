@@ -1,0 +1,6 @@
+Device : cuda
+Loading training and test data...
+Recognition ended successfully
+Digit Accuracy: 92.96%
+Sequence Accuracy: 71.10%
+Nombre de paramètres du modèle: 322507

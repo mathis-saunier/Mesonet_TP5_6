@@ -1,0 +1,570 @@
+Device : cuda
+Loading training and test data...
+Augmenting data...
+Epoch 1/500 - Train Loss: 2.7052 Acc: 0.2081 | Valid Loss: 2.6991 Acc: 0.2772 Seq Acc: 0.0000
+Epoch 2/500 - Train Loss: 2.6700 Acc: 0.2787 | Valid Loss: 2.5935 Acc: 0.2803 Seq Acc: 0.0000
+Epoch 3/500 - Train Loss: 2.4290 Acc: 0.2798 | Valid Loss: 2.2237 Acc: 0.2855 Seq Acc: 0.0000
+Epoch 4/500 - Train Loss: 2.0674 Acc: 0.2834 | Valid Loss: 1.9259 Acc: 0.2820 Seq Acc: 0.0000
+Epoch 5/500 - Train Loss: 1.8905 Acc: 0.2857 | Valid Loss: 1.8643 Acc: 0.2845 Seq Acc: 0.0000
+Epoch 6/500 - Train Loss: 1.8613 Acc: 0.2861 | Valid Loss: 1.8529 Acc: 0.2812 Seq Acc: 0.0000
+Epoch 7/500 - Train Loss: 1.8539 Acc: 0.2848 | Valid Loss: 1.8491 Acc: 0.2840 Seq Acc: 0.0000
+Epoch 8/500 - Train Loss: 1.8518 Acc: 0.2836 | Valid Loss: 1.8471 Acc: 0.2845 Seq Acc: 0.0000
+Epoch 9/500 - Train Loss: 1.8501 Acc: 0.2837 | Valid Loss: 1.8458 Acc: 0.2837 Seq Acc: 0.0000
+Epoch 10/500 - Train Loss: 1.8494 Acc: 0.2838 | Valid Loss: 1.8452 Acc: 0.2838 Seq Acc: 0.0000
+Epoch 11/500 - Train Loss: 1.8490 Acc: 0.2844 | Valid Loss: 1.8452 Acc: 0.2838 Seq Acc: 0.0000
+Epoch 12/500 - Train Loss: 1.8479 Acc: 0.2844 | Valid Loss: 1.8434 Acc: 0.2855 Seq Acc: 0.0000
+Epoch 13/500 - Train Loss: 1.8473 Acc: 0.2832 | Valid Loss: 1.8440 Acc: 0.2845 Seq Acc: 0.0000
+Epoch 14/500 - Train Loss: 1.8469 Acc: 0.2850 | Valid Loss: 1.8446 Acc: 0.2845 Seq Acc: 0.0000
+Epoch 15/500 - Train Loss: 1.8479 Acc: 0.2847 | Valid Loss: 1.8458 Acc: 0.2837 Seq Acc: 0.0000
+Epoch 16/500 - Train Loss: 1.8480 Acc: 0.2839 | Valid Loss: 1.8461 Acc: 0.2843 Seq Acc: 0.0000
+Epoch 17/500 - Train Loss: 1.8462 Acc: 0.2851 | Valid Loss: 1.8458 Acc: 0.2818 Seq Acc: 0.0000
+Epoch 18/500 - Train Loss: 1.8459 Acc: 0.2861 | Valid Loss: 1.8432 Acc: 0.2817 Seq Acc: 0.0000
+Epoch 19/500 - Train Loss: 1.8459 Acc: 0.2842 | Valid Loss: 1.8437 Acc: 0.2837 Seq Acc: 0.0000
+Epoch 20/500 - Train Loss: 1.8461 Acc: 0.2855 | Valid Loss: 1.8438 Acc: 0.2823 Seq Acc: 0.0000
+Epoch 21/500 - Train Loss: 1.8454 Acc: 0.2849 | Valid Loss: 1.8459 Acc: 0.2818 Seq Acc: 0.0000
+Epoch 22/500 - Train Loss: 1.8456 Acc: 0.2851 | Valid Loss: 1.8459 Acc: 0.2827 Seq Acc: 0.0000
+Epoch 23/500 - Train Loss: 1.8456 Acc: 0.2854 | Valid Loss: 1.8455 Acc: 0.2852 Seq Acc: 0.0000
+Epoch 24/500 - Train Loss: 1.8444 Acc: 0.2860 | Valid Loss: 1.8443 Acc: 0.2803 Seq Acc: 0.0000
+Epoch 25/500 - Train Loss: 1.8452 Acc: 0.2852 | Valid Loss: 1.8448 Acc: 0.2825 Seq Acc: 0.0000
+Epoch 26/500 - Train Loss: 1.8440 Acc: 0.2865 | Valid Loss: 1.8429 Acc: 0.2867 Seq Acc: 0.0000
+Epoch 27/500 - Train Loss: 1.8392 Acc: 0.2948 | Valid Loss: 1.8283 Acc: 0.2942 Seq Acc: 0.0000
+Epoch 28/500 - Train Loss: 1.8283 Acc: 0.3058 | Valid Loss: 1.8085 Acc: 0.3173 Seq Acc: 0.0000
+Epoch 29/500 - Train Loss: 1.8103 Acc: 0.3168 | Valid Loss: 1.7674 Acc: 0.3348 Seq Acc: 0.0000
+Epoch 30/500 - Train Loss: 1.7659 Acc: 0.3398 | Valid Loss: 1.7117 Acc: 0.3665 Seq Acc: 0.0000
+Epoch 31/500 - Train Loss: 1.7096 Acc: 0.3647 | Valid Loss: 1.6198 Acc: 0.3905 Seq Acc: 0.0008
+New best model saved with Seq Acc: 0.0008
+Epoch 32/500 - Train Loss: 1.6232 Acc: 0.3972 | Valid Loss: 1.5095 Acc: 0.4413 Seq Acc: 0.0017
+New best model saved with Seq Acc: 0.0017
+Epoch 33/500 - Train Loss: 1.5282 Acc: 0.4348 | Valid Loss: 1.3739 Acc: 0.4910 Seq Acc: 0.0025
+New best model saved with Seq Acc: 0.0025
+Epoch 34/500 - Train Loss: 1.4318 Acc: 0.4690 | Valid Loss: 1.2578 Acc: 0.5278 Seq Acc: 0.0092
+New best model saved with Seq Acc: 0.0092
+Epoch 35/500 - Train Loss: 1.3635 Acc: 0.4914 | Valid Loss: 1.2402 Acc: 0.5357 Seq Acc: 0.0117
+New best model saved with Seq Acc: 0.0117
+Epoch 36/500 - Train Loss: 1.3266 Acc: 0.5072 | Valid Loss: 1.1815 Acc: 0.5603 Seq Acc: 0.0175
+New best model saved with Seq Acc: 0.0175
+Epoch 37/500 - Train Loss: 1.2905 Acc: 0.5218 | Valid Loss: 1.1401 Acc: 0.5768 Seq Acc: 0.0183
+New best model saved with Seq Acc: 0.0183
+Epoch 38/500 - Train Loss: 1.2576 Acc: 0.5343 | Valid Loss: 1.1087 Acc: 0.5933 Seq Acc: 0.0233
+New best model saved with Seq Acc: 0.0233
+Epoch 39/500 - Train Loss: 1.2296 Acc: 0.5451 | Valid Loss: 1.0779 Acc: 0.6017 Seq Acc: 0.0308
+New best model saved with Seq Acc: 0.0308
+Epoch 40/500 - Train Loss: 1.2042 Acc: 0.5553 | Valid Loss: 1.0827 Acc: 0.6027 Seq Acc: 0.0275
+Epoch 41/500 - Train Loss: 1.1767 Acc: 0.5648 | Valid Loss: 1.0412 Acc: 0.6155 Seq Acc: 0.0333
+New best model saved with Seq Acc: 0.0333
+Epoch 42/500 - Train Loss: 1.1521 Acc: 0.5748 | Valid Loss: 1.0034 Acc: 0.6275 Seq Acc: 0.0392
+New best model saved with Seq Acc: 0.0392
+Epoch 43/500 - Train Loss: 1.1256 Acc: 0.5851 | Valid Loss: 0.9944 Acc: 0.6342 Seq Acc: 0.0392
+Epoch 44/500 - Train Loss: 1.1029 Acc: 0.5935 | Valid Loss: 0.9520 Acc: 0.6498 Seq Acc: 0.0542
+New best model saved with Seq Acc: 0.0542
+Epoch 45/500 - Train Loss: 1.0791 Acc: 0.6038 | Valid Loss: 0.9391 Acc: 0.6512 Seq Acc: 0.0492
+Epoch 46/500 - Train Loss: 1.0589 Acc: 0.6117 | Valid Loss: 0.9260 Acc: 0.6575 Seq Acc: 0.0508
+Epoch 47/500 - Train Loss: 1.0368 Acc: 0.6203 | Valid Loss: 0.9036 Acc: 0.6720 Seq Acc: 0.0625
+New best model saved with Seq Acc: 0.0625
+Epoch 48/500 - Train Loss: 1.0094 Acc: 0.6327 | Valid Loss: 0.8630 Acc: 0.6898 Seq Acc: 0.0683
+New best model saved with Seq Acc: 0.0683
+Epoch 49/500 - Train Loss: 0.9788 Acc: 0.6452 | Valid Loss: 0.8309 Acc: 0.7055 Seq Acc: 0.0825
+New best model saved with Seq Acc: 0.0825
+Epoch 50/500 - Train Loss: 0.9509 Acc: 0.6583 | Valid Loss: 0.7988 Acc: 0.7150 Seq Acc: 0.0967
+New best model saved with Seq Acc: 0.0967
+Epoch 51/500 - Train Loss: 0.9201 Acc: 0.6670 | Valid Loss: 0.7916 Acc: 0.7168 Seq Acc: 0.1008
+New best model saved with Seq Acc: 0.1008
+Epoch 52/500 - Train Loss: 0.8979 Acc: 0.6765 | Valid Loss: 0.7598 Acc: 0.7238 Seq Acc: 0.1125
+New best model saved with Seq Acc: 0.1125
+Epoch 53/500 - Train Loss: 0.8719 Acc: 0.6874 | Valid Loss: 0.7399 Acc: 0.7378 Seq Acc: 0.1325
+New best model saved with Seq Acc: 0.1325
+Epoch 54/500 - Train Loss: 0.8423 Acc: 0.6998 | Valid Loss: 0.7025 Acc: 0.7508 Seq Acc: 0.1600
+New best model saved with Seq Acc: 0.1600
+Epoch 55/500 - Train Loss: 0.8157 Acc: 0.7091 | Valid Loss: 0.6696 Acc: 0.7563 Seq Acc: 0.1675
+New best model saved with Seq Acc: 0.1675
+Epoch 56/500 - Train Loss: 0.7905 Acc: 0.7194 | Valid Loss: 0.6301 Acc: 0.7747 Seq Acc: 0.1942
+New best model saved with Seq Acc: 0.1942
+Epoch 57/500 - Train Loss: 0.7662 Acc: 0.7281 | Valid Loss: 0.6154 Acc: 0.7813 Seq Acc: 0.2100
+New best model saved with Seq Acc: 0.2100
+Epoch 58/500 - Train Loss: 0.7399 Acc: 0.7376 | Valid Loss: 0.5980 Acc: 0.7870 Seq Acc: 0.2067
+Epoch 59/500 - Train Loss: 0.7175 Acc: 0.7463 | Valid Loss: 0.5859 Acc: 0.7915 Seq Acc: 0.2383
+New best model saved with Seq Acc: 0.2383
+Epoch 60/500 - Train Loss: 0.6992 Acc: 0.7515 | Valid Loss: 0.5583 Acc: 0.8003 Seq Acc: 0.2417
+New best model saved with Seq Acc: 0.2417
+Epoch 61/500 - Train Loss: 0.6690 Acc: 0.7634 | Valid Loss: 0.5355 Acc: 0.8107 Seq Acc: 0.2792
+New best model saved with Seq Acc: 0.2792
+Epoch 62/500 - Train Loss: 0.6486 Acc: 0.7704 | Valid Loss: 0.5305 Acc: 0.8105 Seq Acc: 0.2800
+New best model saved with Seq Acc: 0.2800
+Epoch 63/500 - Train Loss: 0.6295 Acc: 0.7777 | Valid Loss: 0.5073 Acc: 0.8198 Seq Acc: 0.3125
+New best model saved with Seq Acc: 0.3125
+Epoch 64/500 - Train Loss: 0.6079 Acc: 0.7863 | Valid Loss: 0.4827 Acc: 0.8342 Seq Acc: 0.3467
+New best model saved with Seq Acc: 0.3467
+Epoch 65/500 - Train Loss: 0.5950 Acc: 0.7896 | Valid Loss: 0.4954 Acc: 0.8277 Seq Acc: 0.3325
+Epoch 66/500 - Train Loss: 0.5753 Acc: 0.7964 | Valid Loss: 0.4749 Acc: 0.8328 Seq Acc: 0.3333
+Epoch 67/500 - Train Loss: 0.5550 Acc: 0.8061 | Valid Loss: 0.4681 Acc: 0.8425 Seq Acc: 0.3708
+New best model saved with Seq Acc: 0.3708
+Epoch 68/500 - Train Loss: 0.5404 Acc: 0.8111 | Valid Loss: 0.4504 Acc: 0.8482 Seq Acc: 0.3992
+New best model saved with Seq Acc: 0.3992
+Epoch 69/500 - Train Loss: 0.5195 Acc: 0.8184 | Valid Loss: 0.4200 Acc: 0.8607 Seq Acc: 0.4442
+New best model saved with Seq Acc: 0.4442
+Epoch 70/500 - Train Loss: 0.5044 Acc: 0.8250 | Valid Loss: 0.4143 Acc: 0.8662 Seq Acc: 0.4625
+New best model saved with Seq Acc: 0.4625
+Epoch 71/500 - Train Loss: 0.4840 Acc: 0.8333 | Valid Loss: 0.4033 Acc: 0.8737 Seq Acc: 0.4842
+New best model saved with Seq Acc: 0.4842
+Epoch 72/500 - Train Loss: 0.4726 Acc: 0.8363 | Valid Loss: 0.3765 Acc: 0.8787 Seq Acc: 0.4975
+New best model saved with Seq Acc: 0.4975
+Epoch 73/500 - Train Loss: 0.4509 Acc: 0.8430 | Valid Loss: 0.3895 Acc: 0.8790 Seq Acc: 0.4967
+Epoch 74/500 - Train Loss: 0.4381 Acc: 0.8492 | Valid Loss: 0.3674 Acc: 0.8880 Seq Acc: 0.5383
+New best model saved with Seq Acc: 0.5383
+Epoch 75/500 - Train Loss: 0.4242 Acc: 0.8553 | Valid Loss: 0.3678 Acc: 0.8843 Seq Acc: 0.5217
+Epoch 76/500 - Train Loss: 0.4124 Acc: 0.8596 | Valid Loss: 0.3528 Acc: 0.8908 Seq Acc: 0.5442
+New best model saved with Seq Acc: 0.5442
+Epoch 77/500 - Train Loss: 0.3992 Acc: 0.8636 | Valid Loss: 0.3630 Acc: 0.8872 Seq Acc: 0.5392
+Epoch 78/500 - Train Loss: 0.3862 Acc: 0.8665 | Valid Loss: 0.3433 Acc: 0.8987 Seq Acc: 0.5733
+New best model saved with Seq Acc: 0.5733
+Epoch 79/500 - Train Loss: 0.3753 Acc: 0.8708 | Valid Loss: 0.3212 Acc: 0.9050 Seq Acc: 0.5908
+New best model saved with Seq Acc: 0.5908
+Epoch 80/500 - Train Loss: 0.3633 Acc: 0.8768 | Valid Loss: 0.3369 Acc: 0.8990 Seq Acc: 0.5783
+Epoch 81/500 - Train Loss: 0.3523 Acc: 0.8795 | Valid Loss: 0.3155 Acc: 0.9062 Seq Acc: 0.5950
+New best model saved with Seq Acc: 0.5950
+Epoch 82/500 - Train Loss: 0.3456 Acc: 0.8834 | Valid Loss: 0.3371 Acc: 0.9003 Seq Acc: 0.5783
+Epoch 83/500 - Train Loss: 0.3372 Acc: 0.8858 | Valid Loss: 0.3275 Acc: 0.9065 Seq Acc: 0.6058
+New best model saved with Seq Acc: 0.6058
+Epoch 84/500 - Train Loss: 0.3291 Acc: 0.8887 | Valid Loss: 0.3255 Acc: 0.9072 Seq Acc: 0.6025
+Epoch 85/500 - Train Loss: 0.3172 Acc: 0.8921 | Valid Loss: 0.3042 Acc: 0.9127 Seq Acc: 0.6292
+New best model saved with Seq Acc: 0.6292
+Epoch 86/500 - Train Loss: 0.3045 Acc: 0.8964 | Valid Loss: 0.3278 Acc: 0.9062 Seq Acc: 0.6000
+Epoch 87/500 - Train Loss: 0.2994 Acc: 0.8976 | Valid Loss: 0.3007 Acc: 0.9152 Seq Acc: 0.6392
+New best model saved with Seq Acc: 0.6392
+Epoch 88/500 - Train Loss: 0.2932 Acc: 0.9009 | Valid Loss: 0.3361 Acc: 0.9045 Seq Acc: 0.6008
+Epoch 89/500 - Train Loss: 0.2892 Acc: 0.9014 | Valid Loss: 0.3074 Acc: 0.9132 Seq Acc: 0.6350
+Epoch 90/500 - Train Loss: 0.2805 Acc: 0.9031 | Valid Loss: 0.3053 Acc: 0.9098 Seq Acc: 0.6242
+Epoch 91/500 - Train Loss: 0.2711 Acc: 0.9060 | Valid Loss: 0.3103 Acc: 0.9093 Seq Acc: 0.6150
+Epoch 92/500 - Train Loss: 0.2669 Acc: 0.9084 | Valid Loss: 0.2984 Acc: 0.9132 Seq Acc: 0.6342
+Epoch 93/500 - Train Loss: 0.2604 Acc: 0.9100 | Valid Loss: 0.2954 Acc: 0.9173 Seq Acc: 0.6467
+New best model saved with Seq Acc: 0.6467
+Epoch 94/500 - Train Loss: 0.2560 Acc: 0.9127 | Valid Loss: 0.2932 Acc: 0.9152 Seq Acc: 0.6400
+Epoch 95/500 - Train Loss: 0.2517 Acc: 0.9141 | Valid Loss: 0.2849 Acc: 0.9177 Seq Acc: 0.6475
+New best model saved with Seq Acc: 0.6475
+Epoch 96/500 - Train Loss: 0.2434 Acc: 0.9177 | Valid Loss: 0.2936 Acc: 0.9140 Seq Acc: 0.6383
+Epoch 97/500 - Train Loss: 0.2396 Acc: 0.9185 | Valid Loss: 0.2877 Acc: 0.9173 Seq Acc: 0.6442
+Epoch 98/500 - Train Loss: 0.2345 Acc: 0.9198 | Valid Loss: 0.2928 Acc: 0.9162 Seq Acc: 0.6408
+Epoch 99/500 - Train Loss: 0.2311 Acc: 0.9202 | Valid Loss: 0.2977 Acc: 0.9152 Seq Acc: 0.6442
+Epoch 100/500 - Train Loss: 0.2265 Acc: 0.9225 | Valid Loss: 0.3071 Acc: 0.9152 Seq Acc: 0.6408
+Epoch 101/500 - Train Loss: 0.2207 Acc: 0.9240 | Valid Loss: 0.2948 Acc: 0.9187 Seq Acc: 0.6517
+New best model saved with Seq Acc: 0.6517
+Epoch 102/500 - Train Loss: 0.2158 Acc: 0.9260 | Valid Loss: 0.2944 Acc: 0.9172 Seq Acc: 0.6442
+Epoch 103/500 - Train Loss: 0.2113 Acc: 0.9272 | Valid Loss: 0.2927 Acc: 0.9217 Seq Acc: 0.6642
+New best model saved with Seq Acc: 0.6642
+Epoch 104/500 - Train Loss: 0.2061 Acc: 0.9297 | Valid Loss: 0.2753 Acc: 0.9240 Seq Acc: 0.6742
+New best model saved with Seq Acc: 0.6742
+Epoch 105/500 - Train Loss: 0.2009 Acc: 0.9305 | Valid Loss: 0.2951 Acc: 0.9173 Seq Acc: 0.6517
+Epoch 106/500 - Train Loss: 0.2004 Acc: 0.9304 | Valid Loss: 0.2989 Acc: 0.9190 Seq Acc: 0.6542
+Epoch 107/500 - Train Loss: 0.2001 Acc: 0.9315 | Valid Loss: 0.2807 Acc: 0.9235 Seq Acc: 0.6700
+Epoch 108/500 - Train Loss: 0.1953 Acc: 0.9332 | Valid Loss: 0.2969 Acc: 0.9200 Seq Acc: 0.6625
+Epoch 109/500 - Train Loss: 0.1887 Acc: 0.9348 | Valid Loss: 0.2797 Acc: 0.9232 Seq Acc: 0.6692
+Epoch 110/500 - Train Loss: 0.1861 Acc: 0.9354 | Valid Loss: 0.2723 Acc: 0.9250 Seq Acc: 0.6817
+New best model saved with Seq Acc: 0.6817
+Epoch 111/500 - Train Loss: 0.1819 Acc: 0.9369 | Valid Loss: 0.2961 Acc: 0.9197 Seq Acc: 0.6558
+Epoch 112/500 - Train Loss: 0.1854 Acc: 0.9358 | Valid Loss: 0.2915 Acc: 0.9217 Seq Acc: 0.6592
+Epoch 113/500 - Train Loss: 0.1796 Acc: 0.9388 | Valid Loss: 0.2970 Acc: 0.9230 Seq Acc: 0.6742
+Epoch 114/500 - Train Loss: 0.1746 Acc: 0.9390 | Valid Loss: 0.2923 Acc: 0.9235 Seq Acc: 0.6683
+Epoch 115/500 - Train Loss: 0.1736 Acc: 0.9404 | Valid Loss: 0.3029 Acc: 0.9222 Seq Acc: 0.6642
+Epoch 116/500 - Train Loss: 0.1705 Acc: 0.9413 | Valid Loss: 0.3088 Acc: 0.9217 Seq Acc: 0.6675
+Epoch 117/500 - Train Loss: 0.1659 Acc: 0.9428 | Valid Loss: 0.2956 Acc: 0.9245 Seq Acc: 0.6808
+Epoch 118/500 - Train Loss: 0.1600 Acc: 0.9443 | Valid Loss: 0.2853 Acc: 0.9272 Seq Acc: 0.6858
+New best model saved with Seq Acc: 0.6858
+Epoch 119/500 - Train Loss: 0.1562 Acc: 0.9458 | Valid Loss: 0.3012 Acc: 0.9275 Seq Acc: 0.6867
+New best model saved with Seq Acc: 0.6867
+Epoch 120/500 - Train Loss: 0.1557 Acc: 0.9458 | Valid Loss: 0.2840 Acc: 0.9268 Seq Acc: 0.6875
+New best model saved with Seq Acc: 0.6875
+Epoch 121/500 - Train Loss: 0.1541 Acc: 0.9460 | Valid Loss: 0.2829 Acc: 0.9287 Seq Acc: 0.6933
+New best model saved with Seq Acc: 0.6933
+Epoch 122/500 - Train Loss: 0.1538 Acc: 0.9464 | Valid Loss: 0.2924 Acc: 0.9262 Seq Acc: 0.6825
+Epoch 123/500 - Train Loss: 0.1496 Acc: 0.9483 | Valid Loss: 0.2953 Acc: 0.9285 Seq Acc: 0.6892
+Epoch 124/500 - Train Loss: 0.1484 Acc: 0.9490 | Valid Loss: 0.2949 Acc: 0.9255 Seq Acc: 0.6825
+Epoch 125/500 - Train Loss: 0.1434 Acc: 0.9500 | Valid Loss: 0.3030 Acc: 0.9275 Seq Acc: 0.6892
+Epoch 126/500 - Train Loss: 0.1420 Acc: 0.9506 | Valid Loss: 0.2987 Acc: 0.9273 Seq Acc: 0.6842
+Epoch 127/500 - Train Loss: 0.1424 Acc: 0.9507 | Valid Loss: 0.2971 Acc: 0.9242 Seq Acc: 0.6817
+Epoch 128/500 - Train Loss: 0.1398 Acc: 0.9515 | Valid Loss: 0.3042 Acc: 0.9252 Seq Acc: 0.6792
+Epoch 129/500 - Train Loss: 0.1378 Acc: 0.9520 | Valid Loss: 0.2898 Acc: 0.9268 Seq Acc: 0.6783
+Epoch 130/500 - Train Loss: 0.1348 Acc: 0.9534 | Valid Loss: 0.3025 Acc: 0.9237 Seq Acc: 0.6725
+Epoch 131/500 - Train Loss: 0.1321 Acc: 0.9542 | Valid Loss: 0.3257 Acc: 0.9220 Seq Acc: 0.6675
+Epoch 132/500 - Train Loss: 0.1320 Acc: 0.9541 | Valid Loss: 0.3080 Acc: 0.9280 Seq Acc: 0.6850
+Epoch 133/500 - Train Loss: 0.1318 Acc: 0.9541 | Valid Loss: 0.2925 Acc: 0.9260 Seq Acc: 0.6858
+Epoch 134/500 - Train Loss: 0.1257 Acc: 0.9563 | Valid Loss: 0.3086 Acc: 0.9232 Seq Acc: 0.6767
+Epoch 135/500 - Train Loss: 0.1265 Acc: 0.9567 | Valid Loss: 0.3124 Acc: 0.9275 Seq Acc: 0.6867
+Epoch 136/500 - Train Loss: 0.1270 Acc: 0.9562 | Valid Loss: 0.3172 Acc: 0.9232 Seq Acc: 0.6725
+Epoch 137/500 - Train Loss: 0.1230 Acc: 0.9577 | Valid Loss: 0.3035 Acc: 0.9293 Seq Acc: 0.6942
+New best model saved with Seq Acc: 0.6942
+Epoch 138/500 - Train Loss: 0.1220 Acc: 0.9573 | Valid Loss: 0.3021 Acc: 0.9303 Seq Acc: 0.6925
+Epoch 139/500 - Train Loss: 0.1187 Acc: 0.9587 | Valid Loss: 0.3169 Acc: 0.9282 Seq Acc: 0.6842
+Epoch 140/500 - Train Loss: 0.1199 Acc: 0.9590 | Valid Loss: 0.3124 Acc: 0.9273 Seq Acc: 0.6883
+Epoch 141/500 - Train Loss: 0.1144 Acc: 0.9608 | Valid Loss: 0.3034 Acc: 0.9267 Seq Acc: 0.6842
+Epoch 142/500 - Train Loss: 0.1129 Acc: 0.9611 | Valid Loss: 0.3196 Acc: 0.9273 Seq Acc: 0.6875
+Epoch 143/500 - Train Loss: 0.1135 Acc: 0.9605 | Valid Loss: 0.3213 Acc: 0.9288 Seq Acc: 0.6917
+Epoch 144/500 - Train Loss: 0.1103 Acc: 0.9624 | Valid Loss: 0.3205 Acc: 0.9267 Seq Acc: 0.6850
+Epoch 145/500 - Train Loss: 0.1109 Acc: 0.9615 | Valid Loss: 0.3286 Acc: 0.9262 Seq Acc: 0.6708
+Epoch 146/500 - Train Loss: 0.1089 Acc: 0.9624 | Valid Loss: 0.3117 Acc: 0.9290 Seq Acc: 0.6875
+Epoch 147/500 - Train Loss: 0.1073 Acc: 0.9627 | Valid Loss: 0.3099 Acc: 0.9275 Seq Acc: 0.6933
+Epoch 148/500 - Train Loss: 0.1072 Acc: 0.9628 | Valid Loss: 0.3237 Acc: 0.9258 Seq Acc: 0.6817
+Epoch 149/500 - Train Loss: 0.1026 Acc: 0.9644 | Valid Loss: 0.3285 Acc: 0.9292 Seq Acc: 0.6908
+Epoch 150/500 - Train Loss: 0.1007 Acc: 0.9644 | Valid Loss: 0.3040 Acc: 0.9325 Seq Acc: 0.7008
+New best model saved with Seq Acc: 0.7008
+Epoch 151/500 - Train Loss: 0.1043 Acc: 0.9637 | Valid Loss: 0.3103 Acc: 0.9323 Seq Acc: 0.7008
+Epoch 152/500 - Train Loss: 0.1018 Acc: 0.9650 | Valid Loss: 0.3141 Acc: 0.9293 Seq Acc: 0.6942
+Epoch 153/500 - Train Loss: 0.1009 Acc: 0.9646 | Valid Loss: 0.3286 Acc: 0.9267 Seq Acc: 0.6842
+Epoch 154/500 - Train Loss: 0.0991 Acc: 0.9659 | Valid Loss: 0.3366 Acc: 0.9308 Seq Acc: 0.7017
+New best model saved with Seq Acc: 0.7017
+Epoch 155/500 - Train Loss: 0.1001 Acc: 0.9654 | Valid Loss: 0.3334 Acc: 0.9263 Seq Acc: 0.6867
+Epoch 156/500 - Train Loss: 0.0948 Acc: 0.9672 | Valid Loss: 0.3117 Acc: 0.9320 Seq Acc: 0.7033
+New best model saved with Seq Acc: 0.7033
+Epoch 157/500 - Train Loss: 0.0950 Acc: 0.9667 | Valid Loss: 0.3234 Acc: 0.9278 Seq Acc: 0.6867
+Epoch 158/500 - Train Loss: 0.0950 Acc: 0.9668 | Valid Loss: 0.3224 Acc: 0.9297 Seq Acc: 0.6933
+Epoch 159/500 - Train Loss: 0.0952 Acc: 0.9673 | Valid Loss: 0.3128 Acc: 0.9287 Seq Acc: 0.6917
+Epoch 160/500 - Train Loss: 0.0958 Acc: 0.9670 | Valid Loss: 0.3189 Acc: 0.9295 Seq Acc: 0.6950
+Epoch 161/500 - Train Loss: 0.0918 Acc: 0.9684 | Valid Loss: 0.3277 Acc: 0.9288 Seq Acc: 0.6933
+Epoch 162/500 - Train Loss: 0.0891 Acc: 0.9694 | Valid Loss: 0.3265 Acc: 0.9298 Seq Acc: 0.6883
+Epoch 163/500 - Train Loss: 0.0907 Acc: 0.9685 | Valid Loss: 0.3244 Acc: 0.9323 Seq Acc: 0.7000
+Epoch 164/500 - Train Loss: 0.0892 Acc: 0.9691 | Valid Loss: 0.3268 Acc: 0.9285 Seq Acc: 0.6875
+Epoch 165/500 - Train Loss: 0.0867 Acc: 0.9702 | Valid Loss: 0.3160 Acc: 0.9297 Seq Acc: 0.6917
+Epoch 166/500 - Train Loss: 0.0865 Acc: 0.9700 | Valid Loss: 0.3172 Acc: 0.9302 Seq Acc: 0.6958
+Epoch 167/500 - Train Loss: 0.0891 Acc: 0.9691 | Valid Loss: 0.3233 Acc: 0.9298 Seq Acc: 0.6883
+Epoch 168/500 - Train Loss: 0.0864 Acc: 0.9705 | Valid Loss: 0.3180 Acc: 0.9297 Seq Acc: 0.6917
+Epoch 169/500 - Train Loss: 0.0845 Acc: 0.9713 | Valid Loss: 0.3156 Acc: 0.9345 Seq Acc: 0.7117
+New best model saved with Seq Acc: 0.7117
+Epoch 170/500 - Train Loss: 0.0834 Acc: 0.9715 | Valid Loss: 0.3315 Acc: 0.9295 Seq Acc: 0.6892
+Epoch 171/500 - Train Loss: 0.0796 Acc: 0.9725 | Valid Loss: 0.3170 Acc: 0.9300 Seq Acc: 0.6883
+Epoch 172/500 - Train Loss: 0.0797 Acc: 0.9730 | Valid Loss: 0.3188 Acc: 0.9328 Seq Acc: 0.7050
+Epoch 173/500 - Train Loss: 0.0806 Acc: 0.9719 | Valid Loss: 0.3320 Acc: 0.9297 Seq Acc: 0.6975
+Epoch 174/500 - Train Loss: 0.0798 Acc: 0.9731 | Valid Loss: 0.3385 Acc: 0.9285 Seq Acc: 0.6833
+Epoch 175/500 - Train Loss: 0.0782 Acc: 0.9733 | Valid Loss: 0.3377 Acc: 0.9290 Seq Acc: 0.6975
+Epoch 176/500 - Train Loss: 0.0769 Acc: 0.9735 | Valid Loss: 0.3251 Acc: 0.9338 Seq Acc: 0.7117
+Epoch 177/500 - Train Loss: 0.0795 Acc: 0.9729 | Valid Loss: 0.3334 Acc: 0.9297 Seq Acc: 0.6908
+Epoch 178/500 - Train Loss: 0.0778 Acc: 0.9738 | Valid Loss: 0.3353 Acc: 0.9265 Seq Acc: 0.6792
+Epoch 179/500 - Train Loss: 0.0773 Acc: 0.9733 | Valid Loss: 0.3287 Acc: 0.9333 Seq Acc: 0.7108
+Epoch 180/500 - Train Loss: 0.0759 Acc: 0.9737 | Valid Loss: 0.3309 Acc: 0.9310 Seq Acc: 0.7033
+Epoch 181/500 - Train Loss: 0.0778 Acc: 0.9726 | Valid Loss: 0.3340 Acc: 0.9287 Seq Acc: 0.6867
+Epoch 182/500 - Train Loss: 0.0751 Acc: 0.9740 | Valid Loss: 0.3383 Acc: 0.9303 Seq Acc: 0.6958
+Epoch 183/500 - Train Loss: 0.0724 Acc: 0.9749 | Valid Loss: 0.3462 Acc: 0.9317 Seq Acc: 0.7025
+Epoch 184/500 - Train Loss: 0.0736 Acc: 0.9751 | Valid Loss: 0.3294 Acc: 0.9290 Seq Acc: 0.6942
+Epoch 185/500 - Train Loss: 0.0746 Acc: 0.9741 | Valid Loss: 0.3316 Acc: 0.9335 Seq Acc: 0.7117
+Epoch 186/500 - Train Loss: 0.0698 Acc: 0.9762 | Valid Loss: 0.3321 Acc: 0.9303 Seq Acc: 0.6917
+Epoch 187/500 - Train Loss: 0.0721 Acc: 0.9750 | Valid Loss: 0.3318 Acc: 0.9320 Seq Acc: 0.7008
+Epoch 188/500 - Train Loss: 0.0691 Acc: 0.9762 | Valid Loss: 0.3360 Acc: 0.9298 Seq Acc: 0.6958
+Epoch 189/500 - Train Loss: 0.0713 Acc: 0.9752 | Valid Loss: 0.3343 Acc: 0.9298 Seq Acc: 0.7008
+Epoch 190/500 - Train Loss: 0.0734 Acc: 0.9750 | Valid Loss: 0.3216 Acc: 0.9328 Seq Acc: 0.7050
+Epoch 191/500 - Train Loss: 0.0692 Acc: 0.9763 | Valid Loss: 0.3328 Acc: 0.9315 Seq Acc: 0.6975
+Epoch 192/500 - Train Loss: 0.0684 Acc: 0.9770 | Valid Loss: 0.3332 Acc: 0.9303 Seq Acc: 0.6958
+Epoch 193/500 - Train Loss: 0.0659 Acc: 0.9776 | Valid Loss: 0.3259 Acc: 0.9320 Seq Acc: 0.7033
+Epoch 194/500 - Train Loss: 0.0645 Acc: 0.9778 | Valid Loss: 0.3382 Acc: 0.9315 Seq Acc: 0.7033
+Epoch 195/500 - Train Loss: 0.0673 Acc: 0.9769 | Valid Loss: 0.3370 Acc: 0.9328 Seq Acc: 0.7092
+Epoch 196/500 - Train Loss: 0.0642 Acc: 0.9782 | Valid Loss: 0.3292 Acc: 0.9312 Seq Acc: 0.7017
+Epoch 197/500 - Train Loss: 0.0643 Acc: 0.9778 | Valid Loss: 0.3380 Acc: 0.9333 Seq Acc: 0.7133
+New best model saved with Seq Acc: 0.7133
+Epoch 198/500 - Train Loss: 0.0644 Acc: 0.9783 | Valid Loss: 0.3455 Acc: 0.9317 Seq Acc: 0.7000
+Epoch 199/500 - Train Loss: 0.0635 Acc: 0.9780 | Valid Loss: 0.3385 Acc: 0.9315 Seq Acc: 0.7050
+Epoch 200/500 - Train Loss: 0.0619 Acc: 0.9784 | Valid Loss: 0.3406 Acc: 0.9298 Seq Acc: 0.6942
+Epoch 201/500 - Train Loss: 0.0664 Acc: 0.9768 | Valid Loss: 0.3579 Acc: 0.9325 Seq Acc: 0.7058
+Epoch 202/500 - Train Loss: 0.0652 Acc: 0.9774 | Valid Loss: 0.3469 Acc: 0.9327 Seq Acc: 0.7117
+Epoch 203/500 - Train Loss: 0.0621 Acc: 0.9786 | Valid Loss: 0.3348 Acc: 0.9318 Seq Acc: 0.7017
+Epoch 204/500 - Train Loss: 0.0610 Acc: 0.9794 | Valid Loss: 0.3297 Acc: 0.9345 Seq Acc: 0.7133
+Epoch 205/500 - Train Loss: 0.0590 Acc: 0.9799 | Valid Loss: 0.3398 Acc: 0.9342 Seq Acc: 0.7108
+Epoch 206/500 - Train Loss: 0.0623 Acc: 0.9787 | Valid Loss: 0.3468 Acc: 0.9317 Seq Acc: 0.7017
+Epoch 207/500 - Train Loss: 0.0605 Acc: 0.9793 | Valid Loss: 0.3605 Acc: 0.9308 Seq Acc: 0.6992
+Epoch 208/500 - Train Loss: 0.0591 Acc: 0.9800 | Valid Loss: 0.3578 Acc: 0.9318 Seq Acc: 0.7033
+Epoch 209/500 - Train Loss: 0.0616 Acc: 0.9794 | Valid Loss: 0.3493 Acc: 0.9315 Seq Acc: 0.7008
+Epoch 210/500 - Train Loss: 0.0571 Acc: 0.9807 | Valid Loss: 0.3390 Acc: 0.9325 Seq Acc: 0.7025
+Epoch 211/500 - Train Loss: 0.0592 Acc: 0.9800 | Valid Loss: 0.3372 Acc: 0.9310 Seq Acc: 0.6958
+Epoch 212/500 - Train Loss: 0.0592 Acc: 0.9799 | Valid Loss: 0.3330 Acc: 0.9352 Seq Acc: 0.7183
+New best model saved with Seq Acc: 0.7183
+Epoch 213/500 - Train Loss: 0.0586 Acc: 0.9803 | Valid Loss: 0.3441 Acc: 0.9313 Seq Acc: 0.7025
+Epoch 214/500 - Train Loss: 0.0569 Acc: 0.9811 | Valid Loss: 0.3528 Acc: 0.9337 Seq Acc: 0.7133
+Epoch 215/500 - Train Loss: 0.0557 Acc: 0.9807 | Valid Loss: 0.3361 Acc: 0.9320 Seq Acc: 0.7067
+Epoch 216/500 - Train Loss: 0.0546 Acc: 0.9816 | Valid Loss: 0.3338 Acc: 0.9357 Seq Acc: 0.7217
+New best model saved with Seq Acc: 0.7217
+Epoch 217/500 - Train Loss: 0.0567 Acc: 0.9810 | Valid Loss: 0.3397 Acc: 0.9323 Seq Acc: 0.7083
+Epoch 218/500 - Train Loss: 0.0544 Acc: 0.9816 | Valid Loss: 0.3432 Acc: 0.9338 Seq Acc: 0.7092
+Epoch 219/500 - Train Loss: 0.0534 Acc: 0.9823 | Valid Loss: 0.3417 Acc: 0.9342 Seq Acc: 0.7092
+Epoch 220/500 - Train Loss: 0.0541 Acc: 0.9819 | Valid Loss: 0.3496 Acc: 0.9325 Seq Acc: 0.7058
+Epoch 221/500 - Train Loss: 0.0538 Acc: 0.9813 | Valid Loss: 0.3497 Acc: 0.9345 Seq Acc: 0.7100
+Epoch 222/500 - Train Loss: 0.0539 Acc: 0.9816 | Valid Loss: 0.3447 Acc: 0.9337 Seq Acc: 0.7125
+Epoch 223/500 - Train Loss: 0.0515 Acc: 0.9827 | Valid Loss: 0.3528 Acc: 0.9307 Seq Acc: 0.7000
+Epoch 224/500 - Train Loss: 0.0538 Acc: 0.9817 | Valid Loss: 0.3583 Acc: 0.9318 Seq Acc: 0.7033
+Epoch 225/500 - Train Loss: 0.0530 Acc: 0.9821 | Valid Loss: 0.3417 Acc: 0.9340 Seq Acc: 0.7075
+Epoch 226/500 - Train Loss: 0.0524 Acc: 0.9821 | Valid Loss: 0.3707 Acc: 0.9307 Seq Acc: 0.7000
+Epoch 227/500 - Train Loss: 0.0511 Acc: 0.9827 | Valid Loss: 0.3523 Acc: 0.9323 Seq Acc: 0.7125
+Epoch 228/500 - Train Loss: 0.0505 Acc: 0.9829 | Valid Loss: 0.3581 Acc: 0.9347 Seq Acc: 0.7108
+Epoch 229/500 - Train Loss: 0.0482 Acc: 0.9831 | Valid Loss: 0.3532 Acc: 0.9348 Seq Acc: 0.7167
+Epoch 230/500 - Train Loss: 0.0487 Acc: 0.9835 | Valid Loss: 0.3719 Acc: 0.9313 Seq Acc: 0.7017
+Epoch 231/500 - Train Loss: 0.0473 Acc: 0.9841 | Valid Loss: 0.3722 Acc: 0.9327 Seq Acc: 0.7067
+Epoch 232/500 - Train Loss: 0.0497 Acc: 0.9832 | Valid Loss: 0.3694 Acc: 0.9332 Seq Acc: 0.7075
+Epoch 233/500 - Train Loss: 0.0515 Acc: 0.9824 | Valid Loss: 0.3696 Acc: 0.9298 Seq Acc: 0.6992
+Epoch 234/500 - Train Loss: 0.0473 Acc: 0.9839 | Valid Loss: 0.3635 Acc: 0.9318 Seq Acc: 0.7092
+Epoch 235/500 - Train Loss: 0.0491 Acc: 0.9832 | Valid Loss: 0.3657 Acc: 0.9310 Seq Acc: 0.7008
+Epoch 236/500 - Train Loss: 0.0477 Acc: 0.9839 | Valid Loss: 0.3664 Acc: 0.9320 Seq Acc: 0.7067
+Epoch 237/500 - Train Loss: 0.0484 Acc: 0.9839 | Valid Loss: 0.3641 Acc: 0.9323 Seq Acc: 0.7083
+Epoch 238/500 - Train Loss: 0.0488 Acc: 0.9834 | Valid Loss: 0.3725 Acc: 0.9317 Seq Acc: 0.6983
+Epoch 239/500 - Train Loss: 0.0479 Acc: 0.9837 | Valid Loss: 0.3581 Acc: 0.9357 Seq Acc: 0.7167
+Epoch 240/500 - Train Loss: 0.0471 Acc: 0.9841 | Valid Loss: 0.3559 Acc: 0.9335 Seq Acc: 0.7125
+Epoch 241/500 - Train Loss: 0.0469 Acc: 0.9843 | Valid Loss: 0.3555 Acc: 0.9343 Seq Acc: 0.7142
+Epoch 242/500 - Train Loss: 0.0458 Acc: 0.9849 | Valid Loss: 0.3500 Acc: 0.9333 Seq Acc: 0.7117
+Epoch 243/500 - Train Loss: 0.0445 Acc: 0.9849 | Valid Loss: 0.3517 Acc: 0.9340 Seq Acc: 0.7142
+Epoch 244/500 - Train Loss: 0.0445 Acc: 0.9847 | Valid Loss: 0.3437 Acc: 0.9365 Seq Acc: 0.7167
+Epoch 245/500 - Train Loss: 0.0441 Acc: 0.9850 | Valid Loss: 0.3517 Acc: 0.9330 Seq Acc: 0.7083
+Epoch 246/500 - Train Loss: 0.0455 Acc: 0.9850 | Valid Loss: 0.3871 Acc: 0.9308 Seq Acc: 0.7058
+Epoch 247/500 - Train Loss: 0.0441 Acc: 0.9851 | Valid Loss: 0.3658 Acc: 0.9357 Seq Acc: 0.7183
+Epoch 248/500 - Train Loss: 0.0461 Acc: 0.9845 | Valid Loss: 0.3625 Acc: 0.9372 Seq Acc: 0.7200
+Epoch 249/500 - Train Loss: 0.0438 Acc: 0.9850 | Valid Loss: 0.3592 Acc: 0.9353 Seq Acc: 0.7142
+Epoch 250/500 - Train Loss: 0.0422 Acc: 0.9854 | Valid Loss: 0.3673 Acc: 0.9330 Seq Acc: 0.7125
+Epoch 251/500 - Train Loss: 0.0445 Acc: 0.9850 | Valid Loss: 0.3678 Acc: 0.9348 Seq Acc: 0.7117
+Epoch 252/500 - Train Loss: 0.0441 Acc: 0.9851 | Valid Loss: 0.3629 Acc: 0.9355 Seq Acc: 0.7158
+Epoch 253/500 - Train Loss: 0.0410 Acc: 0.9863 | Valid Loss: 0.3606 Acc: 0.9332 Seq Acc: 0.7033
+Epoch 254/500 - Train Loss: 0.0419 Acc: 0.9862 | Valid Loss: 0.3663 Acc: 0.9350 Seq Acc: 0.7125
+Epoch 255/500 - Train Loss: 0.0421 Acc: 0.9861 | Valid Loss: 0.3681 Acc: 0.9327 Seq Acc: 0.7017
+Epoch 256/500 - Train Loss: 0.0430 Acc: 0.9856 | Valid Loss: 0.3665 Acc: 0.9357 Seq Acc: 0.7142
+Epoch 257/500 - Train Loss: 0.0409 Acc: 0.9866 | Valid Loss: 0.3540 Acc: 0.9373 Seq Acc: 0.7200
+Epoch 258/500 - Train Loss: 0.0412 Acc: 0.9861 | Valid Loss: 0.3724 Acc: 0.9333 Seq Acc: 0.7050
+Epoch 259/500 - Train Loss: 0.0407 Acc: 0.9864 | Valid Loss: 0.3611 Acc: 0.9332 Seq Acc: 0.7067
+Epoch 260/500 - Train Loss: 0.0413 Acc: 0.9867 | Valid Loss: 0.3703 Acc: 0.9367 Seq Acc: 0.7192
+Epoch 261/500 - Train Loss: 0.0404 Acc: 0.9867 | Valid Loss: 0.3540 Acc: 0.9367 Seq Acc: 0.7217
+Epoch 262/500 - Train Loss: 0.0383 Acc: 0.9874 | Valid Loss: 0.3481 Acc: 0.9340 Seq Acc: 0.7058
+Epoch 263/500 - Train Loss: 0.0382 Acc: 0.9874 | Valid Loss: 0.3523 Acc: 0.9360 Seq Acc: 0.7208
+Epoch 264/500 - Train Loss: 0.0395 Acc: 0.9866 | Valid Loss: 0.3672 Acc: 0.9367 Seq Acc: 0.7217
+Epoch 265/500 - Train Loss: 0.0379 Acc: 0.9875 | Valid Loss: 0.3622 Acc: 0.9373 Seq Acc: 0.7208
+Epoch 266/500 - Train Loss: 0.0398 Acc: 0.9870 | Valid Loss: 0.3565 Acc: 0.9382 Seq Acc: 0.7242
+New best model saved with Seq Acc: 0.7242
+Epoch 267/500 - Train Loss: 0.0369 Acc: 0.9882 | Valid Loss: 0.3629 Acc: 0.9362 Seq Acc: 0.7192
+Epoch 268/500 - Train Loss: 0.0389 Acc: 0.9871 | Valid Loss: 0.3572 Acc: 0.9338 Seq Acc: 0.7033
+Epoch 269/500 - Train Loss: 0.0366 Acc: 0.9878 | Valid Loss: 0.3625 Acc: 0.9353 Seq Acc: 0.7158
+Epoch 270/500 - Train Loss: 0.0380 Acc: 0.9877 | Valid Loss: 0.3783 Acc: 0.9315 Seq Acc: 0.7050
+Epoch 271/500 - Train Loss: 0.0375 Acc: 0.9873 | Valid Loss: 0.3665 Acc: 0.9343 Seq Acc: 0.7117
+Epoch 272/500 - Train Loss: 0.0379 Acc: 0.9875 | Valid Loss: 0.3531 Acc: 0.9362 Seq Acc: 0.7192
+Epoch 273/500 - Train Loss: 0.0364 Acc: 0.9876 | Valid Loss: 0.3522 Acc: 0.9365 Seq Acc: 0.7158
+Epoch 274/500 - Train Loss: 0.0365 Acc: 0.9880 | Valid Loss: 0.3797 Acc: 0.9342 Seq Acc: 0.7075
+Epoch 275/500 - Train Loss: 0.0362 Acc: 0.9881 | Valid Loss: 0.3791 Acc: 0.9347 Seq Acc: 0.7108
+Epoch 276/500 - Train Loss: 0.0373 Acc: 0.9872 | Valid Loss: 0.3576 Acc: 0.9355 Seq Acc: 0.7133
+Epoch 277/500 - Train Loss: 0.0361 Acc: 0.9879 | Valid Loss: 0.3640 Acc: 0.9375 Seq Acc: 0.7233
+Epoch 278/500 - Train Loss: 0.0348 Acc: 0.9882 | Valid Loss: 0.3587 Acc: 0.9345 Seq Acc: 0.7042
+Epoch 279/500 - Train Loss: 0.0373 Acc: 0.9876 | Valid Loss: 0.3484 Acc: 0.9360 Seq Acc: 0.7117
+Epoch 280/500 - Train Loss: 0.0368 Acc: 0.9882 | Valid Loss: 0.3508 Acc: 0.9377 Seq Acc: 0.7217
+Epoch 281/500 - Train Loss: 0.0361 Acc: 0.9877 | Valid Loss: 0.3513 Acc: 0.9383 Seq Acc: 0.7275
+New best model saved with Seq Acc: 0.7275
+Epoch 282/500 - Train Loss: 0.0341 Acc: 0.9886 | Valid Loss: 0.3590 Acc: 0.9373 Seq Acc: 0.7225
+Epoch 283/500 - Train Loss: 0.0331 Acc: 0.9889 | Valid Loss: 0.3697 Acc: 0.9360 Seq Acc: 0.7150
+Epoch 284/500 - Train Loss: 0.0355 Acc: 0.9882 | Valid Loss: 0.3648 Acc: 0.9370 Seq Acc: 0.7225
+Epoch 285/500 - Train Loss: 0.0358 Acc: 0.9881 | Valid Loss: 0.3542 Acc: 0.9358 Seq Acc: 0.7183
+Epoch 286/500 - Train Loss: 0.0338 Acc: 0.9891 | Valid Loss: 0.3402 Acc: 0.9408 Seq Acc: 0.7342
+New best model saved with Seq Acc: 0.7342
+Epoch 287/500 - Train Loss: 0.0341 Acc: 0.9888 | Valid Loss: 0.3605 Acc: 0.9372 Seq Acc: 0.7242
+Epoch 288/500 - Train Loss: 0.0334 Acc: 0.9889 | Valid Loss: 0.3402 Acc: 0.9383 Seq Acc: 0.7292
+Epoch 289/500 - Train Loss: 0.0317 Acc: 0.9891 | Valid Loss: 0.3661 Acc: 0.9343 Seq Acc: 0.7067
+Epoch 290/500 - Train Loss: 0.0334 Acc: 0.9893 | Valid Loss: 0.3714 Acc: 0.9360 Seq Acc: 0.7167
+Epoch 291/500 - Train Loss: 0.0352 Acc: 0.9883 | Valid Loss: 0.3557 Acc: 0.9375 Seq Acc: 0.7233
+Epoch 292/500 - Train Loss: 0.0327 Acc: 0.9891 | Valid Loss: 0.3605 Acc: 0.9372 Seq Acc: 0.7208
+Epoch 293/500 - Train Loss: 0.0312 Acc: 0.9901 | Valid Loss: 0.3592 Acc: 0.9385 Seq Acc: 0.7275
+Epoch 294/500 - Train Loss: 0.0325 Acc: 0.9893 | Valid Loss: 0.3712 Acc: 0.9358 Seq Acc: 0.7150
+Epoch 295/500 - Train Loss: 0.0324 Acc: 0.9890 | Valid Loss: 0.3549 Acc: 0.9383 Seq Acc: 0.7208
+Epoch 296/500 - Train Loss: 0.0337 Acc: 0.9887 | Valid Loss: 0.3649 Acc: 0.9402 Seq Acc: 0.7317
+Epoch 297/500 - Train Loss: 0.0323 Acc: 0.9893 | Valid Loss: 0.3573 Acc: 0.9378 Seq Acc: 0.7217
+Epoch 298/500 - Train Loss: 0.0310 Acc: 0.9898 | Valid Loss: 0.3622 Acc: 0.9375 Seq Acc: 0.7192
+Epoch 299/500 - Train Loss: 0.0310 Acc: 0.9895 | Valid Loss: 0.3647 Acc: 0.9365 Seq Acc: 0.7142
+Epoch 300/500 - Train Loss: 0.0310 Acc: 0.9902 | Valid Loss: 0.3599 Acc: 0.9355 Seq Acc: 0.7167
+Epoch 301/500 - Train Loss: 0.0302 Acc: 0.9904 | Valid Loss: 0.3507 Acc: 0.9368 Seq Acc: 0.7242
+Epoch 302/500 - Train Loss: 0.0307 Acc: 0.9899 | Valid Loss: 0.3521 Acc: 0.9410 Seq Acc: 0.7342
+Epoch 303/500 - Train Loss: 0.0302 Acc: 0.9904 | Valid Loss: 0.3460 Acc: 0.9382 Seq Acc: 0.7208
+Epoch 304/500 - Train Loss: 0.0307 Acc: 0.9900 | Valid Loss: 0.3655 Acc: 0.9360 Seq Acc: 0.7158
+Epoch 305/500 - Train Loss: 0.0293 Acc: 0.9901 | Valid Loss: 0.3626 Acc: 0.9378 Seq Acc: 0.7275
+Epoch 306/500 - Train Loss: 0.0295 Acc: 0.9903 | Valid Loss: 0.3675 Acc: 0.9347 Seq Acc: 0.7117
+Epoch 307/500 - Train Loss: 0.0286 Acc: 0.9907 | Valid Loss: 0.3621 Acc: 0.9362 Seq Acc: 0.7192
+Epoch 308/500 - Train Loss: 0.0283 Acc: 0.9907 | Valid Loss: 0.3573 Acc: 0.9362 Seq Acc: 0.7225
+Epoch 309/500 - Train Loss: 0.0273 Acc: 0.9909 | Valid Loss: 0.3682 Acc: 0.9363 Seq Acc: 0.7175
+Epoch 310/500 - Train Loss: 0.0287 Acc: 0.9907 | Valid Loss: 0.3664 Acc: 0.9370 Seq Acc: 0.7225
+Epoch 311/500 - Train Loss: 0.0291 Acc: 0.9907 | Valid Loss: 0.3709 Acc: 0.9365 Seq Acc: 0.7158
+Epoch 312/500 - Train Loss: 0.0287 Acc: 0.9907 | Valid Loss: 0.3704 Acc: 0.9368 Seq Acc: 0.7158
+Epoch 313/500 - Train Loss: 0.0287 Acc: 0.9904 | Valid Loss: 0.3663 Acc: 0.9387 Seq Acc: 0.7292
+Epoch 314/500 - Train Loss: 0.0296 Acc: 0.9907 | Valid Loss: 0.3667 Acc: 0.9370 Seq Acc: 0.7192
+Epoch 315/500 - Train Loss: 0.0270 Acc: 0.9913 | Valid Loss: 0.3798 Acc: 0.9363 Seq Acc: 0.7183
+Epoch 316/500 - Train Loss: 0.0274 Acc: 0.9908 | Valid Loss: 0.3615 Acc: 0.9373 Seq Acc: 0.7250
+Epoch 317/500 - Train Loss: 0.0275 Acc: 0.9913 | Valid Loss: 0.3742 Acc: 0.9353 Seq Acc: 0.7125
+Epoch 318/500 - Train Loss: 0.0269 Acc: 0.9908 | Valid Loss: 0.3594 Acc: 0.9375 Seq Acc: 0.7250
+Epoch 319/500 - Train Loss: 0.0272 Acc: 0.9913 | Valid Loss: 0.3653 Acc: 0.9382 Seq Acc: 0.7283
+Epoch 320/500 - Train Loss: 0.0267 Acc: 0.9915 | Valid Loss: 0.3661 Acc: 0.9377 Seq Acc: 0.7258
+Epoch 321/500 - Train Loss: 0.0264 Acc: 0.9914 | Valid Loss: 0.3684 Acc: 0.9358 Seq Acc: 0.7142
+Epoch 322/500 - Train Loss: 0.0259 Acc: 0.9913 | Valid Loss: 0.3642 Acc: 0.9388 Seq Acc: 0.7292
+Epoch 323/500 - Train Loss: 0.0265 Acc: 0.9915 | Valid Loss: 0.3597 Acc: 0.9377 Seq Acc: 0.7225
+Epoch 324/500 - Train Loss: 0.0249 Acc: 0.9921 | Valid Loss: 0.3665 Acc: 0.9370 Seq Acc: 0.7250
+Epoch 325/500 - Train Loss: 0.0255 Acc: 0.9915 | Valid Loss: 0.3590 Acc: 0.9367 Seq Acc: 0.7208
+Epoch 326/500 - Train Loss: 0.0253 Acc: 0.9919 | Valid Loss: 0.3848 Acc: 0.9370 Seq Acc: 0.7175
+Epoch 327/500 - Train Loss: 0.0252 Acc: 0.9922 | Valid Loss: 0.3718 Acc: 0.9375 Seq Acc: 0.7200
+Epoch 328/500 - Train Loss: 0.0259 Acc: 0.9917 | Valid Loss: 0.3740 Acc: 0.9348 Seq Acc: 0.7100
+Epoch 329/500 - Train Loss: 0.0242 Acc: 0.9920 | Valid Loss: 0.3790 Acc: 0.9360 Seq Acc: 0.7200
+Epoch 330/500 - Train Loss: 0.0253 Acc: 0.9915 | Valid Loss: 0.3738 Acc: 0.9347 Seq Acc: 0.7125
+Epoch 331/500 - Train Loss: 0.0263 Acc: 0.9917 | Valid Loss: 0.3811 Acc: 0.9372 Seq Acc: 0.7217
+Epoch 332/500 - Train Loss: 0.0247 Acc: 0.9920 | Valid Loss: 0.3770 Acc: 0.9372 Seq Acc: 0.7192
+Epoch 333/500 - Train Loss: 0.0254 Acc: 0.9916 | Valid Loss: 0.3794 Acc: 0.9367 Seq Acc: 0.7183
+Epoch 334/500 - Train Loss: 0.0241 Acc: 0.9923 | Valid Loss: 0.3760 Acc: 0.9358 Seq Acc: 0.7183
+Epoch 335/500 - Train Loss: 0.0243 Acc: 0.9919 | Valid Loss: 0.3742 Acc: 0.9365 Seq Acc: 0.7150
+Epoch 336/500 - Train Loss: 0.0241 Acc: 0.9924 | Valid Loss: 0.3748 Acc: 0.9355 Seq Acc: 0.7200
+Epoch 337/500 - Train Loss: 0.0236 Acc: 0.9922 | Valid Loss: 0.3710 Acc: 0.9378 Seq Acc: 0.7242
+Epoch 338/500 - Train Loss: 0.0247 Acc: 0.9920 | Valid Loss: 0.3818 Acc: 0.9353 Seq Acc: 0.7100
+Epoch 339/500 - Train Loss: 0.0238 Acc: 0.9923 | Valid Loss: 0.3699 Acc: 0.9375 Seq Acc: 0.7250
+Epoch 340/500 - Train Loss: 0.0238 Acc: 0.9920 | Valid Loss: 0.3729 Acc: 0.9373 Seq Acc: 0.7275
+Epoch 341/500 - Train Loss: 0.0238 Acc: 0.9924 | Valid Loss: 0.3563 Acc: 0.9383 Seq Acc: 0.7250
+Epoch 342/500 - Train Loss: 0.0220 Acc: 0.9928 | Valid Loss: 0.3687 Acc: 0.9387 Seq Acc: 0.7267
+Epoch 343/500 - Train Loss: 0.0232 Acc: 0.9925 | Valid Loss: 0.3685 Acc: 0.9395 Seq Acc: 0.7300
+Epoch 344/500 - Train Loss: 0.0222 Acc: 0.9931 | Valid Loss: 0.3795 Acc: 0.9400 Seq Acc: 0.7317
+Epoch 345/500 - Train Loss: 0.0231 Acc: 0.9924 | Valid Loss: 0.3715 Acc: 0.9365 Seq Acc: 0.7117
+Epoch 346/500 - Train Loss: 0.0222 Acc: 0.9929 | Valid Loss: 0.3711 Acc: 0.9390 Seq Acc: 0.7283
+Epoch 347/500 - Train Loss: 0.0231 Acc: 0.9924 | Valid Loss: 0.3858 Acc: 0.9378 Seq Acc: 0.7208
+Epoch 348/500 - Train Loss: 0.0233 Acc: 0.9925 | Valid Loss: 0.3817 Acc: 0.9380 Seq Acc: 0.7242
+Epoch 349/500 - Train Loss: 0.0230 Acc: 0.9926 | Valid Loss: 0.3751 Acc: 0.9377 Seq Acc: 0.7192
+Epoch 350/500 - Train Loss: 0.0218 Acc: 0.9931 | Valid Loss: 0.3723 Acc: 0.9388 Seq Acc: 0.7258
+Epoch 351/500 - Train Loss: 0.0223 Acc: 0.9928 | Valid Loss: 0.3775 Acc: 0.9385 Seq Acc: 0.7275
+Epoch 352/500 - Train Loss: 0.0222 Acc: 0.9929 | Valid Loss: 0.3666 Acc: 0.9383 Seq Acc: 0.7242
+Epoch 353/500 - Train Loss: 0.0219 Acc: 0.9927 | Valid Loss: 0.3779 Acc: 0.9360 Seq Acc: 0.7133
+Epoch 354/500 - Train Loss: 0.0223 Acc: 0.9926 | Valid Loss: 0.3858 Acc: 0.9365 Seq Acc: 0.7175
+Epoch 355/500 - Train Loss: 0.0212 Acc: 0.9930 | Valid Loss: 0.3795 Acc: 0.9378 Seq Acc: 0.7233
+Epoch 356/500 - Train Loss: 0.0204 Acc: 0.9934 | Valid Loss: 0.3772 Acc: 0.9377 Seq Acc: 0.7217
+Epoch 357/500 - Train Loss: 0.0214 Acc: 0.9932 | Valid Loss: 0.3855 Acc: 0.9368 Seq Acc: 0.7192
+Epoch 358/500 - Train Loss: 0.0204 Acc: 0.9935 | Valid Loss: 0.3780 Acc: 0.9360 Seq Acc: 0.7142
+Epoch 359/500 - Train Loss: 0.0209 Acc: 0.9932 | Valid Loss: 0.3705 Acc: 0.9388 Seq Acc: 0.7267
+Epoch 360/500 - Train Loss: 0.0213 Acc: 0.9935 | Valid Loss: 0.3741 Acc: 0.9372 Seq Acc: 0.7158
+Epoch 361/500 - Train Loss: 0.0203 Acc: 0.9936 | Valid Loss: 0.3843 Acc: 0.9378 Seq Acc: 0.7233
+Epoch 362/500 - Train Loss: 0.0193 Acc: 0.9941 | Valid Loss: 0.3702 Acc: 0.9382 Seq Acc: 0.7267
+Epoch 363/500 - Train Loss: 0.0207 Acc: 0.9934 | Valid Loss: 0.3789 Acc: 0.9370 Seq Acc: 0.7225
+Epoch 364/500 - Train Loss: 0.0202 Acc: 0.9934 | Valid Loss: 0.3809 Acc: 0.9368 Seq Acc: 0.7208
+Epoch 365/500 - Train Loss: 0.0195 Acc: 0.9940 | Valid Loss: 0.3799 Acc: 0.9375 Seq Acc: 0.7217
+Epoch 366/500 - Train Loss: 0.0196 Acc: 0.9935 | Valid Loss: 0.3838 Acc: 0.9378 Seq Acc: 0.7250
+Epoch 367/500 - Train Loss: 0.0195 Acc: 0.9936 | Valid Loss: 0.3895 Acc: 0.9378 Seq Acc: 0.7217
+Epoch 368/500 - Train Loss: 0.0196 Acc: 0.9937 | Valid Loss: 0.3745 Acc: 0.9385 Seq Acc: 0.7250
+Epoch 369/500 - Train Loss: 0.0198 Acc: 0.9936 | Valid Loss: 0.3717 Acc: 0.9397 Seq Acc: 0.7317
+Epoch 370/500 - Train Loss: 0.0190 Acc: 0.9937 | Valid Loss: 0.3896 Acc: 0.9358 Seq Acc: 0.7150
+Epoch 371/500 - Train Loss: 0.0188 Acc: 0.9940 | Valid Loss: 0.3800 Acc: 0.9382 Seq Acc: 0.7233
+Epoch 372/500 - Train Loss: 0.0194 Acc: 0.9938 | Valid Loss: 0.3797 Acc: 0.9390 Seq Acc: 0.7283
+Epoch 373/500 - Train Loss: 0.0187 Acc: 0.9939 | Valid Loss: 0.3715 Acc: 0.9375 Seq Acc: 0.7233
+Epoch 374/500 - Train Loss: 0.0196 Acc: 0.9936 | Valid Loss: 0.3735 Acc: 0.9382 Seq Acc: 0.7258
+Epoch 375/500 - Train Loss: 0.0188 Acc: 0.9938 | Valid Loss: 0.3725 Acc: 0.9383 Seq Acc: 0.7225
+Epoch 376/500 - Train Loss: 0.0192 Acc: 0.9936 | Valid Loss: 0.3763 Acc: 0.9385 Seq Acc: 0.7233
+Epoch 377/500 - Train Loss: 0.0183 Acc: 0.9946 | Valid Loss: 0.3793 Acc: 0.9402 Seq Acc: 0.7342
+Epoch 378/500 - Train Loss: 0.0182 Acc: 0.9946 | Valid Loss: 0.3864 Acc: 0.9380 Seq Acc: 0.7250
+Epoch 379/500 - Train Loss: 0.0191 Acc: 0.9939 | Valid Loss: 0.3901 Acc: 0.9380 Seq Acc: 0.7250
+Epoch 380/500 - Train Loss: 0.0192 Acc: 0.9940 | Valid Loss: 0.3895 Acc: 0.9383 Seq Acc: 0.7258
+Epoch 381/500 - Train Loss: 0.0172 Acc: 0.9947 | Valid Loss: 0.3835 Acc: 0.9378 Seq Acc: 0.7250
+Epoch 382/500 - Train Loss: 0.0176 Acc: 0.9944 | Valid Loss: 0.3796 Acc: 0.9383 Seq Acc: 0.7275
+Epoch 383/500 - Train Loss: 0.0172 Acc: 0.9946 | Valid Loss: 0.3858 Acc: 0.9377 Seq Acc: 0.7242
+Epoch 384/500 - Train Loss: 0.0176 Acc: 0.9945 | Valid Loss: 0.3811 Acc: 0.9365 Seq Acc: 0.7183
+Epoch 385/500 - Train Loss: 0.0169 Acc: 0.9947 | Valid Loss: 0.3818 Acc: 0.9382 Seq Acc: 0.7250
+Epoch 386/500 - Train Loss: 0.0167 Acc: 0.9948 | Valid Loss: 0.3809 Acc: 0.9390 Seq Acc: 0.7283
+Epoch 387/500 - Train Loss: 0.0177 Acc: 0.9944 | Valid Loss: 0.3812 Acc: 0.9392 Seq Acc: 0.7275
+Epoch 388/500 - Train Loss: 0.0176 Acc: 0.9946 | Valid Loss: 0.3789 Acc: 0.9385 Seq Acc: 0.7258
+Epoch 389/500 - Train Loss: 0.0179 Acc: 0.9944 | Valid Loss: 0.3768 Acc: 0.9377 Seq Acc: 0.7200
+Epoch 390/500 - Train Loss: 0.0167 Acc: 0.9948 | Valid Loss: 0.3840 Acc: 0.9392 Seq Acc: 0.7308
+Epoch 391/500 - Train Loss: 0.0167 Acc: 0.9949 | Valid Loss: 0.3966 Acc: 0.9363 Seq Acc: 0.7192
+Epoch 392/500 - Train Loss: 0.0172 Acc: 0.9945 | Valid Loss: 0.3762 Acc: 0.9388 Seq Acc: 0.7292
+Epoch 393/500 - Train Loss: 0.0172 Acc: 0.9944 | Valid Loss: 0.3858 Acc: 0.9367 Seq Acc: 0.7200
+Epoch 394/500 - Train Loss: 0.0170 Acc: 0.9945 | Valid Loss: 0.3851 Acc: 0.9392 Seq Acc: 0.7275
+Epoch 395/500 - Train Loss: 0.0165 Acc: 0.9949 | Valid Loss: 0.3853 Acc: 0.9383 Seq Acc: 0.7250
+Epoch 396/500 - Train Loss: 0.0172 Acc: 0.9944 | Valid Loss: 0.3857 Acc: 0.9402 Seq Acc: 0.7358
+New best model saved with Seq Acc: 0.7358
+Epoch 397/500 - Train Loss: 0.0166 Acc: 0.9949 | Valid Loss: 0.3903 Acc: 0.9388 Seq Acc: 0.7283
+Epoch 398/500 - Train Loss: 0.0163 Acc: 0.9948 | Valid Loss: 0.3886 Acc: 0.9395 Seq Acc: 0.7300
+Epoch 399/500 - Train Loss: 0.0171 Acc: 0.9946 | Valid Loss: 0.3897 Acc: 0.9382 Seq Acc: 0.7275
+Epoch 400/500 - Train Loss: 0.0164 Acc: 0.9948 | Valid Loss: 0.3957 Acc: 0.9377 Seq Acc: 0.7225
+Epoch 401/500 - Train Loss: 0.0159 Acc: 0.9952 | Valid Loss: 0.3843 Acc: 0.9378 Seq Acc: 0.7267
+Epoch 402/500 - Train Loss: 0.0160 Acc: 0.9950 | Valid Loss: 0.3805 Acc: 0.9387 Seq Acc: 0.7267
+Epoch 403/500 - Train Loss: 0.0165 Acc: 0.9947 | Valid Loss: 0.3790 Acc: 0.9377 Seq Acc: 0.7217
+Epoch 404/500 - Train Loss: 0.0161 Acc: 0.9948 | Valid Loss: 0.3819 Acc: 0.9380 Seq Acc: 0.7233
+Epoch 405/500 - Train Loss: 0.0165 Acc: 0.9946 | Valid Loss: 0.3857 Acc: 0.9370 Seq Acc: 0.7183
+Epoch 406/500 - Train Loss: 0.0162 Acc: 0.9951 | Valid Loss: 0.3849 Acc: 0.9377 Seq Acc: 0.7183
+Epoch 407/500 - Train Loss: 0.0161 Acc: 0.9951 | Valid Loss: 0.3932 Acc: 0.9380 Seq Acc: 0.7217
+Epoch 408/500 - Train Loss: 0.0163 Acc: 0.9950 | Valid Loss: 0.3901 Acc: 0.9375 Seq Acc: 0.7192
+Epoch 409/500 - Train Loss: 0.0155 Acc: 0.9952 | Valid Loss: 0.3902 Acc: 0.9365 Seq Acc: 0.7167
+Epoch 410/500 - Train Loss: 0.0154 Acc: 0.9954 | Valid Loss: 0.3963 Acc: 0.9373 Seq Acc: 0.7208
+Epoch 411/500 - Train Loss: 0.0152 Acc: 0.9953 | Valid Loss: 0.3946 Acc: 0.9368 Seq Acc: 0.7192
+Epoch 412/500 - Train Loss: 0.0152 Acc: 0.9954 | Valid Loss: 0.3927 Acc: 0.9383 Seq Acc: 0.7217
+Epoch 413/500 - Train Loss: 0.0148 Acc: 0.9956 | Valid Loss: 0.3889 Acc: 0.9365 Seq Acc: 0.7183
+Epoch 414/500 - Train Loss: 0.0154 Acc: 0.9953 | Valid Loss: 0.3886 Acc: 0.9387 Seq Acc: 0.7258
+Epoch 415/500 - Train Loss: 0.0162 Acc: 0.9950 | Valid Loss: 0.3845 Acc: 0.9373 Seq Acc: 0.7217
+Epoch 416/500 - Train Loss: 0.0156 Acc: 0.9951 | Valid Loss: 0.3848 Acc: 0.9375 Seq Acc: 0.7208
+Epoch 417/500 - Train Loss: 0.0151 Acc: 0.9952 | Valid Loss: 0.3819 Acc: 0.9373 Seq Acc: 0.7217
+Epoch 418/500 - Train Loss: 0.0151 Acc: 0.9954 | Valid Loss: 0.3871 Acc: 0.9382 Seq Acc: 0.7267
+Epoch 419/500 - Train Loss: 0.0144 Acc: 0.9956 | Valid Loss: 0.3893 Acc: 0.9388 Seq Acc: 0.7267
+Epoch 420/500 - Train Loss: 0.0150 Acc: 0.9953 | Valid Loss: 0.3840 Acc: 0.9390 Seq Acc: 0.7308
+Epoch 421/500 - Train Loss: 0.0147 Acc: 0.9955 | Valid Loss: 0.3886 Acc: 0.9387 Seq Acc: 0.7267
+Epoch 422/500 - Train Loss: 0.0144 Acc: 0.9956 | Valid Loss: 0.3931 Acc: 0.9387 Seq Acc: 0.7292
+Epoch 423/500 - Train Loss: 0.0150 Acc: 0.9956 | Valid Loss: 0.3915 Acc: 0.9372 Seq Acc: 0.7233
+Epoch 424/500 - Train Loss: 0.0147 Acc: 0.9956 | Valid Loss: 0.3909 Acc: 0.9370 Seq Acc: 0.7225
+Epoch 425/500 - Train Loss: 0.0147 Acc: 0.9953 | Valid Loss: 0.3847 Acc: 0.9388 Seq Acc: 0.7292
+Epoch 426/500 - Train Loss: 0.0145 Acc: 0.9955 | Valid Loss: 0.3947 Acc: 0.9353 Seq Acc: 0.7117
+Epoch 427/500 - Train Loss: 0.0146 Acc: 0.9954 | Valid Loss: 0.3910 Acc: 0.9375 Seq Acc: 0.7217
+Epoch 428/500 - Train Loss: 0.0134 Acc: 0.9960 | Valid Loss: 0.3925 Acc: 0.9357 Seq Acc: 0.7125
+Epoch 429/500 - Train Loss: 0.0145 Acc: 0.9955 | Valid Loss: 0.3884 Acc: 0.9362 Seq Acc: 0.7150
+Epoch 430/500 - Train Loss: 0.0144 Acc: 0.9955 | Valid Loss: 0.3890 Acc: 0.9368 Seq Acc: 0.7158
+Epoch 431/500 - Train Loss: 0.0142 Acc: 0.9955 | Valid Loss: 0.3899 Acc: 0.9372 Seq Acc: 0.7200
+Epoch 432/500 - Train Loss: 0.0143 Acc: 0.9957 | Valid Loss: 0.3929 Acc: 0.9377 Seq Acc: 0.7233
+Epoch 433/500 - Train Loss: 0.0139 Acc: 0.9959 | Valid Loss: 0.3888 Acc: 0.9383 Seq Acc: 0.7267
+Epoch 434/500 - Train Loss: 0.0137 Acc: 0.9957 | Valid Loss: 0.3870 Acc: 0.9387 Seq Acc: 0.7267
+Epoch 435/500 - Train Loss: 0.0142 Acc: 0.9957 | Valid Loss: 0.3886 Acc: 0.9387 Seq Acc: 0.7258
+Epoch 436/500 - Train Loss: 0.0138 Acc: 0.9958 | Valid Loss: 0.3876 Acc: 0.9373 Seq Acc: 0.7183
+Epoch 437/500 - Train Loss: 0.0140 Acc: 0.9959 | Valid Loss: 0.3864 Acc: 0.9388 Seq Acc: 0.7267
+Epoch 438/500 - Train Loss: 0.0139 Acc: 0.9958 | Valid Loss: 0.3864 Acc: 0.9385 Seq Acc: 0.7242
+Epoch 439/500 - Train Loss: 0.0136 Acc: 0.9959 | Valid Loss: 0.3824 Acc: 0.9388 Seq Acc: 0.7242
+Epoch 440/500 - Train Loss: 0.0133 Acc: 0.9961 | Valid Loss: 0.3808 Acc: 0.9382 Seq Acc: 0.7192
+Epoch 441/500 - Train Loss: 0.0134 Acc: 0.9959 | Valid Loss: 0.3849 Acc: 0.9382 Seq Acc: 0.7217
+Epoch 442/500 - Train Loss: 0.0140 Acc: 0.9955 | Valid Loss: 0.3823 Acc: 0.9390 Seq Acc: 0.7258
+Epoch 443/500 - Train Loss: 0.0132 Acc: 0.9960 | Valid Loss: 0.3841 Acc: 0.9392 Seq Acc: 0.7275
+Epoch 444/500 - Train Loss: 0.0132 Acc: 0.9962 | Valid Loss: 0.3874 Acc: 0.9385 Seq Acc: 0.7258
+Epoch 445/500 - Train Loss: 0.0134 Acc: 0.9962 | Valid Loss: 0.3890 Acc: 0.9387 Seq Acc: 0.7258
+Epoch 446/500 - Train Loss: 0.0134 Acc: 0.9962 | Valid Loss: 0.3882 Acc: 0.9380 Seq Acc: 0.7225
+Epoch 447/500 - Train Loss: 0.0135 Acc: 0.9959 | Valid Loss: 0.3901 Acc: 0.9397 Seq Acc: 0.7300
+Epoch 448/500 - Train Loss: 0.0139 Acc: 0.9958 | Valid Loss: 0.3902 Acc: 0.9390 Seq Acc: 0.7275
+Epoch 449/500 - Train Loss: 0.0137 Acc: 0.9958 | Valid Loss: 0.3896 Acc: 0.9385 Seq Acc: 0.7250
+Epoch 450/500 - Train Loss: 0.0131 Acc: 0.9960 | Valid Loss: 0.3912 Acc: 0.9387 Seq Acc: 0.7267
+Epoch 451/500 - Train Loss: 0.0130 Acc: 0.9960 | Valid Loss: 0.3904 Acc: 0.9383 Seq Acc: 0.7258
+Epoch 452/500 - Train Loss: 0.0135 Acc: 0.9959 | Valid Loss: 0.3899 Acc: 0.9385 Seq Acc: 0.7267
+Epoch 453/500 - Train Loss: 0.0128 Acc: 0.9964 | Valid Loss: 0.3933 Acc: 0.9377 Seq Acc: 0.7225
+Epoch 454/500 - Train Loss: 0.0134 Acc: 0.9961 | Valid Loss: 0.3908 Acc: 0.9378 Seq Acc: 0.7233
+Epoch 455/500 - Train Loss: 0.0132 Acc: 0.9961 | Valid Loss: 0.3901 Acc: 0.9380 Seq Acc: 0.7250
+Epoch 456/500 - Train Loss: 0.0133 Acc: 0.9960 | Valid Loss: 0.3890 Acc: 0.9383 Seq Acc: 0.7242
+Epoch 457/500 - Train Loss: 0.0127 Acc: 0.9962 | Valid Loss: 0.3894 Acc: 0.9383 Seq Acc: 0.7242
+Epoch 458/500 - Train Loss: 0.0135 Acc: 0.9959 | Valid Loss: 0.3903 Acc: 0.9378 Seq Acc: 0.7233
+Epoch 459/500 - Train Loss: 0.0133 Acc: 0.9957 | Valid Loss: 0.3901 Acc: 0.9385 Seq Acc: 0.7258
+Epoch 460/500 - Train Loss: 0.0135 Acc: 0.9959 | Valid Loss: 0.3914 Acc: 0.9375 Seq Acc: 0.7217
+Epoch 461/500 - Train Loss: 0.0128 Acc: 0.9963 | Valid Loss: 0.3882 Acc: 0.9382 Seq Acc: 0.7242
+Epoch 462/500 - Train Loss: 0.0132 Acc: 0.9960 | Valid Loss: 0.3892 Acc: 0.9382 Seq Acc: 0.7242
+Epoch 463/500 - Train Loss: 0.0132 Acc: 0.9959 | Valid Loss: 0.3890 Acc: 0.9388 Seq Acc: 0.7275
+Epoch 464/500 - Train Loss: 0.0126 Acc: 0.9963 | Valid Loss: 0.3865 Acc: 0.9377 Seq Acc: 0.7225
+Epoch 465/500 - Train Loss: 0.0130 Acc: 0.9963 | Valid Loss: 0.3863 Acc: 0.9385 Seq Acc: 0.7250
+Epoch 466/500 - Train Loss: 0.0129 Acc: 0.9959 | Valid Loss: 0.3877 Acc: 0.9378 Seq Acc: 0.7225
+Epoch 467/500 - Train Loss: 0.0126 Acc: 0.9960 | Valid Loss: 0.3873 Acc: 0.9383 Seq Acc: 0.7242
+Epoch 468/500 - Train Loss: 0.0123 Acc: 0.9965 | Valid Loss: 0.3866 Acc: 0.9383 Seq Acc: 0.7250
+Epoch 469/500 - Train Loss: 0.0126 Acc: 0.9962 | Valid Loss: 0.3879 Acc: 0.9380 Seq Acc: 0.7242
+Epoch 470/500 - Train Loss: 0.0131 Acc: 0.9962 | Valid Loss: 0.3853 Acc: 0.9380 Seq Acc: 0.7233
+Epoch 471/500 - Train Loss: 0.0133 Acc: 0.9962 | Valid Loss: 0.3882 Acc: 0.9377 Seq Acc: 0.7217
+Epoch 472/500 - Train Loss: 0.0126 Acc: 0.9962 | Valid Loss: 0.3878 Acc: 0.9385 Seq Acc: 0.7242
+Epoch 473/500 - Train Loss: 0.0125 Acc: 0.9963 | Valid Loss: 0.3878 Acc: 0.9377 Seq Acc: 0.7208
+Epoch 474/500 - Train Loss: 0.0126 Acc: 0.9962 | Valid Loss: 0.3879 Acc: 0.9377 Seq Acc: 0.7217
+Epoch 475/500 - Train Loss: 0.0129 Acc: 0.9962 | Valid Loss: 0.3892 Acc: 0.9387 Seq Acc: 0.7267
+Epoch 476/500 - Train Loss: 0.0128 Acc: 0.9962 | Valid Loss: 0.3894 Acc: 0.9378 Seq Acc: 0.7225
+Epoch 477/500 - Train Loss: 0.0122 Acc: 0.9963 | Valid Loss: 0.3885 Acc: 0.9383 Seq Acc: 0.7250
+Epoch 478/500 - Train Loss: 0.0123 Acc: 0.9964 | Valid Loss: 0.3884 Acc: 0.9382 Seq Acc: 0.7233
+Epoch 479/500 - Train Loss: 0.0129 Acc: 0.9961 | Valid Loss: 0.3876 Acc: 0.9378 Seq Acc: 0.7217
+Epoch 480/500 - Train Loss: 0.0122 Acc: 0.9963 | Valid Loss: 0.3888 Acc: 0.9378 Seq Acc: 0.7217
+Epoch 481/500 - Train Loss: 0.0127 Acc: 0.9962 | Valid Loss: 0.3901 Acc: 0.9378 Seq Acc: 0.7225
+Epoch 482/500 - Train Loss: 0.0127 Acc: 0.9962 | Valid Loss: 0.3899 Acc: 0.9382 Seq Acc: 0.7242
+Epoch 483/500 - Train Loss: 0.0128 Acc: 0.9963 | Valid Loss: 0.3898 Acc: 0.9383 Seq Acc: 0.7250
+Epoch 484/500 - Train Loss: 0.0123 Acc: 0.9965 | Valid Loss: 0.3895 Acc: 0.9383 Seq Acc: 0.7250
+Epoch 485/500 - Train Loss: 0.0131 Acc: 0.9960 | Valid Loss: 0.3891 Acc: 0.9378 Seq Acc: 0.7225
+Epoch 486/500 - Train Loss: 0.0129 Acc: 0.9961 | Valid Loss: 0.3895 Acc: 0.9380 Seq Acc: 0.7233
+Epoch 487/500 - Train Loss: 0.0129 Acc: 0.9962 | Valid Loss: 0.3894 Acc: 0.9382 Seq Acc: 0.7233
+Epoch 488/500 - Train Loss: 0.0124 Acc: 0.9964 | Valid Loss: 0.3894 Acc: 0.9382 Seq Acc: 0.7233
+Epoch 489/500 - Train Loss: 0.0133 Acc: 0.9960 | Valid Loss: 0.3892 Acc: 0.9382 Seq Acc: 0.7233
+Epoch 490/500 - Train Loss: 0.0125 Acc: 0.9962 | Valid Loss: 0.3893 Acc: 0.9380 Seq Acc: 0.7225
+Epoch 491/500 - Train Loss: 0.0120 Acc: 0.9964 | Valid Loss: 0.3891 Acc: 0.9380 Seq Acc: 0.7225
+Epoch 492/500 - Train Loss: 0.0125 Acc: 0.9961 | Valid Loss: 0.3892 Acc: 0.9382 Seq Acc: 0.7233
+Epoch 493/500 - Train Loss: 0.0132 Acc: 0.9960 | Valid Loss: 0.3891 Acc: 0.9378 Seq Acc: 0.7217
+Epoch 494/500 - Train Loss: 0.0128 Acc: 0.9962 | Valid Loss: 0.3890 Acc: 0.9380 Seq Acc: 0.7225
+Epoch 495/500 - Train Loss: 0.0124 Acc: 0.9963 | Valid Loss: 0.3890 Acc: 0.9380 Seq Acc: 0.7225
+Epoch 496/500 - Train Loss: 0.0127 Acc: 0.9962 | Valid Loss: 0.3890 Acc: 0.9380 Seq Acc: 0.7225
+Epoch 497/500 - Train Loss: 0.0128 Acc: 0.9962 | Valid Loss: 0.3890 Acc: 0.9378 Seq Acc: 0.7217
+Epoch 498/500 - Train Loss: 0.0123 Acc: 0.9966 | Valid Loss: 0.3890 Acc: 0.9377 Seq Acc: 0.7208
+Epoch 499/500 - Train Loss: 0.0120 Acc: 0.9965 | Valid Loss: 0.3890 Acc: 0.9377 Seq Acc: 0.7208
+Epoch 500/500 - Train Loss: 0.0119 Acc: 0.9966 | Valid Loss: 0.3890 Acc: 0.9377 Seq Acc: 0.7208
+Embedded Training Ended successfully
+Nombre de paramètres libres: 322507
