@@ -69,12 +69,14 @@ def Load_MNISTSequences(file_name,config):
     for n in range(len(yy_train)):
         GT = np.append(config['START_TOKEN'],np.append(yy_train[n].T[0][:],config['END_TOKEN']))
         y_train.append(torch.from_numpy(GT))
-        x_train[n] = torch.from_numpy(np.float32(x_train[n]))
+        # Normalisation des images [0, 1]
+        x_train[n] = torch.from_numpy(np.float32(x_train[n])) / 255.0
 
     for n in range(len(yy_test)):
         GT = np.append(config['START_TOKEN'],np.append(yy_test[n].T[0][:],config['END_TOKEN']))
         y_test.append(torch.from_numpy(GT))
-        x_test[n] = torch.from_numpy(np.float32(x_test[n]))
+        # Normalisation des images [0, 1]
+        x_test[n] = torch.from_numpy(np.float32(x_test[n])) / 255.0
     ###############################################################
     return x_train,x_test,y_train,y_test
 
@@ -168,18 +170,17 @@ if __name__ == '__main__':
     print("Device :",device)
 
     config = {
-        'w_width':4, #5,
+        'w_width':8, # Augmenter la taille du patch pour réduire la séquence (120/8 = 15x15 = 225 tokens)
         'w_stride':30,#3, # 3, 5
-        'input_features':16, # 25 26 49 64 81 100 
-                             # 121 144 169 196 225 256
-        'max_length':15, # 120 / w_width pour des images toutes de même taille 120 X 120
-        'batch_size':256,
+        'input_features':64, # 8*8 = 64
+        'max_length':15, # 120 / 8 = 15
+        'batch_size':64,
         'num_epochs':1000,
         'hidden_size':128,
-        'num_heads':2,
+        'num_heads':4, # Augmenter un peu les têtes
         'num_layers':6,
-        'learning_rate':1.0e-4,
-        'dropout':0.4,
+        'learning_rate':3e-4, # Un peu plus élevé pour commencer
+        'dropout':0.1, # Réduire le dropout
         'num_classes':14, # START_TOKEN + END_TOKEN + HORI + VERT
         'x_pad_idx':-1, # pour padder les entrées
         'y_pad_idx':14, # pour padder la GT = TOKEN DE PADDING 
@@ -200,12 +201,12 @@ if __name__ == '__main__':
     N_max = 60000 # digits
     N_max_seq = int(N_max / l_seq_digits) # 60000 / 5 digits
 
-    N_train = 54000 # digits 54000
+    N_train = 54 # digits 54000
     N_train_seq = int(N_train / l_seq_digits)
     END_TRAIN = N_train_seq # 90% 10 000 digits = 5 X 2000
 
     N_batch = int(N_train_seq / config['batch_size'])
-    N_valid = 6000 #6000
+    N_valid = 6 #6000
     N_valid_seq = int(N_valid / l_seq_digits)
     START_VALID = N_max_seq - N_valid_seq  # 10% for validation 1000 digits = 5 X 200
 
@@ -219,7 +220,7 @@ if __name__ == '__main__':
         # car on ne peut plus mettre les séquences bout à bout puisqu'on entaine
         # des réseaux récurrentsou des CNN qui exploitent le contexte
         # pour le TRAIN
-        # x_train = Apply_SlidingWindow2D(x_train,config)
+        x_train = Apply_SlidingWindow2D(x_train,config)
         
         train = x_train[:N_train_seq]
         gt_train = y_train[:N_train_seq]
@@ -251,10 +252,10 @@ if __name__ == '__main__':
         ############################################################
         # apprentissage from scratch
         if not REPRISE:
-            my_transformer = TRANSFORMER.CNNTransformer(config,device).to(device)
+            my_transformer = TRANSFORMER.ViTTransformer(config,device).to(device)
         else:
             # reprise de l'apprentissage 
-            my_transformer = TRANSFORMER.CNNTransformer(config,device)
+            my_transformer = TRANSFORMER.ViTTransformer(config,device)
             my_transformer.load_state_dict(torch.load(model_name))
             my_transformer.to(device)
         
@@ -296,14 +297,14 @@ if __name__ == '__main__':
         print("Nombre de paramètres libres:",nb_train_param)
     else:
         ###########################################################################
-        # x_test = Apply_SlidingWindow2D(x_test,config)
+        x_test = Apply_SlidingWindow2D(x_test,config)
         N_test_seq = len(x_test)
         Test_seq_dataset = DigitSequenceDataset(x_test,y_test)
         test_dataloader = torch.utils.data.DataLoader(Test_seq_dataset,
                                                       batch_size = 1,
                                                       collate_fn = pad_collate)
 
-        my_transformer = TRANSFORMER.CNNTransformer(config,device)
+        my_transformer = TRANSFORMER.ViTTransformer(config,device)
         my_transformer.load_state_dict(torch.load(model_name))
         my_transformer.to(device)
         

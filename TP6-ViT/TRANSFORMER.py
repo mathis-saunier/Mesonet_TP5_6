@@ -255,9 +255,10 @@ class ViTTransformer(nn.Module):
                                                       num_encoder_layers =config['num_layers'],
                                                       #num_encoder_layers = 1,
                                                       num_decoder_layers =config['num_layers'],
-                                                      dim_feedforward = config['hidden_size'],
+                                                      dim_feedforward = config['hidden_size']*4, # Standard expansion factor
                                                       dropout=config['dropout'],
-                                                      batch_first=True)
+                                                      batch_first=True,
+                                                      norm_first=True) # Pre-Norm helps convergence
         # Output layer for text prediction
         self.output_layer = nn.Linear(config['hidden_size'], config['num_classes'])
         
@@ -265,7 +266,7 @@ class ViTTransformer(nn.Module):
         # x comes in as (Batch, 1, Sequence, Features) from pad_collate
         x = x.squeeze(1) # (Batch, Sequence, Features)
         
-        x = self.x_embedding(x)
+        x = self.x_embedding(x) * math.sqrt(self.hidden_size) # Scaling added
 
         x = self.positional_encoding_layer2D(x) 
         
