@@ -297,7 +297,12 @@ if __name__ == '__main__':
         
         digit_acc, seq_acc = TRANSFORMER.compute_accuracy(test_dataloader, my_transformer)
         
+        cer = 1.0 - digit_acc
+        ser = 1.0 - seq_acc
+
         print('Recognition ended successfully')
-        print(f'Digit Accuracy: {digit_acc*100:.2f}%')
-        print(f'Sequence Accuracy: {seq_acc*100:.2f}%')
+        print(f'Character Error Rate (CER): {cer*100:.2f}%')
+        print(f'Character Recognition Rate (CRR): {digit_acc*100:.2f}%')
+        print(f'Sequence Error Rate (SER): {ser*100:.2f}%')
+        print(f'Sequence Recognition Rate (SRR): {seq_acc*100:.2f}%')
         print("Nombre de paramètres du modèle:",count_parameters(my_transformer))
