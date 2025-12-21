@@ -1,0 +1,460 @@
+[INFO] Loaded cuda@12.6.2 via spack.
+[INFO] Loaded python@3.11.9 via spack.
+[INFO] Loaded py-pip@23.0 via spack.
+sending incremental file list
+drwxr-xr-x          4,096 2025/12/17 09:56:53 .
+-rw-r--r--             10 2025/12/16 22:28:38 .gitignore
+-rw-r--r--         31,768 2025/12/16 22:42:23 main.e29869
+-rw-r--r--         14,518 2025/12/16 22:46:39 main.e29871
+-rw-r--r--         31,768 2025/12/16 22:53:12 main.e29872
+-rw-r--r--         13,724 2025/12/16 22:55:49 main.e29873
+-rw-r--r--         31,768 2025/12/16 23:18:32 main.e29874
+-rw-r--r--         14,435 2025/12/16 23:21:22 main.e29875
+-rw-r--r--         11,526 2025/12/16 23:48:47 main.e29876
+-rw-r--r--         11,036 2025/12/16 23:50:57 main.e29877
+-rw-r--r--          5,066 2025/12/17 00:32:23 main.e29883
+-rw-r--r--         32,607 2025/12/17 09:36:03 main.e29886
+-rw-r--r--         14,156 2025/12/17 09:44:45 main.e29888
+-rw-r--r--          1,405 2025/12/17 09:55:21 main.e29890
+-rw-r--r--              0 2025/12/17 09:56:53 main.e29891
+-rw-r--r--         12,044 2025/12/16 22:42:23 main.o29869
+-rw-r--r--         52,131 2025/12/16 22:46:39 main.o29871
+-rw-r--r--         12,930 2025/12/16 22:53:12 main.o29872
+-rw-r--r--         52,258 2025/12/16 22:55:49 main.o29873
+-rw-r--r--         21,184 2025/12/16 23:18:32 main.o29874
+-rw-r--r--         61,275 2025/12/16 23:21:22 main.o29875
+-rw-r--r--         26,182 2025/12/16 23:28:49 main.o29876
+-rw-r--r--         64,191 2025/12/16 23:50:57 main.o29877
+-rw-r--r--         38,218 2025/12/17 00:32:23 main.o29883
+-rw-r--r--         34,550 2025/12/17 09:36:03 main.o29886
+-rw-r--r--         35,927 2025/12/17 09:44:45 main.o29888
+-rw-r--r--         36,522 2025/12/17 09:55:21 main.o29890
+-rw-r--r--            143 2025/12/17 09:56:55 main.o29891
+-rw-r--r--          2,561 2025/12/16 22:24:16 slurm_TP5.sl
+-rw-r--r--          2,649 2025/12/17 00:16:12 slurm_TP6.sl
+drwxr-xr-x          4,096 2025/12/17 09:56:38 .git
+-rw-r--r--             10 2025/12/16 23:51:51 .git/COMMIT_EDITMSG
+-rw-r--r--             99 2025/12/17 09:56:38 .git/FETCH_HEAD
+-rw-r--r--             21 2025/12/16 22:06:20 .git/HEAD
+-rw-r--r--             41 2025/12/17 09:56:38 .git/ORIG_HEAD
+-rw-r--r--            268 2025/12/16 22:06:20 .git/config
+-rw-r--r--             73 2025/12/16 22:06:18 .git/description
+-rw-r--r--          8,185 2025/12/17 09:56:35 .git/index
+-rw-r--r--            112 2025/12/16 22:06:20 .git/packed-refs
+drwxr-xr-x          4,096 2025/12/16 22:06:18 .git/branches
+drwxr-xr-x          4,096 2025/12/16 22:06:18 .git/hooks
+-rwxr-xr-x            482 2025/12/16 22:06:18 .git/hooks/applypatch-msg.sample
+-rwxr-xr-x            900 2025/12/16 22:06:18 .git/hooks/commit-msg.sample
+-rwxr-xr-x          4,655 2025/12/16 22:06:18 .git/hooks/fsmonitor-watchman.sample
+-rwxr-xr-x            193 2025/12/16 22:06:18 .git/hooks/post-update.sample
+-rwxr-xr-x            428 2025/12/16 22:06:18 .git/hooks/pre-applypatch.sample
+-rwxr-xr-x          1,647 2025/12/16 22:06:18 .git/hooks/pre-commit.sample
+-rwxr-xr-x            420 2025/12/16 22:06:18 .git/hooks/pre-merge-commit.sample
+-rwxr-xr-x          1,378 2025/12/16 22:06:18 .git/hooks/pre-push.sample
+-rwxr-xr-x          4,902 2025/12/16 22:06:18 .git/hooks/pre-rebase.sample
+-rwxr-xr-x            548 2025/12/16 22:06:18 .git/hooks/pre-receive.sample
+-rwxr-xr-x          1,496 2025/12/16 22:06:18 .git/hooks/prepare-commit-msg.sample
+-rwxr-xr-x          2,787 2025/12/16 22:06:18 .git/hooks/push-to-checkout.sample
+-rwxr-xr-x          3,654 2025/12/16 22:06:18 .git/hooks/update.sample
+drwxr-xr-x          4,096 2025/12/16 22:06:18 .git/info
+-rw-r--r--            240 2025/12/16 22:06:18 .git/info/exclude
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/logs
+-rw-r--r--          2,084 2025/12/17 09:54:51 .git/logs/HEAD
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/logs/refs
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/logs/refs/heads
+-rw-r--r--          2,084 2025/12/17 09:54:51 .git/logs/refs/heads/main
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/logs/refs/remotes
+drwxr-xr-x          4,096 2025/12/16 22:21:38 .git/logs/refs/remotes/origin
+-rw-r--r--            192 2025/12/16 22:06:20 .git/logs/refs/remotes/origin/HEAD
+-rw-r--r--          1,848 2025/12/17 09:54:51 .git/logs/refs/remotes/origin/main
+drwxr-xr-x          4,096 2025/12/17 09:56:38 .git/objects
+drwxr-xr-x          4,096 2025/12/16 23:03:57 .git/objects/01
+-r--r--r--          2,993 2025/12/16 23:03:57 .git/objects/01/c9c4128429feb8e3979293c430403611574d56
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/objects/02
+-r--r--r--            166 2025/12/16 22:28:38 .git/objects/02/db674ac1fc3e03120509a336c07eb7eeca6eff
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/04
+-r--r--r--          2,591 2025/12/16 22:56:05 .git/objects/04/88251d09c1daf12768ab4ed4882a75600e7e7f
+drwxr-xr-x          4,096 2025/12/16 23:27:51 .git/objects/0a
+-r--r--r--             26 2025/12/16 22:56:03 .git/objects/0a/020f0b70cdf8656fb1b46b5dbf022797697080
+-r--r--r--         13,664 2025/12/16 23:27:51 .git/objects/0a/27921ecbdd3db59182d3c5d5eb2af567fcc62c
+drwxr-xr-x          4,096 2025/12/16 23:51:51 .git/objects/12
+-r--r--r--             55 2025/12/16 23:51:51 .git/objects/12/37482c1f199a2f2aa268323e59bb1772e3081e
+-r--r--r--         16,922 2025/12/16 22:56:05 .git/objects/12/973be2f93c4912475e6f5c15d6bf6900ef6375
+drwxr-xr-x          4,096 2025/12/17 00:16:12 .git/objects/1d
+-r--r--r--            839 2025/12/17 00:16:12 .git/objects/1d/2116efba8babd2037830191f3ddc4a1e245f20
+drwxr-xr-x          4,096 2025/12/17 09:42:59 .git/objects/1e
+-r--r--r--          4,123 2025/12/17 09:42:59 .git/objects/1e/7aefeb616124c45e7e97474516e336f1669ce2
+drwxr-xr-x          4,096 2025/12/17 00:16:12 .git/objects/20
+-r--r--r--            603 2025/12/17 00:16:12 .git/objects/20/68542a4f1155144480073b4d1605e53089fb43
+-r--r--r--         10,365 2025/12/16 22:56:05 .git/objects/20/f7ebeb43f772239987fc095da925d8761fd0be
+drwxr-xr-x          4,096 2025/12/16 23:27:32 .git/objects/22
+-r--r--r--            375 2025/12/16 23:27:32 .git/objects/22/b466ff07067f64de195ab2487a3809e87f512c
+drwxr-xr-x          4,096 2025/12/17 09:42:59 .git/objects/23
+-r--r--r--            160 2025/12/17 09:42:59 .git/objects/23/f79c6c8a129c790eba7e4ceab27667b13f8ece
+drwxr-xr-x          4,096 2025/12/17 00:16:12 .git/objects/26
+-r--r--r--          5,402 2025/12/17 00:16:12 .git/objects/26/8e17af997fd91c3285eb705714a201fb02c049
+drwxr-xr-x          4,096 2025/12/17 09:54:51 .git/objects/2b
+-r--r--r--         10,028 2025/12/16 22:56:05 .git/objects/2b/08b48c81bd69bf33e19856314bcf93a6a61e0e
+-r--r--r--            603 2025/12/17 09:54:51 .git/objects/2b/09e2aca497e009c99b26b41b3edc2f4f2a6f96
+drwxr-xr-x          4,096 2025/12/17 09:20:02 .git/objects/31
+-r--r--r--            505 2025/12/16 23:28:02 .git/objects/31/7ba99fa397aa5fd04aba2770b2172b2d8fd84d
+-r--r--r--            595 2025/12/17 09:20:02 .git/objects/31/94929d0e15ba6e49ab086172ff8578dfea1adc
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/32
+-r--r--r--     23,725,572 2025/12/16 22:56:05 .git/objects/32/1e2a4dce307c5b724ffaa67665ff402a796de2
+drwxr-xr-x          4,096 2025/12/17 09:20:02 .git/objects/34
+-r--r--r--            173 2025/12/16 22:56:27 .git/objects/34/4b9a2831f7a4a780db7fa27c22b1251c4da8c0
+-r--r--r--            596 2025/12/17 09:20:02 .git/objects/34/68cc68db0f42dfc4925cdd13edc0bdd1f77abc
+-r--r--r--            283 2025/12/17 00:16:12 .git/objects/34/85d0f407de78a927294119200379fa6e6697fb
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/35
+-r--r--r--          6,575 2025/12/16 22:56:05 .git/objects/35/934ce8c85178124f6d37ec9ce5f1a6c59501b5
+drwxr-xr-x          4,096 2025/12/16 23:28:02 .git/objects/38
+-r--r--r--             71 2025/12/16 23:28:02 .git/objects/38/67c435dfce46a8232513dd616fd2022529f647
+-r--r--r--          9,769 2025/12/16 22:56:05 .git/objects/38/a501509dcbd2add21c7d4004be8565ae6870a4
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/objects/39
+-r--r--r--          2,616 2025/12/16 22:56:03 .git/objects/39/7b99838b6fe144f72f34bb9c0af57d8926ef37
+drwxr-xr-x          4,096 2025/12/17 09:20:02 .git/objects/3a
+-r--r--r--            603 2025/12/17 09:20:02 .git/objects/3a/4d3e6a145d22e6d98b91b957a8f9c0ccb21541
+drwxr-xr-x          4,096 2025/12/16 23:27:32 .git/objects/3c
+-r--r--r--            375 2025/12/16 22:56:27 .git/objects/3c/4235b550c585300ceb879e1c4616fd1924aaaa
+-r--r--r--            177 2025/12/16 23:27:32 .git/objects/3c/e114b0a040296a6ab0027f47b0db2119bd86f7
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/3e
+-r--r--r--         10,731 2025/12/16 22:56:05 .git/objects/3e/cc8e077037a0db084001c512e94653a481cd9f
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/objects/3f
+-r--r--r--            161 2025/12/16 22:28:38 .git/objects/3f/78cdf9ea38feb919146ec4b0f3aa25a8079dd6
+drwxr-xr-x          4,096 2025/12/16 23:51:41 .git/objects/41
+-r--r--r--            374 2025/12/16 23:03:57 .git/objects/41/3e6aa891c898f6153d3c58194537c803484865
+-r--r--r--             71 2025/12/16 22:56:27 .git/objects/41/596cc601efbf2110a7cbd4fbb9a6bad97c0a8a
+-r--r--r--     23,729,448 2025/12/16 23:51:41 .git/objects/41/a6b41df3a1d1bae1009aef92a690d66e7aeecd
+drwxr-xr-x          4,096 2025/12/16 22:56:03 .git/objects/42
+-r--r--r--          4,662 2025/12/16 22:56:03 .git/objects/42/d0de5b1a5de54c87ab4bedd2d558edac3ddc2e
+drwxr-xr-x          4,096 2025/12/16 23:27:51 .git/objects/44
+-r--r--r--         23,498 2025/12/16 23:27:51 .git/objects/44/41bc430ef4b1c0a750873f86769faf298d9032
+drwxr-xr-x          4,096 2025/12/16 22:24:16 .git/objects/45
+-r--r--r--            162 2025/12/16 22:24:16 .git/objects/45/3bdc1659626530909325f29104c7ec2625671f
+drwxr-xr-x          4,096 2025/12/16 23:27:51 .git/objects/4a
+-r--r--r--          4,313 2025/12/16 23:27:51 .git/objects/4a/865e8d44c9604b60cef9d86c7d988dd23d2b8c
+drwxr-xr-x          4,096 2025/12/16 23:27:51 .git/objects/4d
+-r--r--r--         11,147 2025/12/16 23:27:51 .git/objects/4d/3cb45e7468b727b79cbbb6dc75c49e01ecc99a
+-r--r--r--          9,792 2025/12/16 22:56:05 .git/objects/4d/f75f531a6bf8ffcf1f3d598718b735d3fcb1f7
+drwxr-xr-x          4,096 2025/12/16 23:27:32 .git/objects/54
+-r--r--r--            439 2025/12/16 23:27:32 .git/objects/54/153f8555d52ab1f5af4a57875cdf539eb6a059
+-r--r--r--            289 2025/12/16 22:56:27 .git/objects/54/5455d982051654e9c123906d57f2644e0d92b0
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/56
+-r--r--r--         30,599 2025/12/16 22:56:05 .git/objects/56/f56e17c7bc6e810dec28cc918981a92119e026
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/57
+-r--r--r--         10,230 2025/12/16 22:56:05 .git/objects/57/e4a1cb8cd22e3defdbc02d9c498913e2d5b81b
+drwxr-xr-x          4,096 2025/12/17 00:16:12 .git/objects/59
+-r--r--r--            175 2025/12/17 00:16:12 .git/objects/59/43e84fafe9ea7dac5289fb7b8a255b133208d3
+-r--r--r--         17,864 2025/12/16 23:51:41 .git/objects/59/49f423b07addf45514036fcbf61a06469f81b8
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/5b
+-r--r--r--          4,357 2025/12/16 22:56:05 .git/objects/5b/fec70aea527ba1ff3b27683c5d5becf7dfbca7
+drwxr-xr-x          4,096 2025/12/17 09:20:02 .git/objects/5c
+-r--r--r--          4,131 2025/12/17 09:20:02 .git/objects/5c/61c30604cec4c5ccf6ebf1d636ec4324ac4ecb
+drwxr-xr-x          4,096 2025/12/16 23:27:51 .git/objects/5d
+-r--r--r--         10,620 2025/12/16 23:27:51 .git/objects/5d/9731c769d35e7b3e31490fa0958eb0c7cfa682
+drwxr-xr-x          4,096 2025/12/16 23:51:51 .git/objects/65
+-r--r--r--            161 2025/12/16 22:24:16 .git/objects/65/25c708a2fdc7446b788a20fc2fdcafc10175ff
+-r--r--r--             71 2025/12/16 23:51:51 .git/objects/65/a279a15bb2ff7b060b2969392c4a87de04771d
+-r--r--r--         20,850 2025/12/16 23:51:41 .git/objects/65/f23432aa358add0ed0ed51de16f418ae342171
+drwxr-xr-x          4,096 2025/12/16 23:51:51 .git/objects/6a
+-r--r--r--            162 2025/12/16 23:51:51 .git/objects/6a/a928d954eb8af7eadbc07ac2599ea162a170a5
+drwxr-xr-x          4,096 2025/12/16 22:28:38 .git/objects/6d
+-r--r--r--            171 2025/12/16 22:28:38 .git/objects/6d/cd53169e1e9c35084ee0a675d2ef49d78c1df1
+drwxr-xr-x          4,096 2025/12/17 00:16:12 .git/objects/6f
+-r--r--r--             72 2025/12/17 00:16:12 .git/objects/6f/4b2a96cc744740566ec7fa2e7ce6b742217c46
+drwxr-xr-x          4,096 2025/12/16 23:28:02 .git/objects/70
+-r--r--r--            476 2025/12/16 23:28:02 .git/objects/70/5b8aac4b4b65d65e5531f7c872c6ae03d21d9b
+drwxr-xr-x          4,096 2025/12/16 23:51:41 .git/objects/73
+-r--r--r--          3,163 2025/12/16 23:51:41 .git/objects/73/fa3195101630358cae4d9c8f0e63715881ddfa
+-r--r--r--          1,158 2025/12/16 22:24:16 .git/objects/73/fb805a410409b9395c14e958e1389bd4560184
+drwxr-xr-x          4,096 2025/12/16 22:56:27 .git/objects/76
+-r--r--r--            288 2025/12/16 22:56:27 .git/objects/76/8062afdff338e946c2ba4b0f32314d659ad63d
+drwxr-xr-x          4,096 2025/12/17 09:56:35 .git/objects/78
+-r--r--r--            164 2025/12/17 09:56:35 .git/objects/78/b29c73f5852dd2c69ee13610d1e12b50907d7e
+drwxr-xr-x          4,096 2025/12/17 09:54:51 .git/objects/7b
+-r--r--r--            167 2025/12/17 09:54:51 .git/objects/7b/315ebc351814a91456e53f3a7aa29fa27bcedb
+drwxr-xr-x          4,096 2025/12/16 22:21:38 .git/objects/7d
+-r--r--r--            162 2025/12/16 22:21:38 .git/objects/7d/d21e29953e92c618da5732d6f69b9df8ba8bbc
+drwxr-xr-x          4,096 2025/12/16 23:27:32 .git/objects/80
+-r--r--r--          5,547 2025/12/16 23:27:51 .git/objects/80/2054fa690631add5dd87f70a9bb330ca23a948
+drwxr-xr-x          4,096 2025/12/16 23:27:51 .git/objects/86
+-r--r--r--          4,074 2025/12/16 23:27:51 .git/objects/86/d9ee96375ede6bc2aee45399622ee79bd0c5e9
+drwxr-xr-x          4,096 2025/12/16 23:51:41 .git/objects/8a
+-r--r--r--         19,385 2025/12/16 23:51:41 .git/objects/8a/4c356d2cd512157cede08b5b50e38a4fc3fbc5
+-r--r--r--         21,392 2025/12/16 23:51:41 .git/objects/8a/a5216dc17222b9b7a177faf822e2f8b0f20b2c
+drwxr-xr-x          4,096 2025/12/16 23:51:40 .git/objects/8b
+-r--r--r--          3,920 2025/12/16 23:51:40 .git/objects/8b/aab4ac278cebf69003ed804d38ee7d62327a3b
+drwxr-xr-x          4,096 2025/12/17 00:16:12 .git/objects/8c
+-r--r--r--            572 2025/12/17 00:16:12 .git/objects/8c/88bff948d851c193e8d3ef3c37a6d9fb059289
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/90
+-r--r--r--         23,402 2025/12/16 22:56:05 .git/objects/90/2b97f5a0e8ae7663bff6dcfb3b352d57596817
+drwxr-xr-x          4,096 2025/12/16 23:51:41 .git/objects/92
+-r--r--r--         19,812 2025/12/16 23:51:41 .git/objects/92/83a907e02bf95c8546730634200ff926798e2a
+drwxr-xr-x          4,096 2025/12/16 23:51:51 .git/objects/93
+-r--r--r--            595 2025/12/16 23:51:51 .git/objects/93/8b663bd6fda7cdd116d09c99a0a79d1a50047b
+drwxr-xr-x          4,096 2025/12/17 09:42:59 .git/objects/94
+-r--r--r--          4,368 2025/12/17 09:42:59 .git/objects/94/18c64b8338e87377b56a0942c931d91ebeb314
+drwxr-xr-x          4,096 2025/12/16 23:51:41 .git/objects/95
+-r--r--r--             55 2025/12/16 23:28:02 .git/objects/95/3bee948d42a467ff60e7acd57341203670552a
+-r--r--r--          1,217 2025/12/16 23:51:41 .git/objects/95/7d0db58e9f912e0d1bdbdbc3fb2d154b72cba8
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/97
+-r--r--r--         16,817 2025/12/16 22:56:05 .git/objects/97/6848dd06c8d4695f7d2ebfe9f30fca8a01544f
+drwxr-xr-x          4,096 2025/12/17 09:54:51 .git/objects/98
+-r--r--r--            596 2025/12/17 09:54:51 .git/objects/98/cdd2822b491fccecae6628e4110ed03ef0d310
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/9a
+-r--r--r--          9,967 2025/12/16 22:56:05 .git/objects/9a/7af092292c8f15e773c52ac2db9b727cf6c59c
+drwxr-xr-x          4,096 2025/12/16 23:27:51 .git/objects/9c
+-r--r--r--          3,093 2025/12/16 23:27:51 .git/objects/9c/afa35472c16fee5a9bbb590cc5d1e779a58ec9
+drwxr-xr-x          4,096 2025/12/17 09:42:59 .git/objects/a0
+-r--r--r--            603 2025/12/17 09:42:59 .git/objects/a0/42a9ebc4791d750d332ffa61bcb10369068b54
+-r--r--r--             55 2025/12/16 22:56:27 .git/objects/a0/dc4b6332b66b77b2f2b82217525be341b66884
+-r--r--r--            169 2025/12/17 09:20:02 .git/objects/a0/dfb12c40a515ebcac4996b01122106f573f9d0
+drwxr-xr-x          4,096 2025/12/16 22:56:04 .git/objects/a1
+-r--r--r--     23,667,437 2025/12/16 22:56:05 .git/objects/a1/97cd4aea98e00e2f3f5633ba14e450e113e601
+drwxr-xr-x          4,096 2025/12/16 22:21:38 .git/objects/a4
+-r--r--r--          1,144 2025/12/16 22:21:38 .git/objects/a4/44178db34cc63a98fe8ce884f67f5467ae0831
+drwxr-xr-x          4,096 2025/12/17 09:54:51 .git/objects/a5
+-r--r--r--          4,692 2025/12/17 09:54:51 .git/objects/a5/b76b4aa882dc8d9da29487d3ffbe34c59bab9b
+drwxr-xr-x          4,096 2025/12/16 23:51:41 .git/objects/a6
+-r--r--r--         12,619 2025/12/16 23:51:41 .git/objects/a6/7ff9672b04034ff6cc56196ab79536d5cae204
+drwxr-xr-x          4,096 2025/12/16 23:27:51 .git/objects/a9
+-r--r--r--            114 2025/12/16 23:27:51 .git/objects/a9/756537d422eea3b0dd6cafa4340b8d52fc6a17
+drwxr-xr-x          4,096 2025/12/16 23:27:51 .git/objects/ab
+-r--r--r--         19,370 2025/12/16 23:27:51 .git/objects/ab/7636f8c7692995103f1620de1e2e45c379df78
+-r--r--r--          2,788 2025/12/16 22:56:05 .git/objects/ab/b640c48eca365b7fbc94172e8483069db75482
+drwxr-xr-x          4,096 2025/12/17 00:16:12 .git/objects/ac
+-r--r--r--          6,908 2025/12/17 00:16:12 .git/objects/ac/0c2a44f9d4f3fc43e92bdb05477808d588fe31
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/af
+-r--r--r--          7,079 2025/12/16 22:56:05 .git/objects/af/2aaa51cd2c0d889f8a105ca10da5cc0e0de27c
+drwxr-xr-x          4,096 2025/12/17 09:20:02 .git/objects/b0
+-r--r--r--          3,244 2025/12/17 09:20:02 .git/objects/b0/08ae81f16800441d9159845374347ad4b368d7
+-r--r--r--          5,551 2025/12/16 23:51:40 .git/objects/b0/72396b9d0d52c3ab79748bda862f4cf37af4b3
+drwxr-xr-x          4,096 2025/12/17 09:20:02 .git/objects/b1
+-r--r--r--            603 2025/12/17 09:20:02 .git/objects/b1/2ce1c5c36b8cf6fc0a651115a6969f7c321a48
+-r--r--r--          4,778 2025/12/16 23:03:57 .git/objects/b1/8ffe36c78011105c151844995cf76d05220559
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/b7
+-r--r--r--          9,724 2025/12/16 22:56:05 .git/objects/b7/27bbf1ebdf71f779f49b448260cef10c25c1e5
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/b9
+-r--r--r--            781 2025/12/16 22:56:05 .git/objects/b9/fd9435ed6223529b110f8397c77559593b98ee
+drwxr-xr-x          4,096 2025/12/17 09:56:35 .git/objects/bd
+-r--r--r--            596 2025/12/17 09:56:35 .git/objects/bd/0d62f256fc85aa7399e16779586cb88693b772
+drwxr-xr-x          4,096 2025/12/17 09:42:59 .git/objects/c3
+-r--r--r--            603 2025/12/17 09:42:59 .git/objects/c3/bfcbf6e1a9328c8fcd7c824e8bdbe7d30d91de
+drwxr-xr-x          4,096 2025/12/16 23:28:02 .git/objects/c5
+-r--r--r--            289 2025/12/16 23:28:02 .git/objects/c5/db407d65514c3faf1357fb7dff90717e65d13d
+drwxr-xr-x          4,096 2025/12/16 22:56:27 .git/objects/c7
+-r--r--r--             55 2025/12/16 22:56:27 .git/objects/c7/8e7eec3ddb106520e90b781d52d15679cf9540
+drwxr-xr-x          4,096 2025/12/16 23:51:41 .git/objects/ca
+-r--r--r--          6,156 2025/12/16 23:51:41 .git/objects/ca/cc1c6d5afef9be6bcdeff38e64f7a51004c076
+drwxr-xr-x          4,096 2025/12/16 23:28:02 .git/objects/cc
+-r--r--r--         11,010 2025/12/16 23:27:51 .git/objects/cc/3ac549f907a7e473a7d598be35e6e8555e353a
+-r--r--r--            181 2025/12/16 23:28:02 .git/objects/cc/faea10686418a2bee2af027d3311c971609cfd
+drwxr-xr-x          4,096 2025/12/17 09:42:59 .git/objects/ce
+-r--r--r--            596 2025/12/17 09:42:59 .git/objects/ce/91426eca275ce058e4747054391b48f20e3ec4
+drwxr-xr-x          4,096 2025/12/16 22:56:27 .git/objects/d1
+-r--r--r--            439 2025/12/16 22:56:27 .git/objects/d1/0f09747f45842b8ebe4ff3dbe07451a363d7a7
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/d2
+-r--r--r--          2,617 2025/12/16 22:56:05 .git/objects/d2/a84c9b3abdf088cb7247f483f88fda0d383e33
+drwxr-xr-x          4,096 2025/12/16 23:51:41 .git/objects/d5
+-r--r--r--         18,617 2025/12/16 23:51:41 .git/objects/d5/6aa9dc7ea836b49dba33c80ec9282c9ea5b28e
+drwxr-xr-x          4,096 2025/12/17 09:42:59 .git/objects/da
+-r--r--r--            177 2025/12/17 09:42:59 .git/objects/da/3b2ba44d332e7c548ef22867c1b76964a5a3a7
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/db
+-r--r--r--         13,394 2025/12/16 22:56:05 .git/objects/db/71cc9849de0614839284bbb13334de8b6e8f67
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/dc
+-r--r--r--         11,319 2025/12/16 22:56:05 .git/objects/dc/3767eede662f2ba36033d70db55d57323229fc
+drwxr-xr-x          4,096 2025/12/17 00:16:12 .git/objects/dd
+-r--r--r--          1,177 2025/12/17 00:16:12 .git/objects/dd/a946a137d3c0a51ee0d00e4d2941ad52f09cc1
+drwxr-xr-x          4,096 2025/12/16 23:27:51 .git/objects/de
+-r--r--r--          6,982 2025/12/16 23:27:51 .git/objects/de/9b1e0085b555377bd11c51151aecd274041f79
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/df
+-r--r--r--         13,772 2025/12/16 22:56:05 .git/objects/df/3c34906de4985aa6ad41c37a09b625684c5e40
+drwxr-xr-x          4,096 2025/12/17 09:56:35 .git/objects/e0
+-r--r--r--          4,637 2025/12/17 09:56:35 .git/objects/e0/a20f04debf9b0d65de228ba74de10d3578c562
+drwxr-xr-x          4,096 2025/12/17 00:16:12 .git/objects/e2
+-r--r--r--          3,569 2025/12/17 00:16:12 .git/objects/e2/978b0ed83f98d013ff1d3476b25892d4057c2a
+drwxr-xr-x          4,096 2025/12/17 09:20:02 .git/objects/e4
+-r--r--r--            164 2025/12/17 09:20:02 .git/objects/e4/428d193c949f01a81b154feb38e364130a7b5f
+drwxr-xr-x          4,096 2025/12/17 09:20:02 .git/objects/e6
+-r--r--r--          4,125 2025/12/17 09:20:02 .git/objects/e6/611755d55d9d2b73bfc8575441b30d886cd062
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/e8
+-r--r--r--             47 2025/12/16 23:51:41 .git/objects/e8/8feaee3a67147f83bb5c62d5fca9b31b723b83
+drwxr-xr-x          4,096 2025/12/16 23:51:51 .git/objects/ea
+-r--r--r--            286 2025/12/16 23:51:51 .git/objects/ea/b74decaeb68efe28c47fbb11c3413f676f3113
+drwxr-xr-x          4,096 2025/12/16 22:21:38 .git/objects/ef
+-r--r--r--            169 2025/12/16 22:21:38 .git/objects/ef/e731a6ccc3151315b3af10c4d50833f77922a5
+drwxr-xr-x          4,096 2025/12/16 23:27:32 .git/objects/f1
+-r--r--r--          3,856 2025/12/16 23:27:50 .git/objects/f1/590cdfc7f2ca15eabed359faa37da122d27b1d
+drwxr-xr-x          4,096 2025/12/16 23:51:51 .git/objects/f2
+-r--r--r--          9,177 2025/12/16 23:27:51 .git/objects/f2/07ea4631783e7a62e6f3eb260b928b7dd0b681
+-r--r--r--            577 2025/12/16 23:51:51 .git/objects/f2/a8d43c3ac08826c3c3336eecc0854633d11f31
+drwxr-xr-x          4,096 2025/12/16 23:51:41 .git/objects/f4
+-r--r--r--     23,875,505 2025/12/16 23:27:51 .git/objects/f4/76798c8ac3349f1cc3dd0f99b070d93667438c
+-r--r--r--         27,967 2025/12/16 23:51:41 .git/objects/f4/f7f2b735a6b85b32e871f3567e524732726be8
+drwxr-xr-x          4,096 2025/12/17 09:42:59 .git/objects/f5
+-r--r--r--            596 2025/12/17 09:42:59 .git/objects/f5/4b960ed0b44c25d5c41d6c3151f5d12bcb9a8c
+-r--r--r--            438 2025/12/16 23:03:57 .git/objects/f5/d825d933ee2310eed28009310e4151fe697060
+-r--r--r--         10,181 2025/12/16 23:27:51 .git/objects/f5/fc2f9c91ed4b34e24e2006144bf5cad8282e4a
+drwxr-xr-x          4,096 2025/12/16 22:56:27 .git/objects/f6
+-r--r--r--             55 2025/12/16 22:56:27 .git/objects/f6/c10ba48a073bf3a9cd3a3763acbcd6a0db0621
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/f8
+-r--r--r--            114 2025/12/16 22:56:05 .git/objects/f8/e2baae05070c9d94cb904fb48916fa9c5a103a
+drwxr-xr-x          4,096 2025/12/16 23:27:51 .git/objects/f9
+-r--r--r--          4,877 2025/12/16 23:27:51 .git/objects/f9/a8aa4604bd5d68f0f7ce698060aa819486df9a
+drwxr-xr-x          4,096 2025/12/16 23:03:57 .git/objects/fb
+-r--r--r--            174 2025/12/16 23:03:57 .git/objects/fb/d26e55628d238c3d40f1a3a7421d74be0daa7e
+drwxr-xr-x          4,096 2025/12/16 22:56:05 .git/objects/fc
+-r--r--r--         10,395 2025/12/16 22:56:05 .git/objects/fc/2305a10756df793fd196c7e3e1b45a75e32a3c
+drwxr-xr-x          4,096 2025/12/17 09:56:35 .git/objects/fd
+-r--r--r--            603 2025/12/17 09:56:35 .git/objects/fd/5258469e12677ef657ca7ac5009ed881291270
+drwxr-xr-x          4,096 2025/12/16 22:06:18 .git/objects/info
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/objects/pack
+-r--r--r--          1,436 2025/12/16 22:06:20 .git/objects/pack/pack-da7e62f7798bba3e80a79ba2206e3c94cf450b5b.idx
+-r--r--r--        997,622 2025/12/16 22:06:20 .git/objects/pack/pack-da7e62f7798bba3e80a79ba2206e3c94cf450b5b.pack
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/refs
+drwxr-xr-x          4,096 2025/12/17 09:54:51 .git/refs/heads
+-rw-r--r--             41 2025/12/17 09:56:35 .git/refs/heads/main
+drwxr-xr-x          4,096 2025/12/16 22:06:20 .git/refs/remotes
+drwxr-xr-x          4,096 2025/12/17 09:54:51 .git/refs/remotes/origin
+-rw-r--r--             30 2025/12/16 22:06:20 .git/refs/remotes/origin/HEAD
+-rw-r--r--             41 2025/12/17 09:56:35 .git/refs/remotes/origin/main
+drwxr-xr-x          4,096 2025/12/16 22:06:18 .git/refs/tags
+drwxr-xr-x          4,096 2025/12/17 09:56:35 TP5-Transformer
+-rw-r--r--          6,148 2025/12/16 22:06:20 TP5-Transformer/.DS_Store
+-rw-r--r--     25,890,459 2025/12/17 09:35:58 TP5-Transformer/CNNTransformer_140_256_2_54000
+-rw-r--r--  1,614,578,368 2025/12/17 00:24:24 TP5-Transformer/MNIST_5digits2D.pkl
+-rw-r--r--    315,392,189 2025/12/16 22:12:32 TP5-Transformer/MNIST_5digitsDifficile.pkl
+-rw-r--r--        585,982 2025/12/16 22:06:20 TP5-Transformer/Seance Transformer.pdf
+-rw-r--r--         12,184 2025/12/17 09:20:02 TP5-Transformer/TRANSFORMER.py
+-rw-r--r--     25,719,635 2025/12/16 22:54:29 TP5-Transformer/Transformer_140_256_2_10000
+-rw-r--r--     25,889,835 2025/12/16 23:19:41 TP5-Transformer/Transformer_140_256_2_54000
+-rw-r--r--     26,064,992 2025/12/16 23:49:19 TP5-Transformer/Transformer_16_256_2_54000
+-rw-r--r--         14,112 2025/12/17 09:56:35 TP5-Transformer/main_transformer.py
+drwxr-xr-x          4,096 2025/12/17 09:55:20 TP5-Transformer/CNN_Jade_20251217_095517
+-rw-r--r--             48 2025/12/17 09:55:20 TP5-Transformer/CNN_Jade_20251217_095517/log.txt
+-rw-r--r--         12,942 2025/12/17 09:55:20 TP5-Transformer/CNN_Jade_20251217_095517/train_sample_0.png
+-rw-r--r--         12,629 2025/12/17 09:55:20 TP5-Transformer/CNN_Jade_20251217_095517/train_sample_1.png
+-rw-r--r--         13,211 2025/12/17 09:55:20 TP5-Transformer/CNN_Jade_20251217_095517/train_sample_2.png
+-rw-r--r--         12,616 2025/12/17 09:55:20 TP5-Transformer/CNN_Jade_20251217_095517/train_sample_3.png
+-rw-r--r--         13,255 2025/12/17 09:55:20 TP5-Transformer/CNN_Jade_20251217_095517/train_sample_4.png
+drwxr-xr-x          4,096 2025/12/17 09:21:35 TP5-Transformer/__pycache__
+-rw-r--r--          6,200 2025/12/17 09:21:35 TP5-Transformer/__pycache__/TRANSFORMER.cpython-39.pyc
+drwxr-xr-x          4,096 2025/12/16 22:43:43 TP5-Transformer/test_20251216_224343
+-rw-r--r--             34 2025/12/16 22:43:44 TP5-Transformer/test_20251216_224343/output.log
+drwxr-xr-x          4,096 2025/12/16 22:45:31 TP5-Transformer/test_20251216_224531
+-rw-r--r--         39,603 2025/12/16 22:46:38 TP5-Transformer/test_20251216_224531/output.log
+drwxr-xr-x          4,096 2025/12/16 22:54:51 TP5-Transformer/test_20251216_225451
+-rw-r--r--         38,327 2025/12/16 22:55:49 TP5-Transformer/test_20251216_225451/output.log
+drwxr-xr-x          4,096 2025/12/16 23:20:14 TP5-Transformer/test_CNN-T_20251216_232014
+-rw-r--r--         39,126 2025/12/16 23:21:21 TP5-Transformer/test_CNN-T_20251216_232014/output.log
+drwxr-xr-x          4,096 2025/12/16 23:50:06 TP5-Transformer/test_ViT_20251216_235006
+-rw-r--r--         36,851 2025/12/16 23:50:57 TP5-Transformer/test_ViT_20251216_235006/output.log
+drwxr-xr-x          4,096 2025/12/16 22:29:16 TP5-Transformer/train_20251216_222907
+-rw-r--r--     25,719,635 2025/12/16 22:42:18 TP5-Transformer/train_20251216_222907/Transformer_140_256_2_54000
+-rw-r--r--         13,247 2025/12/16 22:29:10 TP5-Transformer/train_20251216_222907/batch_sample_0.png
+-rw-r--r--         12,713 2025/12/16 22:29:10 TP5-Transformer/train_20251216_222907/batch_sample_1.png
+-rw-r--r--         13,829 2025/12/16 22:29:10 TP5-Transformer/train_20251216_222907/batch_sample_2.png
+-rw-r--r--         14,497 2025/12/16 22:29:10 TP5-Transformer/train_20251216_222907/batch_sample_3.png
+-rw-r--r--         13,378 2025/12/16 22:29:10 TP5-Transformer/train_20251216_222907/batch_sample_4.png
+-rw-r--r--         25,677 2025/12/16 22:42:22 TP5-Transformer/train_20251216_222907/loss_plot.png
+-rw-r--r--            109 2025/12/16 22:42:23 TP5-Transformer/train_20251216_222907/output.log
+drwxr-xr-x          4,096 2025/12/16 22:50:03 TP5-Transformer/train_20251216_224958
+-rw-r--r--     25,719,635 2025/12/16 22:53:11 TP5-Transformer/train_20251216_224958/Transformer_140_256_2_10000
+-rw-r--r--         12,971 2025/12/16 22:50:01 TP5-Transformer/train_20251216_224958/batch_sample_0.png
+-rw-r--r--         13,403 2025/12/16 22:50:02 TP5-Transformer/train_20251216_224958/batch_sample_1.png
+-rw-r--r--         13,002 2025/12/16 22:50:02 TP5-Transformer/train_20251216_224958/batch_sample_2.png
+-rw-r--r--         12,871 2025/12/16 22:50:02 TP5-Transformer/train_20251216_224958/batch_sample_3.png
+-rw-r--r--         12,710 2025/12/16 22:50:02 TP5-Transformer/train_20251216_224958/batch_sample_4.png
+-rw-r--r--         32,874 2025/12/16 22:53:11 TP5-Transformer/train_20251216_224958/loss_plot.png
+-rw-r--r--            109 2025/12/16 22:53:12 TP5-Transformer/train_20251216_224958/output.log
+drwxr-xr-x          4,096 2025/12/16 23:05:14 TP5-Transformer/train_CNN-T_20251216_230507
+-rw-r--r--     25,889,835 2025/12/16 23:17:52 TP5-Transformer/train_CNN-T_20251216_230507/Transformer_140_256_2_54000
+-rw-r--r--         12,117 2025/12/16 23:05:10 TP5-Transformer/train_CNN-T_20251216_230507/batch_sample_0.png
+-rw-r--r--         14,314 2025/12/16 23:05:10 TP5-Transformer/train_CNN-T_20251216_230507/batch_sample_1.png
+-rw-r--r--         13,741 2025/12/16 23:05:10 TP5-Transformer/train_CNN-T_20251216_230507/batch_sample_2.png
+-rw-r--r--         13,250 2025/12/16 23:05:10 TP5-Transformer/train_CNN-T_20251216_230507/batch_sample_3.png
+-rw-r--r--         14,181 2025/12/16 23:05:10 TP5-Transformer/train_CNN-T_20251216_230507/batch_sample_4.png
+-rw-r--r--         25,692 2025/12/16 23:18:32 TP5-Transformer/train_CNN-T_20251216_230507/loss_plot.png
+-rw-r--r--            109 2025/12/16 23:18:32 TP5-Transformer/train_CNN-T_20251216_230507/output.log
+drwxr-xr-x          4,096 2025/12/16 23:29:18 TP5-Transformer/train_ViT_20251216_232845
+-rw-r--r--     26,064,992 2025/12/16 23:48:39 TP5-Transformer/train_ViT_20251216_232845/Transformer_16_256_2_54000
+-rw-r--r--         23,595 2025/12/16 23:29:05 TP5-Transformer/train_ViT_20251216_232845/batch_sample_0.png
+-rw-r--r--         22,884 2025/12/16 23:29:05 TP5-Transformer/train_ViT_20251216_232845/batch_sample_1.png
+-rw-r--r--         21,703 2025/12/16 23:29:05 TP5-Transformer/train_ViT_20251216_232845/batch_sample_2.png
+-rw-r--r--         25,992 2025/12/16 23:29:05 TP5-Transformer/train_ViT_20251216_232845/batch_sample_3.png
+-rw-r--r--         25,319 2025/12/16 23:29:05 TP5-Transformer/train_ViT_20251216_232845/batch_sample_4.png
+-rw-r--r--         30,660 2025/12/16 23:48:45 TP5-Transformer/train_ViT_20251216_232845/loss_plot.png
+-rw-r--r--             34 2025/12/16 23:29:10 TP5-Transformer/train_ViT_20251216_232845/output.log
+drwxr-xr-x          4,096 2025/12/17 00:29:47 TP6-ViT
+-rw-r--r--          6,148 2025/12/16 22:06:20 TP6-ViT/.DS_Store
+-rw-r--r--  1,614,578,368 2025/12/17 00:29:17 TP6-ViT/MNIST_5digits2D.pkl
+-rw-r--r--    315,392,189 2025/12/17 00:18:40 TP6-ViT/MNIST_5digitsDifficile.pkl
+-rw-r--r--        456,743 2025/12/16 22:06:20 TP6-ViT/Seance ViT.pdf
+-rw-r--r--         16,139 2025/12/17 00:16:12 TP6-ViT/TRANSFORMER.py
+-rw-r--r--          1,398 2025/12/17 00:16:12 TP6-ViT/inspect_datasets.py
+-rw-r--r--         16,566 2025/12/17 00:16:12 TP6-ViT/main_transformer.py
+-rw-r--r--          3,236 2025/12/17 00:16:12 TP6-ViT/vit_class.py
+drwxr-xr-x          4,096 2025/12/17 00:16:44 TP6-ViT/__pycache__
+-rw-r--r--         16,782 2025/12/17 00:16:12 TP6-ViT/__pycache__/TRANSFORMER.cpython-312.pyc
+-rw-r--r--          7,918 2025/12/17 00:16:44 TP6-ViT/__pycache__/TRANSFORMER.cpython-39.pyc
+drwxr-xr-x          4,096 2025/12/17 00:16:45 TP6-ViT/train_20251217_001645
+-rw-r--r--            120 2025/12/17 00:16:45 TP6-ViT/train_20251217_001645/log.txt
+drwxr-xr-x          4,096 2025/12/17 00:20:02 TP6-ViT/train_20251217_002002
+-rw-r--r--            120 2025/12/17 00:20:02 TP6-ViT/train_20251217_002002/log.txt
+drwxr-xr-x          4,096 2025/12/17 00:25:33 TP6-ViT/train_20251217_002533
+-rw-r--r--            120 2025/12/17 00:25:33 TP6-ViT/train_20251217_002533/log.txt
+drwxr-xr-x          4,096 2025/12/17 00:29:47 TP6-ViT/train_20251217_002947
+-rw-r--r--            215 2025/12/17 00:32:23 TP6-ViT/train_20251217_002947/log.txt
+
+sent 14,843 bytes  received 34,820 bytes  99,326.00 bytes/sec
+total size is 4,166,053,271  speedup is 83,886.46
+Working directory : /home/masaunier/Mesonet_TP5_6
+[INFO] Using python at 
+Requirement already satisfied: torch in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (2.8.0)
+Requirement already satisfied: triton==3.4.0 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (3.4.0)
+Requirement already satisfied: nvidia-cufile-cu12==1.13.1.3 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (1.13.1.3)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.3.83 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (11.3.3.83)
+Requirement already satisfied: nvidia-cublas-cu12==12.8.4.1 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.4.1)
+Requirement already satisfied: filelock in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (3.19.1)
+Requirement already satisfied: fsspec in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (2025.10.0)
+Requirement already satisfied: jinja2 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (3.1.6)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.7.1 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (0.7.1)
+Requirement already satisfied: typing-extensions>=4.10.0 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (4.15.0)
+Requirement already satisfied: nvidia-cudnn-cu12==9.10.2.21 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (9.10.2.21)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.3.90 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (11.7.3.90)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.8.90 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.90)
+Requirement already satisfied: networkx in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (3.2.1)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.8.93 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.5.8.93)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.8.93 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.93)
+Requirement already satisfied: nvidia-curand-cu12==10.3.9.90 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (10.3.9.90)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.8.93 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.93)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.8.90 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.90)
+Requirement already satisfied: nvidia-nccl-cu12==2.27.3 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (2.27.3)
+Requirement already satisfied: sympy>=1.13.3 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (1.14.0)
+Requirement already satisfied: nvidia-nvtx-cu12==12.8.90 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from torch) (12.8.90)
+Requirement already satisfied: importlib-metadata in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from triton==3.4.0->torch) (8.7.0)
+Requirement already satisfied: setuptools>=40.8.0 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from triton==3.4.0->torch) (80.9.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from sympy>=1.13.3->torch) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from jinja2->torch) (3.0.3)
+Requirement already satisfied: zipp>=3.20 in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (from importlib-metadata->triton==3.4.0->torch) (3.23.0)
+torch installed.
+pickle installed.
+Requirement already satisfied: tqdm in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (4.67.1)
+Requirement already satisfied: numpy in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (2.0.2)
+tqdm and numpy installed.
+matplotlib installed.
+Requirement already satisfied: editdistance in /home/masaunier/.cache/bcresnet_venv/lib/python3.9/site-packages (0.8.1)
+editdistance installed.
+Job started at Wed Dec 17 09:57:06 AM CET 2025
+Using python:  /home/masaunier/.cache/bcresnet_venv/bin/python
+Device : cuda
+Loading training and test data...
+Embedded Training Ended successfully
+Nombre de paramètres libres: 6415564
+Device : cuda
+Loading training and test data...
+Recognition in progress...
+FP 5016
+TOTAL 10000
+Recognition ended successfully, Character Error Rate =  0.10032
+Job finished at Wed Dec 17 10:25:11 AM CET 2025

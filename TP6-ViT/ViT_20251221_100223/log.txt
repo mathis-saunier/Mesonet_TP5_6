@@ -1,0 +1,14 @@
+Device : cuda
+Loading training and test data...
+Recognition in progress...
+FP 7935
+TOTAL characters 10000
+String FP 2000
+TOTAL strings 2000
+TP_orientation 2000
+Recognition ended successfully, Character Error Rate =  79.35 %
+                              , Character Recognition Rate =  20.650000000000002 %
+                              , String Error Rate    =  100.0 %
+                              , String Recognition Rate    =  0.0 %
+                              , Orientation Recocognition Rate =  100.0 %
+Nombre de paramètres du modèle: 1599118

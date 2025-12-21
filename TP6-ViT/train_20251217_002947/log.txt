@@ -1,0 +1,6 @@
+Run directory: train_20251217_002947
+Device : cuda
+Using dataset: MNIST_5digits2D.pkl
+Loading training and test data...
+Model name: train_20251217_002947/ViT_6_128_2_54000_COMPLEX
+Applying Sliding Window for ViT...

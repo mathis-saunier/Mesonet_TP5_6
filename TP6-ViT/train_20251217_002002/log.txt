@@ -1,0 +1,4 @@
+Run directory: train_20251217_002002
+Device : cuda
+Using dataset: MNIST_5digits2D.pkl
+Loading training and test data...

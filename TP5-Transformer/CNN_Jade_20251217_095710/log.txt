@@ -1,0 +1,10 @@
+Device : cuda
+Loading training and test data...
+Embedded Training Ended successfully
+Nombre de paramètres libres: 6415564
+Device : cuda
+Loading training and test data...
+Recognition in progress...
+FP 5016
+TOTAL 10000
+Recognition ended successfully, Character Error Rate =  0.10032

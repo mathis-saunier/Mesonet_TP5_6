@@ -1,0 +1,73 @@
+/var/spool/slurmd/job29883/slurm_script: line 76: : command not found
+
+[notice] A new release of pip is available: 23.0 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+ERROR: Could not find a version that satisfies the requirement pickle (from versions: none)
+ERROR: No matching distribution found for pickle
+
+[notice] A new release of pip is available: 23.0 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 23.0 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+/home/masaunier/Mesonet_TP5_6/TP6-ViT/main_transformer.py:109: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments.
+  feature[h,l,:] = x[begin_vert:end_vert,begin_hori:end_hori].reshape((norm))
+  0%|          | 0/1000 [00:00<?, ?it/s]  0%|          | 0/1000 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/masaunier/Mesonet_TP5_6/TP6-ViT/main_transformer.py", line 301, in <module>
+    train_loss.append(TRANSFORMER.train_loop(train_dataloader,
+  File "/home/masaunier/Mesonet_TP5_6/TP6-ViT/TRANSFORMER.py", line 244, in train_loop
+    pred = model(X.float(), y_input,
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/masaunier/Mesonet_TP5_6/TP6-ViT/TRANSFORMER.py", line 354, in forward
+    transformer_out = self.transformer(x, y,
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/modules/transformer.py", line 274, in forward
+    memory = self.encoder(
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/modules/transformer.py", line 524, in forward
+    output = mod(
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/modules/transformer.py", line 935, in forward
+    + self._sa_block(x, src_mask, src_key_padding_mask, is_causal=is_causal)
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/modules/transformer.py", line 949, in _sa_block
+    x = self.self_attn(
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/modules/activation.py", line 1380, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/functional.py", line 6221, in multi_head_attention_forward
+    is_batched = _mha_shape_check(
+  File "/home/masaunier/.cache/bcresnet_venv/lib64/python3.9/site-packages/torch/nn/functional.py", line 5983, in _mha_shape_check
+    assert key_padding_mask.dim() == 2, (
+AssertionError: For batched (3-D) `query`, expected `key_padding_mask` to be `None` or 2-D but found 3-D tensor instead
+srun: error: juliet2: task 0: Exited with exit code 1

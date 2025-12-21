@@ -156,7 +156,7 @@ def Apply_SlidingWindow2D(x,config):
 
 if __name__ == '__main__':
 
-    TRAINING = True  # Training if True Testing otherwise
+    TRAINING = False  # Training if True Testing otherwise
     REPRISE = False
     SHOW = False
 
