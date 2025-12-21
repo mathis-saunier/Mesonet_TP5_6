@@ -251,10 +251,10 @@ if __name__ == '__main__':
         ############################################################
         # apprentissage from scratch
         if not REPRISE:
-            my_transformer = TRANSFORMER.ViTTransformer(config,device).to(device)
+            my_transformer = TRANSFORMER.CNNTransformer(config,device).to(device)
         else:
             # reprise de l'apprentissage 
-            my_transformer = TRANSFORMER.ViTTransformer(config,device)
+            my_transformer = TRANSFORMER.CNNTransformer(config,device)
             my_transformer.load_state_dict(torch.load(model_name))
             my_transformer.to(device)
         
@@ -303,7 +303,7 @@ if __name__ == '__main__':
                                                       batch_size = 1,
                                                       collate_fn = pad_collate)
 
-        my_transformer = TRANSFORMER.ViTTransformer(config,device)
+        my_transformer = TRANSFORMER.CNNTransformer(config,device)
         my_transformer.load_state_dict(torch.load(model_name))
         my_transformer.to(device)
         
